@@ -20,6 +20,7 @@ group :development do
   gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'rubocop', require: false
 end
 group :development, :test do
   gem 'factory_girl_rails'
