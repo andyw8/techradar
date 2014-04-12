@@ -1,0 +1,14 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/seeds.rb
+    - db/migrate/*.rb
+    - config/initializers/devise.rb
+StringLiterals:
+  Enabled: false
+LineLength:
+  Enabled: false
+PercentLiteralDelimiters:
+  Enabled: false
+Documentation:
+  Enabled: false
