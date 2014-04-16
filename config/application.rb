@@ -21,6 +21,9 @@ module Techradar
 
       g.view_specs false
       g.helper_specs false
+      g.routing_specs false
+      g.controller_specs false
+      g.request_specs true
     end
 
     config.i18n.enforce_available_locales = false
