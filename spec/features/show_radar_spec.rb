@@ -13,4 +13,15 @@ feature 'Show radar' do
       expect(page).to have_text('March 2014')
     end
   end
+
+  scenario 'Create a radar' do
+    visit root_path
+    click_link 'Radars'
+    click_link 'New Radar'
+    fill_in 'Name', with: 'March 2014'
+    click_button 'Create Radar'
+    within('.radars') do
+      expect(page).to have_text('March 2014')
+    end
+  end
 end
