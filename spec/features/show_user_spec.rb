@@ -9,7 +9,7 @@ feature 'Show radar' do
   scenario 'User has a radar' do
     create(:radar, name: 'March 2014')
     visit radars_path
-    within ('.radars') do
+    within('.radars') do
       expect(page).to have_text('March 2014')
     end
   end
