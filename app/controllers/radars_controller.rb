@@ -10,12 +10,12 @@ class RadarsController < ApplicationController
   end
 
   def new
-    @radar = Radar.new
+    @radar = scoped_radars.new
   end
 
   def create
-    @radar = scoped_radars.create!(radar_params)
-    redirect_to action: :index
+    @radar = scoped_radars.create!(params)
+    redirect_to radars_path
   end
 
   def destroy
@@ -24,10 +24,6 @@ class RadarsController < ApplicationController
   end
 
   private
-
-  def radar_params
-    params.require(:radar).permit(:name)
-  end
 
   def scoped_radars
     current_user.radars

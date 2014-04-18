@@ -20,8 +20,7 @@ feature 'Show radar' do
   end
 
   scenario 'Create a radar' do
-    visit root_path
-    click_link 'Radars'
+    navigate_to_radars
     click_link 'New Radar'
     fill_in 'Name', with: 'March 2014'
     click_button 'Create Radar'
@@ -32,10 +31,18 @@ feature 'Show radar' do
 
   scenario 'Delete a radar' do
     radar = create(:radar, owner: user)
-    visit radar_path(radar)
+    navigate_to_radars
+    within('.radars') { click_link radar.name }
     click_button 'Delete'
     within('.radars') do
       expect(page).to have_no_text(radar.name)
     end
+  end
+
+  private
+
+  def navigate_to_radars
+    visit '/'
+    within('.nav') { click_link 'Radars' }
   end
 end

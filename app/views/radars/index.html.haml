@@ -2,6 +2,7 @@
 
 %ul.radars
   - @radars.each do |radar|
-    %li= radar.name
+    %li
+      =link_to radar.name, radar
 
 =link_to 'New Radar', new_radar_path
