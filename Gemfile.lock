@@ -181,6 +181,8 @@ GEM
       json
       json
     sexp_processor (4.4.3)
+    shoulda-matchers (2.5.0)
+      activesupport (>= 3.0.0)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 4.0.0)
   sendgrid
+  shoulda-matchers
   simple_form
   spring
   turbolinks
