@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     radars.find(id)
   end
 
-  def create_radar!(params)
-    radars.create!(params)
+  def new_radar(params)
+    radars.new(params)
   end
 end

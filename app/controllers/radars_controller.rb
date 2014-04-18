@@ -14,8 +14,12 @@ class RadarsController < ApplicationController
   end
 
   def create
-    @radar = current_user.create_radar!(radar_params)
-    redirect_to radars_path
+    @radar = current_user.new_radar(radar_params)
+    if @radar.save
+      redirect_to radars_path
+    else
+      render 'new'
+    end
   end
 
   def destroy
