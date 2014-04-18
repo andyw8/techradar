@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - bin/rake
     - bin/rails
+    - bin/rspec
     - bin/spring
     - db/schema.rb
     - db/seeds.rb

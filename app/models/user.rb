@@ -13,4 +13,3 @@ class User < ActiveRecord::Base
     radars.create!(params)
   end
 end
-
