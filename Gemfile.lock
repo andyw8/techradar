@@ -94,6 +94,7 @@ GEM
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
     i18n (0.6.9)
+    interception (0.5)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -129,6 +130,12 @@ GEM
     pry-byebug (1.1.2)
       byebug (~> 1.6)
       pry (~> 0.9.12)
+    pry-rescue (1.4.0)
+      interception (>= 0.4)
+      pry
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -238,6 +245,8 @@ DEPENDENCIES
   pg
   pry
   pry-byebug
+  pry-rescue
+  pry-stack_explorer
   quiet_assets
   rails (= 4.0.3)
   rails_layout
