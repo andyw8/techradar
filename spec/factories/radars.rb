@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :radar do
-    name "MyString"
+    sequence(:name) { |n| "Radar #{n}" }
   end
 end
