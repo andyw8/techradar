@@ -31,11 +31,14 @@ describe RadarsController do
   end
 
   describe "POST 'create'" do
+    include StubCurrentUserHelper
     before { sign_in(user) }
-    it do
-      params = double
+    it "creates a radar" do
+      params = attributes_for(:radar)
+      user = double('User')
+      stub_current_user_with(user)
+      user.should receive(:create_radar!)
       post 'create', radar: params
-      expect(Radar).to_receive(:create).with(radar: params)
     end
   end
 

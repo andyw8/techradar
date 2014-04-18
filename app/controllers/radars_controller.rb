@@ -14,7 +14,7 @@ class RadarsController < ApplicationController
   end
 
   def create
-    @radar = scoped_radars.create!(params)
+    @radar = current_user.create_radar!(radar_params)
     redirect_to radars_path
   end
 
@@ -24,6 +24,10 @@ class RadarsController < ApplicationController
   end
 
   private
+
+  def radar_params
+    params.require(:radar).permit(:name)
+  end
 
   def scoped_radars
     current_user.radars
