@@ -9,6 +9,13 @@ describe UsersController do
       expect(response).to redirect_to(new_user_session_path)
     end
 
+    xit "should redirect to the radars page after signing in" do
+      # appears to work fine in the browser. the devise test helps
+      # may be messing this up.
+      sign_in user
+      expect(response).to redirect_to(radars_path)
+    end
+
     context "with a signed-in user" do
       before do
         sign_in user
