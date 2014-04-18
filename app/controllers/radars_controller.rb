@@ -1,12 +1,12 @@
 class RadarsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_radar, only: [:show, :destroy]
 
   def index
     @radars = scoped_radars
   end
 
   def show
-    @radar = scoped_radars.find(params[:id])
   end
 
   def new
@@ -19,8 +19,7 @@ class RadarsController < ApplicationController
   end
 
   def destroy
-    radar = scoped_radars.find(params[:id])
-    radar.destroy!
+    @radar.destroy!
     redirect_to radars_path
   end
 
@@ -32,5 +31,9 @@ class RadarsController < ApplicationController
 
   def scoped_radars
     current_user.radars
+  end
+
+  def find_radar
+    @radar = scoped_radars.find(params[:id])
   end
 end
