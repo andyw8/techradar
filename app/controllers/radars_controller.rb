@@ -34,6 +34,6 @@ class RadarsController < ApplicationController
   end
 
   def find_radar
-    @radar = scoped_radars.find(params[:id])
+    @radar = current_user.find_radar(params[:id])
   end
 end

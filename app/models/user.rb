@@ -4,5 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :radars, foreign_key: 'owner_id'
+
+  def find_radar(id)
+    radars.find(id)
+  end
 end
 
