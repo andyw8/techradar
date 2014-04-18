@@ -50,4 +50,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+
+  include Warden::Test::Helpers
+  Warden.test_mode!
 end

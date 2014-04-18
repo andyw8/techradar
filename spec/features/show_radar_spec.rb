@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 feature 'Show radar' do
-  include Warden::Test::Helpers
-  Warden.test_mode!
-
   let(:user) { create(:user) }
   before do
     login_as(user)
