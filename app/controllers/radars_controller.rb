@@ -1,6 +1,8 @@
 class RadarsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @radars = Radar.all
+    @radars = scoped_radars
   end
 
   def new
@@ -8,7 +10,7 @@ class RadarsController < ApplicationController
   end
 
   def create
-    @radar = Radar.create!(radar_params)
+    @radar = scoped_radars.create!(radar_params)
     redirect_to action: :index
   end
 
@@ -16,5 +18,9 @@ class RadarsController < ApplicationController
 
   def radar_params
     params.require(:radar).permit(:name)
+  end
+
+  def scoped_radars
+    current_user.radars
   end
 end
