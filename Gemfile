@@ -44,3 +44,7 @@ group :test do
   gem 'email_spec'
   gem 'shoulda-matchers'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
