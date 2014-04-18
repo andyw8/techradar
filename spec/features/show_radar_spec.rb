@@ -32,4 +32,13 @@ feature 'Show radar' do
       expect(page).to have_text('March 2014')
     end
   end
+
+  scenario 'Delete a radar' do
+    radar = create(:radar, owner: user)
+    visit radar_path(radar)
+    click_button 'Delete'
+    within('.radars') do
+      expect(page).to have_no_text(radar.name)
+    end
+  end
 end

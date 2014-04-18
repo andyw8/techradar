@@ -5,6 +5,10 @@ class RadarsController < ApplicationController
     @radars = scoped_radars
   end
 
+  def show
+    @radar = scoped_radars.find(params[:id])
+  end
+
   def new
     @radar = Radar.new
   end
@@ -12,6 +16,12 @@ class RadarsController < ApplicationController
   def create
     @radar = scoped_radars.create!(radar_params)
     redirect_to action: :index
+  end
+
+  def destroy
+    radar = scoped_radars.find(params[:id])
+    radar.destroy!
+    redirect_to radars_path
   end
 
   private
