@@ -1,13 +1,17 @@
 class BlipsController < ApplicationController
-  before_filter :find_radar
+  before_filter :find_radar, only: [:new, :create]
 
   def new
-    @blip = @radar.blips.new
+    @blip = @radar.new_blip({})
   end
 
   def create
-    @blip = @radar.blips.create!(blip_params)
-    redirect_to @radar
+    @blip = @radar.new_blip(blip_params)
+    if @blip.save
+      redirect_to @radar
+    else
+      render 'new'
+    end
   end
 
   private

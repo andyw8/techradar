@@ -4,4 +4,8 @@ class Radar < ActiveRecord::Base
 
   validates :name, presence: true
   validates :owner, presence: true
+
+  def new_blip(params)
+    blips.new(params)
+  end
 end
