@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418110423) do
+ActiveRecord::Schema.define(version: 20140419084630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blips", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "radar_id"
+  end
+
+  add_index "blips", ["radar_id"], name: "index_blips_on_radar_id", using: :btree
 
   create_table "radars", force: true do |t|
     t.string   "name"
