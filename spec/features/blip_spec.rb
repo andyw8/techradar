@@ -18,4 +18,12 @@ feature 'Blips' do
     visit radar_path(radar)
     expect(page).to have_css('.blip', count: 2)
   end
+
+  scenario 'Adding a blip' do
+    visit radar_path(radar)
+    click_link 'New Blip'
+    fill_in 'Name', with: 'Purple'
+    click_button 'Create Blip'
+    expect(page).to have_css('.blip', text: 'Purple')
+  end
 end
