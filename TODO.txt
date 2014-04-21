@@ -1,0 +1,17 @@
+- convert existing html.erb files to HAML
+- prevent normal users from seeing the users list ( need admin role? )
+- upgrade to rails 4.1 (maybe give it a few weeks for gems to catch up?)
+- cleaner way instead of calling warden in feature spec
+- controller specs for other radar actions
+- more concise way of checking permissions (some devise macro?)
+- is strong params enabled?
+- should permit() matcher not working?
+- do i want to share any of my fixes with rails-generator?
+- add badges for gemnasium, etc.
+- try pry-rescue, pry-stack-explorer
+- email copy for confirmation email
+- add a production exception notifier
+- production is showing blank 500 pages
+- make simple_form forms look decent
+- latest ruby (2.1.something)
+- use Thin for both dev and prod
