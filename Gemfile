@@ -26,6 +26,7 @@ group :development do
   gem 'rails_layout'
   gem 'rubocop', require: false
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
@@ -35,14 +36,13 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
+  gem 'shoulda-matchers', require: false
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
-  gem 'shoulda-matchers'
 end
 
 group :production do
