@@ -26,7 +26,6 @@ group :development do
   gem 'rails_layout'
   gem 'rubocop', require: false
   gem 'spring'
-  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
@@ -36,6 +35,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
