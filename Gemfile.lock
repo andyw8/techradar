@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: d7306558665d38fe3a0c277ce263e99f635958de
+  branch: master
+  specs:
+    simple_form (3.1.0.rc1)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -195,9 +204,6 @@ GEM
     sexp_processor (4.4.3)
     shoulda-matchers (2.6.0)
       activesupport (>= 3.0.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     slop (3.5.0)
     spring (1.1.2)
     spring-commands-rspec (1.0.1)
@@ -261,7 +267,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sendgrid
   shoulda-matchers
-  simple_form
+  simple_form!
   spring
   spring-commands-rspec
   turbolinks

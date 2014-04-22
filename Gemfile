@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'sendgrid'
-gem 'simple_form'
+gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
