@@ -1,3 +1,12 @@
-= simple_form_for(@radar, html: {class: 'form-vertical' }) do |f|
-  = f.input :name
-  = f.submit
+.col-md-6
+  .panel.panel-primary
+    .panel-heading
+      New Radar
+    .panel-body
+      = simple_form_for(@radar, html: {class: 'form-horizontal' },
+        wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean }) do |f|
+        = f.input :name
+        = f.submit 'Create', {class: 'btn btn-default'}
+
+
+

@@ -1,3 +1,5 @@
+%h1= @radar.name
+
 %ul
   - @radar.blips.each do |blip|
     %li.blip
@@ -5,4 +7,4 @@
 
 = link_to 'New Blip', new_radar_blip_path(@radar)
 
-= button_to 'Delete', radar_path(@radar), method: :delete
+= button_to 'Delete', radar_path(@radar), method: :delete, class: 'btn btn-danger', confirm: 'Are you sure?'
