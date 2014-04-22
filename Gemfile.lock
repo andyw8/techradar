@@ -78,6 +78,8 @@ GEM
     email_spec (1.5.0)
       launchy (~> 2.1)
       mail (~> 2.2)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.4.0)
@@ -246,6 +248,7 @@ DEPENDENCIES
   database_cleaner (= 1.0.1)
   devise
   email_spec
+  erb2haml
   factory_girl_rails
   foreman
   haml-rails
