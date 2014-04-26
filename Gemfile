@@ -32,10 +32,11 @@ group :development do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'pry-rescue'
+  gem 'pry-rescue', '~> 1.4.1'
   gem 'pry-stack_explorer'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false

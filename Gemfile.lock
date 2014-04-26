@@ -78,6 +78,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dotenv (0.10.0)
+    dotenv-rails (0.10.0)
+      dotenv (= 0.10.0)
     email_spec (1.5.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -144,8 +146,8 @@ GEM
     pry-byebug (1.1.2)
       byebug (~> 1.6)
       pry (~> 0.9.12)
-    pry-rescue (1.4.0)
-      interception (>= 0.4)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
       pry
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
@@ -251,6 +253,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   devise
+  dotenv-rails
   email_spec
   erb2haml
   factory_girl_rails
@@ -263,7 +266,7 @@ DEPENDENCIES
   pg
   pry
   pry-byebug
-  pry-rescue
+  pry-rescue (~> 1.4.1)
   pry-stack_explorer
   quiet_assets
   rails (= 4.0.3)
