@@ -9,4 +9,5 @@
 = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-default'
 %br
 %br
-= button_to 'Delete Radar', radar_path(@radar), method: :delete, class: 'btn btn-danger', confirm: 'Are you sure?'
+= button_to 'Delete Radar', radar_path(@radar), method: :delete, class: 'btn btn-danger',
+  data: { confirm: 'Are you sure?' }
