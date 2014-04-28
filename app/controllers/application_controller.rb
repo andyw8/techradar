@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     radars_path
   end
+
+  def authenticate_admin!
+    unless current_user && current_user.admin?
+      redirect_to root_url, notice: 'Access denied, admin onlyj'
+    end
+  end
 end
