@@ -4,7 +4,7 @@
   - @radar.blips.each do |blip|
     %li.blip
       = blip.name
-
+      (#{blip.quadrant})
 
 = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-default'
 %br
