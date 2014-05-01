@@ -6,7 +6,7 @@ describe UsersController do
   describe "GET 'show'" do
     it "redirects non-signed-in users" do
       get :show, id: user.id
-      expect(response).to redirect_to(new_user_session_path)
+      expect(response).to redirect_to(root_path)
     end
 
     xit "should redirect to the radars page after signing in" do
@@ -16,19 +16,31 @@ describe UsersController do
       expect(response).to redirect_to(radars_path)
     end
 
-    context "with a signed-in user" do
+    context "as a signed-in user" do
       before do
         sign_in user
         get :show, id: user.id
       end
 
-      it "should be successful" do
-        expect(response).to be_success
+      it "is not successful" do
+        expect(response).to_not be_successful
       end
+    end
+  end
 
-      it "should find the right user" do
-        expect(assigns(:user)).to eq user
-      end
+  context "as an admin" do
+    let(:admin) { create(:admin) }
+    before do
+      sign_in admin
+      get :show, id: user.id
+    end
+
+    it "it is successful" do
+      expect(response).to be_success
+    end
+
+    it "finds the right user" do
+      expect(assigns(:user)).to eq user
     end
   end
 end
