@@ -6,5 +6,7 @@ describe Blip do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:quadrant) }
   it { should ensure_inclusion_of(:quadrant).in_array(Blip::QUADRANTS) }
+  it { should validate_presence_of(:ring) }
+  it { should ensure_inclusion_of(:ring).in_array(Blip::RINGS) }
   it { should validate_presence_of(:radar) }
 end

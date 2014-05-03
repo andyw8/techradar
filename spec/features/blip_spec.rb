@@ -24,6 +24,7 @@ feature 'Blips' do
     click_link 'New Blip'
     fill_in 'Name', with: 'Purple'
     select 'tools', from: 'Quadrant'
+    select 'adopt', from: 'Ring'
     click_button 'Create Blip'
     expect(page).to have_css('.blip', text: 'Purple')
   end

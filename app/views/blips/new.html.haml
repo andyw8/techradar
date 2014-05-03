@@ -3,4 +3,5 @@
 = simple_form_for [@radar, @blip] do |f|
   = f.input :name
   = f.input :quadrant, collection: Blip::QUADRANTS
+  = f.input :ring, collection: Blip::RINGS
   = f.submit

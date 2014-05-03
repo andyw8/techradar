@@ -17,7 +17,7 @@ class BlipsController < ApplicationController
   private
 
   def blip_params
-    params.require(:blip).permit(:name, :quadrant)
+    params.require(:blip).permit(:name, :quadrant, :ring)
   end
 
   def find_radar
