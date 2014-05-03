@@ -7,6 +7,7 @@ class RadarsController < ApplicationController
   end
 
   def show
+    @radar = @radar.decorate
   end
 
   def new

@@ -1,10 +1,6 @@
 %h1= @radar.name
 
-%ul
-  - @radar.blips.each do |blip|
-    %li.blip
-      = blip.name
-      (#{blip.quadrant})
+= render 'blips_grid', radar: @radar
 
 = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-default'
 %br
