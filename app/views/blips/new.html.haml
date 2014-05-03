@@ -2,5 +2,5 @@
 
 = simple_form_for [@radar, @blip] do |f|
   = f.input :name
-  = f.input :quadrant
+  = f.input :quadrant, collection: Blip::QUADRANTS
   = f.submit
