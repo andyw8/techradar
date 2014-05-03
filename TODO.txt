@@ -1,5 +1,3 @@
-- prevent normal users from seeing the users list ( need admin role? )
-- upgrade to rails 4.1 (maybe give it a few weeks for gems to catch up?)
 - cleaner way instead of calling warden in feature spec
 - controller specs for other radar actions
 - more concise way of checking permissions (some devise macro?)
@@ -15,3 +13,6 @@
 - latest ruby (2.1.something)
 - use Thin for both dev and prod
 - heroku warning: No Procfile detected, using the default web server (webrick)
+- redirect to new radar after creation
+- layout of 'We're sorry, but something went wrong.' page is broken
+- avoid all use of instance vars for views?
