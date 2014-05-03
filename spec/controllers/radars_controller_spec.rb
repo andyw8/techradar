@@ -40,14 +40,14 @@ describe RadarsController do
     end
 
     it "creates a radar" do
-      radar = double('Radar', save: true)
+      radar = mock_model('Radar', save: true)
       user.stub(new_radar: radar)
       post 'create', radar: params
     end
 
-    it "redirects" do
+    it "redirects to the newly created radar" do
       post 'create', radar: params
-      expect(response).to redirect_to(radars_path)
+      expect(response).to redirect_to(radar_path(Radar.last))
     end
 
     it "does not create a radar with invalid params" do

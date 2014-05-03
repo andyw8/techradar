@@ -24,9 +24,8 @@ feature 'Show radar' do
     click_link 'New Radar'
     fill_in 'Name', with: 'March 2014'
     click_button 'Create Radar'
-    within('.radars') do
-      expect(page).to have_text('March 2014')
-    end
+    expect(current_path).to eq radar_path(Radar.last)
+    expect(page).to have_text('March 2014')
   end
 
   scenario 'Delete a radar' do

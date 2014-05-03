@@ -16,7 +16,7 @@ class RadarsController < ApplicationController
   def create
     @radar = current_user.new_radar(radar_params)
     if @radar.save
-      redirect_to radars_path
+      redirect_to @radar
     else
       render 'new'
     end

@@ -13,6 +13,5 @@
 - latest ruby (2.1.something)
 - use Thin for both dev and prod
 - heroku warning: No Procfile detected, using the default web server (webrick)
-- redirect to new radar after creation
 - layout of 'We're sorry, but something went wrong.' page is broken
 - avoid all use of instance vars for views?
