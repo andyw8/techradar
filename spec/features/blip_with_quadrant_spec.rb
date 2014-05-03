@@ -10,8 +10,8 @@ feature "Blip with quadrant" do
     radar = create(:radar, owner: user)
     visit new_radar_blip_path(radar)
     fill_in 'Name', with: 'My Blip'
-    fill_in 'Quadrant', with: 'Tools'
+    select 'tools', from: 'Quadrant'
     click_button 'Create Blip'
-    expect(page).to have_content("My Blip (Tools)")
+    expect(page).to have_content("My Blip (tools)")
   end
 end

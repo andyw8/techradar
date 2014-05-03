@@ -23,7 +23,7 @@ feature 'Blips' do
     visit radar_path(radar)
     click_link 'New Blip'
     fill_in 'Name', with: 'Purple'
-    fill_in 'Quadrant', with: 'Tools'
+    select 'tools', from: 'Quadrant'
     click_button 'Create Blip'
     expect(page).to have_css('.blip', text: 'Purple')
   end

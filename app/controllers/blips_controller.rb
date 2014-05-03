@@ -1,5 +1,5 @@
 class BlipsController < ApplicationController
-  before_filter :find_radar, only: [:new, :create]
+  before_action :find_radar, only: [:new, :create]
 
   def new
     @blip = @radar.new_blip({})
