@@ -34,7 +34,10 @@ describe RadarsController do
   end
 
   describe "POST 'create'" do
-    before { sign_in(user); stub_current_user_with(user) }
+    before do
+      sign_in(user)
+      stub_current_user_with(user)
+    end
 
     it "creates a radar" do
       radar = double('Radar', save: true)
@@ -56,7 +59,10 @@ describe RadarsController do
   end
 
   describe "DELETE 'destroy'" do
-    before { sign_in(user); stub_current_user_with(user) }
+    before do
+      sign_in(user)
+      stub_current_user_with(user)
+    end
 
     it "destroys the radar" do
       radar = build_stubbed(:radar)
