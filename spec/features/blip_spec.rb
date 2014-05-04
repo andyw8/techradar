@@ -25,7 +25,10 @@ feature 'Blips' do
     fill_in 'Name', with: 'Purple'
     select 'tools', from: 'Quadrant'
     select 'adopt', from: 'Ring'
+    fill_in 'Notes', with: 'My Notes'
     click_button 'Create Blip'
     expect(page).to have_css('tr.tools td.adopt', text: 'Purple')
+    purple = page.find('.blip', text: 'Purple')
+    expect(purple[:title]).to eq 'My Notes'
   end
 end
