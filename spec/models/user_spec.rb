@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   let(:attr) do
     {
       name: "Example User",
@@ -36,7 +35,6 @@ describe User do
   it { should validate_uniqueness_of(:email).case_insensitive }
 
   describe "passwords" do
-
     let(:user) { User.new(attr) }
 
     it "should have a password attribute" do
