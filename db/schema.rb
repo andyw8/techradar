@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503134355) do
+ActiveRecord::Schema.define(version: 20140504140252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140503134355) do
     t.integer  "radar_id"
     t.string   "quadrant"
     t.string   "ring",       null: false
+    t.text     "notes"
   end
 
   add_index "blips", ["radar_id"], name: "index_blips_on_radar_id", using: :btree
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140503134355) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "admin",                  default: false, null: false
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

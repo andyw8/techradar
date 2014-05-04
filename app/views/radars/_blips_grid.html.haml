@@ -9,4 +9,4 @@
         - Blip::RINGS.each do |ring|
           %td{class: ring}
             - radar.entries(quadrant, ring).each do |entry|
-              %span.blip= entry.name
+              %span.blip{title: entry.notes}= entry.name
