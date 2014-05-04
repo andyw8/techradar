@@ -1,5 +1,14 @@
 require 'spec_helper'
 
+feature 'Guest views radar' do
+  scenario do
+    owner = create(:user)
+    radar = create(:radar, name: 'My Radar', owner: owner)
+    visit radar_path(radar)
+    expect(page).to have_content('My Radar')
+  end
+end
+
 feature 'Show radar' do
   let(:user) { create(:user) }
   before do
