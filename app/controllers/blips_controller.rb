@@ -1,5 +1,5 @@
 class BlipsController < ApplicationController
-  before_action :find_radar, only: [:new, :create]
+  before_action :find_radar, only: [:new, :create, :show, :destroy]
 
   def new
     @blip = @radar.new_blip({})
@@ -12,6 +12,16 @@ class BlipsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @blip = @radar.find_blip(params[:id])
+  end
+
+  def destroy
+    blip = @radar.find_blip(params[:id])
+    blip.destroy!
+    redirect_to @radar
   end
 
   private

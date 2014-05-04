@@ -57,4 +57,20 @@ describe BlipsController do
       end
     end
   end
+
+  context "DELETE /radars/:radar_id/blips/:id" do
+    let(:blip) { mock_model(Blip) }
+    before { radar.stub(find_blip: blip) }
+
+    it "destroys the blip" do
+      expect(blip).to receive(:destroy!)
+      delete 'destroy', radar_id: radar.id, id: blip.id
+    end
+
+    it "redirects to the parent radar" do
+      allow(blip).to receive(:destroy!)
+      delete 'destroy', radar_id: radar.id, id: blip.id
+      expect(response).to redirect_to(radar)
+    end
+  end
 end

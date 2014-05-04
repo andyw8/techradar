@@ -8,5 +8,7 @@
         %th= quadrant.humanize
         - Blip::RINGS.each do |ring|
           %td{class: ring}
-            - radar.entries(quadrant, ring).each do |entry|
-              %span.blip{title: entry.notes}= entry.name
+            %ul
+              - radar.entries(quadrant, ring).each do |blip|
+                %li
+                  = link_to blip.name, [radar, blip], { title: blip.notes, class: 'blip' }

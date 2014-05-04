@@ -8,4 +8,8 @@ class Radar < ActiveRecord::Base
   def new_blip(params)
     blips.new(params)
   end
+
+  def find_blip(id)
+    blips.find(id)
+  end
 end

@@ -31,4 +31,21 @@ feature 'Blips' do
     purple = page.find('.blip', text: 'Purple')
     expect(purple[:title]).to eq 'My Notes'
   end
+
+  scenario 'Blip details' do
+    radar = create(:radar, owner: user)
+    blip = create(:blip, name: 'Java', radar: radar, notes: 'My Notes')
+    visit radar_path(radar)
+    click_link blip.name
+    expect(page).to have_content('My Notes')
+  end
+
+  scenario 'Delete blip' do
+    radar = create(:radar, owner: user)
+    blip = create(:blip, name: 'Java', radar: radar, notes: 'My Notes')
+    visit radar_blip_path(radar, blip)
+    click_button 'Delete Blip'
+    expect(current_path).to eq radar_path(radar)
+    expect(page).to have_no_content('Java')
+  end
 end
