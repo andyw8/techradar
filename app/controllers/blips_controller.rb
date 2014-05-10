@@ -1,5 +1,6 @@
 class BlipsController < ApplicationController
-  before_action :find_radar, only: [:new, :create, :show, :destroy]
+  before_action :find_radar, except: :index
+  before_action :find_blip, only: [:edit, :show, :destroy, :update]
 
   def new
     @blip = @radar.new_blip({})
@@ -15,13 +16,23 @@ class BlipsController < ApplicationController
   end
 
   def show
-    @blip = @radar.find_blip(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @blip.update(blip_params)
+      redirect_to @radar, notice: "Blip updated"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    blip = @radar.find_blip(params[:id])
-    blip.destroy!
+    @blip.destroy!
     redirect_to @radar
+    # can I use @blip.radar?
   end
 
   private
@@ -32,5 +43,9 @@ class BlipsController < ApplicationController
 
   def find_radar
     @radar = current_user.find_radar(params[:radar_id])
+  end
+
+  def find_blip
+    @blip = @radar.find_blip(params[:id])
   end
 end

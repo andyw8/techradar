@@ -73,4 +73,32 @@ describe BlipsController do
       expect(response).to redirect_to(radar)
     end
   end
+
+  context "PUT /radars/:radar_id/blips/:id" do
+    let(:blip) { mock_model(Blip) }
+    before { radar.stub(find_blip: blip) }
+
+    it "updates the blip" do
+      expect(blip).to receive(:update).with("name" => 'updated name')
+      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+    end
+
+    it "redirects to the parent radar on success" do
+      allow(blip).to receive(:update) { true }
+      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      expect(response).to redirect_to(radar)
+    end
+
+    it "redirects to the parent radar on success" do
+      allow(blip).to receive(:update) { true }
+      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      expect(response).to redirect_to(radar)
+    end
+
+    it "re-renders the 'edit' template in failure" do
+      allow(blip).to receive(:update) { false }
+      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      expect(response).to render_template('edit')
+    end
+  end
 end

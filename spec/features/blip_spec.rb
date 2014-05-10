@@ -48,4 +48,15 @@ feature 'Blips' do
     expect(current_path).to eq radar_path(radar)
     expect(page).to have_no_content('Java')
   end
+
+  scenario 'Edit blip' do
+    radar = create(:radar, owner: user)
+    blip = create(:blip, name: 'Java', radar: radar)
+    visit radar_blip_path(radar, blip)
+    click_link 'Edit Blip'
+    fill_in 'Name', with: 'Java Edited'
+    click_button 'Update Blip'
+    expect(current_path).to eq radar_path(radar)
+    expect(page).to have_content('Java Edited')
+  end
 end
