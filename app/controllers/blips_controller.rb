@@ -1,6 +1,6 @@
 class BlipsController < ApplicationController
   def index
-    render locals: { blips: Blip.order(:name) }
+    render locals: { blips: Blip.order(:name).select('distinct name') }
   end
 
   def show
