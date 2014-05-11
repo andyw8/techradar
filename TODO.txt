@@ -17,3 +17,6 @@
 - avoid all use of instance vars for views?
 - gem to prevent ivars leaking from controller into view
 - inspiration from iusethis.com ?
+- page titles
+- 'forking' a radar?
+- errors don't appear when editing a blip and leave blank fields
