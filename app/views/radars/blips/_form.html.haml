@@ -1,5 +1,6 @@
+%h2 test
 = simple_form_for [blip.radar, blip] do |f|
-  = f.input :name, collection: blips unless editing
+  = f.input :name, collection: blips, input_html: { class: 'chosen-select' } unless editing
   = f.input :quadrant, collection: quadrants
   = f.input :ring, collection: rings
   = f.input :notes

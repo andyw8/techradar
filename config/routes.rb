@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, only: [:index, :show]
   resources :radars, only: [:index, :new, :create, :show, :destroy] do
-    resources :blips, except: :index
+    resources :blips, controller: 'radars/blips', except: :index
   end
+  resources :blips, only: [:index, :show]
 end

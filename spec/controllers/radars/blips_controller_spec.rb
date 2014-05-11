@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BlipsController do
+describe Radars::BlipsController do
   include StubCurrentUserHelper
 
   let(:radar) { build_stubbed(:radar) }

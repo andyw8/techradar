@@ -1,14 +1,8 @@
 %h1= blip.name
 
-= blip.notes || 'No notes for this blip'
+Appears in the following radars:
 
-= link_to 'Edit Blip', edit_radar_blip_path(blip.radar, blip), class: 'btn btn-default'
-
-= button_to 'Delete Blip', radar_blip_path(blip.radar, blip),
-                           method: :delete,
-                           class: 'btn btn-danger',
-                           data: { confirm: 'Are you sure?' }
-
-.nav
-  = link_to 'Back to Radar', blip.radar
+%ul
+  - blip.radars.each do |radar|
+    %li= link_to radar.name, radar
 

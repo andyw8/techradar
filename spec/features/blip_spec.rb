@@ -20,14 +20,15 @@ feature 'Blips' do
   end
 
   scenario 'Adding a blip' do
+    create(:blip, name: 'Purple')
     visit radar_path(radar)
     click_link 'New Blip'
-    fill_in 'Name', with: 'Purple'
+    select 'Purple', from: 'Name'
     select 'Tools', from: 'Quadrant'
     select 'Adopt', from: 'Ring'
     fill_in 'Notes', with: 'My Notes'
     click_button 'Create Blip'
-    expect(page).to have_css('tr.tools td.adopt', text: 'Purple')
+    expect(page).to have_css('.tools .adopt', text: 'Purple')
     purple = page.find('.blip', text: 'Purple')
     expect(purple[:title]).to eq 'My Notes'
   end
@@ -51,12 +52,12 @@ feature 'Blips' do
 
   scenario 'Edit blip' do
     radar = create(:radar, owner: user)
-    blip = create(:blip, name: 'Java', radar: radar)
+    blip = create(:blip, name: 'Java', radar: radar, ring: 'hold')
     visit radar_blip_path(radar, blip)
     click_link 'Edit Blip'
-    fill_in 'Name', with: 'Java Edited'
+    select 'Adopt', from: 'Ring'
     click_button 'Update Blip'
     expect(current_path).to eq radar_path(radar)
-    expect(page).to have_content('Java Edited')
+    expect(page).to have_css('.tools .adopt' , text: 'Java')
   end
 end

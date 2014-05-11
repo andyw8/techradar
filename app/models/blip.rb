@@ -17,4 +17,11 @@ class Blip < ActiveRecord::Base
   validates :ring,
     presence: true,
     inclusion: { in: RINGS }
+
+  def radars
+    Radar.
+      includes(:blips).
+      where(blips: { name: name }).
+      order(name: :asc)
+  end
 end

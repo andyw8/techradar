@@ -5,5 +5,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "Blip #{n}" }
     quadrant 'tools'
     ring 'adopt'
+    radar
   end
 end

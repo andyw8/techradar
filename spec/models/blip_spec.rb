@@ -27,4 +27,14 @@ describe Blip do
       expect(duplicate_blip).to be_valid
     end
   end
+
+  describe "#radars" do
+    it "returns radars containing this blip name" do
+      radar_1, radar_2 = create(:radar), create(:radar)
+      blip = create(:blip, name: 'foo', radar: radar_1)
+      create(:blip, name: 'foo', radar: radar_2)
+      create(:blip, name: 'bar', radar: radar_2)
+      expect(blip.radars.all).to match_array [radar_1, radar_2]
+    end
+  end
 end
