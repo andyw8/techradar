@@ -15,3 +15,5 @@
 - heroku warning: No Procfile detected, using the default web server (webrick)
 - layout of 'We're sorry, but something went wrong.' page is broken
 - avoid all use of instance vars for views?
+- gem to prevent ivars leaking from controller into view
+- inspiration from iusethis.com ?
