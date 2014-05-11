@@ -30,7 +30,8 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'rubocop', require: false
+  # https://github.com/bbatsov/rubocop/issues/1067
+  gem 'rubocop', require: false, github: 'bbatsov/rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
 end

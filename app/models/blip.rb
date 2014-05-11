@@ -5,23 +5,24 @@ class Blip < ActiveRecord::Base
   belongs_to :radar
 
   validates :name,
-    presence: true,
-    uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
+            presence: true,
+            uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
 
   validates :quadrant,
-    presence: true,
-    inclusion: { in: QUADRANTS }
+            presence: true,
+            inclusion:
+              { in: QUADRANTS }
 
   validates :radar, presence: true
 
   validates :ring,
-    presence: true,
-    inclusion: { in: RINGS }
+            presence: true,
+            inclusion: { in: RINGS }
 
   def radars
-    Radar.
-      includes(:blips).
-      where(blips: { name: name }).
-      order(name: :asc)
+    Radar
+      .includes(:blips)
+      .where(blips: { name: name })
+      .order(name: :asc)
   end
 end

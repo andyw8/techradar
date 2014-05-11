@@ -30,6 +30,6 @@ class ThoughtWorksImporter
     quadrant = blip.fetch('quadrant').underscore
     notes = blip.fetch('description')
     blip = radar.blips.create(name: name, ring: ring, quadrant: quadrant, notes: notes)
-    blip.save || binding.pry
+    blip.save || fail
   end
 end

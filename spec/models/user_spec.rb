@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:attr) do
+  let(:attrs) do
     {
       name: "Example User",
       email: "user@example.com",
@@ -11,7 +11,7 @@ describe User do
   end
 
   it "should create a new instance given a valid attribute" do
-    expect { User.create!(attr) }.not_to raise_error
+    expect { User.create!(attrs) }.not_to raise_error
   end
 
   it { should validate_presence_of(:email) }
@@ -19,7 +19,7 @@ describe User do
   it "should accept valid email addresses" do
     addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
     addresses.each do |address|
-      valid_email_user = User.new(attr.merge(email: address))
+      valid_email_user = User.new(attrs.merge(email: address))
       expect(valid_email_user).to be_valid
     end
   end
@@ -27,7 +27,7 @@ describe User do
   it "should reject invalid email addresses" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
-      invalid_email_user = User.new(attr.merge(email: address))
+      invalid_email_user = User.new(attrs.merge(email: address))
       expect(invalid_email_user).not_to be_valid
     end
   end
@@ -35,7 +35,7 @@ describe User do
   it { should validate_uniqueness_of(:email).case_insensitive }
 
   describe "passwords" do
-    let(:user) { User.new(attr) }
+    let(:user) { User.new(attrs) }
 
     it "should have a password attribute" do
       expect(user).to respond_to(:password)
@@ -53,7 +53,7 @@ describe User do
   end
 
   describe "password encryption" do
-    let(:user) { User.create!(attr) }
+    let(:user) { User.create!(attrs) }
 
     it "should have an encrypted password attribute" do
       expect(user).to respond_to(:encrypted_password)
