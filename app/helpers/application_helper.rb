@@ -11,4 +11,9 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
+
+  def title(text)
+    content_for(:title, text)
+    content_tag(:h1, text)
+  end
 end
