@@ -2,13 +2,17 @@
 
 = blip.notes || 'No notes for this blip'
 
+%br
+%br
 = link_to 'Edit Blip', edit_radar_blip_path(blip.radar, blip), class: 'btn btn-default'
 
+%br
+%br
 = button_to 'Delete Blip', radar_blip_path(blip.radar, blip),
                            method: :delete,
                            class: 'btn btn-danger',
                            data: { confirm: 'Are you sure?' }
 
-.nav
-  = link_to 'Back to Radar', blip.radar
+%br
+= link_to 'Back to Radar', blip.radar
 
