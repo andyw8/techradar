@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require blip_form
+//= require chosen-jquery
 //= require_tree .
