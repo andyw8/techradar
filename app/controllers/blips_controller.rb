@@ -1,7 +1,7 @@
 class BlipsController < ApplicationController
   def new
     blip = radar.new_blip({})
-    render locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar }
+    render locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
   end
 
   def create
@@ -9,7 +9,7 @@ class BlipsController < ApplicationController
     if blip.save
       redirect_to radar
     else
-      render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar }
+      render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
     end
   end
 
@@ -18,14 +18,15 @@ class BlipsController < ApplicationController
   end
 
   def edit
-    render locals: { quadrants: quadrants, rings: rings, blip: blip }
+    # TODO should not be able to edit blip name
+    render locals: { quadrants: quadrants, rings: rings, blip: blip, blips: blips }
   end
 
   def update
     if blip.update(blip_params)
       redirect_to radar, notice: "Blip updated"
     else
-      render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar }
+      render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
     end
   end
 
@@ -55,5 +56,9 @@ class BlipsController < ApplicationController
 
   def rings
     Blip::RINGS.inject({}) {|result, item| result[item.titleize] = item; result }
+  end
+
+  def blips
+    Blip.order(:name).map(&:name)
   end
 end

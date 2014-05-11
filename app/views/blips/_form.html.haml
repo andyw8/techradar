@@ -1,5 +1,5 @@
 = simple_form_for [blip.radar, blip] do |f|
-  = f.input :name
+  = f.input :name, collection: blips unless editing
   = f.input :quadrant, collection: quadrants
   = f.input :ring, collection: rings
   = f.input :notes

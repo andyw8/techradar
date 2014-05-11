@@ -4,10 +4,17 @@ class Blip < ActiveRecord::Base
 
   belongs_to :radar
 
-  validates :name, presence: true
-  validates :quadrant, presence: true,
-                       inclusion: { in: QUADRANTS }
+  validates :name,
+    presence: true,
+    uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
+
+  validates :quadrant,
+    presence: true,
+    inclusion: { in: QUADRANTS }
+
   validates :radar, presence: true
-  validates :ring, presence: true,
-                       inclusion: { in: RINGS }
+
+  validates :ring,
+    presence: true,
+    inclusion: { in: RINGS }
 end
