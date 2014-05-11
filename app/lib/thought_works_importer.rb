@@ -4,8 +4,9 @@ class ThoughtWorksImporter
   end
 
   def run
-    Radar.delete_all
-    Blip.delete_all
+    user = User.find(name: 'ThoughtWorks')
+    fail unless user
+    user.radars.delete_all
     data = File.read('db/thoughtworks.json')
     radars = JSON.parse(data)
     radars.each do |radar|
