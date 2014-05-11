@@ -13,17 +13,12 @@ feature 'Blips' do
     expect(page).to have_css('.blip', count: 0)
   end
 
-  scenario 'Radar has blips' do
-    2.times { create(:blip, radar: radar) }
-    visit radar_path(radar)
-    expect(page).to have_css('.blip', count: 2)
-  end
-
   scenario 'Adding a blip' do
-    create(:blip, name: 'Purple')
+    topic = create(:topic, name: 'Purple')
+    create(:blip, topic: topic)
     visit radar_path(radar)
     click_link 'New Blip'
-    select 'Purple', from: 'Name'
+    select 'Purple', from: 'Topic'
     select 'Tools', from: 'Quadrant'
     select 'Adopt', from: 'Ring'
     fill_in 'Notes', with: 'My Notes'
@@ -34,16 +29,18 @@ feature 'Blips' do
   end
 
   scenario 'Blip details' do
+    java = create(:topic, name: 'Java')
     radar = create(:radar, owner: user)
-    blip = create(:blip, name: 'Java', radar: radar, notes: 'My Notes')
+    blip = create(:blip, topic: java, radar: radar, notes: 'My Notes')
     visit radar_path(radar)
     click_link blip.name
     expect(page).to have_content('My Notes')
   end
 
   scenario 'Delete blip' do
+    java = create(:topic, name: 'Java')
     radar = create(:radar, owner: user)
-    blip = create(:blip, name: 'Java', radar: radar, notes: 'My Notes')
+    blip = create(:blip, topic: java, radar: radar, notes: 'My Notes')
     visit radar_blip_path(radar, blip)
     click_button 'Delete Blip'
     expect(current_path).to eq radar_path(radar)
@@ -51,8 +48,9 @@ feature 'Blips' do
   end
 
   scenario 'Edit blip' do
+    java = create(:topic, name: 'Java')
     radar = create(:radar, owner: user)
-    blip = create(:blip, name: 'Java', radar: radar, ring: 'hold')
+    blip = create(:blip, topic: java, radar: radar, ring: 'hold')
     visit radar_blip_path(radar, blip)
     click_link 'Edit Blip'
     select 'Adopt', from: 'Ring'

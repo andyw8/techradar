@@ -69,22 +69,23 @@ describe Radars::BlipsController do
 
   context "PUT /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
+    let(:params) { { notes: 'updated notes' } }
     before { radar.stub(find_blip: blip) }
 
     it "updates the blip" do
-      expect(blip).to receive(:update).with("name" => 'updated name')
-      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      expect(blip).to receive(:update).with("notes" => 'updated notes')
+      put 'update', radar_id: radar.id, id: blip.id, blip: params
     end
 
     it "redirects to the parent radar on success" do
       allow(blip).to receive(:update) { true }
-      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      put 'update', radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 
     it "redirects to the parent radar on success" do
       allow(blip).to receive(:update) { true }
-      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
+      put 'update', radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 

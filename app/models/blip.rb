@@ -3,10 +3,13 @@ class Blip < ActiveRecord::Base
   RINGS = %w{adopt trial assess hold}
 
   belongs_to :radar
+  belongs_to :topic
 
-  validates :name,
+  validates :topic,
             presence: true,
             uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
+
+  validates :topic, presence: true
 
   validates :quadrant,
             presence: true,
@@ -24,5 +27,9 @@ class Blip < ActiveRecord::Base
       .includes(:blips)
       .where(blips: { name: name })
       .order(name: :asc)
+  end
+
+  def name
+    topic.name
   end
 end

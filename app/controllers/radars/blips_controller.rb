@@ -38,11 +38,11 @@ module Radars
     private
 
     def locals(template = nil)
-      render template, locals: { quadrants: quadrants, rings: rings, blip: blip, blips: blips }
+      render template, locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def blip_params
-      params.require(:blip).permit(:name, :quadrant, :ring, :notes)
+      params.require(:blip).permit(:topic_id, :quadrant, :ring, :notes)
     end
 
     def radar
@@ -65,8 +65,8 @@ module Radars
       end
     end
 
-    def blips
-      Blip.order(:name).map(&:name)
+    def topics
+      Topic.order(:name)
     end
   end
 end
