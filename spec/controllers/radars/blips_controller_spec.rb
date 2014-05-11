@@ -10,7 +10,7 @@ describe Radars::BlipsController do
     user = build(:user)
     sign_in(user)
     stub_current_user_with(user)
-    allow(user).to receive(:find_radar).and_return(radar)
+    allow(Radar).to receive(:find).and_return(radar)
   end
 
   describe "GET 'new'" do

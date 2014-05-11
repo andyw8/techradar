@@ -46,7 +46,7 @@ module Radars
     end
 
     def radar
-      @radar ||= current_user.find_radar(params[:radar_id])
+      @radar ||= Radar.find(params[:radar_id])
     end
 
     def blip
