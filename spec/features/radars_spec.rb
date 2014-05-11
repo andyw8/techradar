@@ -37,6 +37,12 @@ feature 'Show radar' do
     expect(page).to have_text('March 2014')
   end
 
+  scenario 'Create radar (invalid data)' do
+    visit new_radar_path
+    click_button 'Create Radar'
+    expect(page).to have_content("can't be blank")
+  end
+
   scenario 'Delete a radar' do
     radar = create(:radar, owner: user)
     navigate_to_radars
