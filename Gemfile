@@ -5,6 +5,7 @@ gem 'rails', '4.1.0'
 
 gem 'airbrake'
 gem 'bootstrap-sass'
+gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'draper'
