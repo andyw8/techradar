@@ -14,17 +14,10 @@ describe BlipsController do
   end
 
   describe "GET 'new'" do
-    it "assigns a new blip" do
-      get :new, radar_id: radar.to_param
-      expect(assigns(:blip)).to be_a_new(Blip)
-    end
-
     it "should be successful" do
+      get :new, radar_id: radar.to_param
       expect(response).to be_successful
     end
-
-    # deprecated?
-    # it { should respond_with(:success) }
   end
 
   describe "POST 'create'" do
