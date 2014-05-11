@@ -39,10 +39,11 @@ class RadarsController < ApplicationController
   end
 
   def find_radar
+    radar_id = params.fetch(:id)
     if current_user
-      @radar = current_user.find_radar(params[:id])
+      @radar = current_user.find_radar(radar_id)
     else
-      @radar = Radar.find(params[:id])
+      @radar = Radar.find(radar_id)
     end
   end
 end

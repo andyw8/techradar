@@ -14,16 +14,16 @@ Bundler.require(*Rails.groups)
 module Techradar
   class Application < Rails::Application
     # don't generate RSpec tests for views and helpers
-    config.generators do |g|
+    config.generators do |generators|
 
-      g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      generators.test_framework :rspec, fixture: true
+      generators.fixture_replacement :factory_girl, dir: 'spec/factories'
 
-      g.view_specs false
-      g.helper_specs false
-      g.routing_specs false
-      g.controller_specs false
-      g.request_specs true
+      generators.view_specs false
+      generators.helper_specs false
+      generators.routing_specs false
+      generators.controller_specs false
+      generators.request_specs true
     end
 
     config.i18n.enforce_available_locales = false

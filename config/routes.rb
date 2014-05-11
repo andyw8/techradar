@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :users
+  resources :users, only [:index, :show]
   resources :radars, only: [:index, :new, :create, :show, :destroy] do
     resources :blips, except: :index
   end

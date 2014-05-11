@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     radars_path
   end
 
-  def authenticate_admin!
+  def authenticate_admin
     unless current_user && current_user.admin?
       redirect_to root_url, notice: 'Access denied, admin only'
     end
