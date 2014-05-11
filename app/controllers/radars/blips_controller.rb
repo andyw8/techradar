@@ -1,53 +1,55 @@
 class Radars::BlipsController < ApplicationController
   def new
-    blip = radar.new_blip({})
-    render locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
+    @blip = radar.new_blip({})
+    locals
   end
 
   def create
-    blip = radar.new_blip(blip_params)
+    @blip = radar.new_blip(blip_params)
     if blip.save
       redirect_to radar
     else
-      render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
+      locals 'new'
     end
   end
 
   def show
-    render locals: { blip: blip }
+    locals
   end
 
   def edit
-    # TODO should not be able to edit blip name
-    render locals: { quadrants: quadrants, rings: rings, blip: blip, blips: blips }
+    locals
   end
 
   def update
     if blip.update(blip_params)
       redirect_to radar, notice: "Blip updated"
     else
-      render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, radar: radar, blips: blips }
+      locals 'edit'
     end
   end
 
   def destroy
     blip.destroy!
     redirect_to radar
-    # can I use @blip.radar?
   end
 
   private
+
+  def locals(template = nil)
+    render template, locals: { quadrants: quadrants, rings: rings, blip: blip, blips: blips }
+  end
 
   def blip_params
     params.require(:blip).permit(:name, :quadrant, :ring, :notes)
   end
 
   def radar
-    @radar = current_user.find_radar(params[:radar_id])
+    @radar ||= current_user.find_radar(params[:radar_id])
   end
 
   def blip
-    @blip = radar.find_blip(params[:id])
+    @blip ||= radar.find_blip(params[:id])
   end
 
   def quadrants
