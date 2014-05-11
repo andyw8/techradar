@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/repos/536e251be30ba07904050a05/badges/a3e1d1e19aae3b8dc406/gpa.png)](https://codeclimate.com/repos/536e251be30ba07904050a05/feed)
+
 Techradar
 =========
 
