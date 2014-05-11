@@ -18,7 +18,8 @@ describe Blip do
     specify "cannot have two with same name in the same radar" do
       duplicate_blip = build(:blip, name: 'foo', radar: radar)
       expect(duplicate_blip).to_not be_valid
-      expect(duplicate_blip.errors[:name]).to eq ['already exists in this radar']
+      expect(duplicate_blip.errors[:name]).to eq
+        ['already exists in this radar']
     end
 
     specify "can have two with same name in a different radar" do

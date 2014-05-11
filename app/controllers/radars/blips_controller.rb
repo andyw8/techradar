@@ -51,11 +51,17 @@ class Radars::BlipsController < ApplicationController
   end
 
   def quadrants
-    Blip::QUADRANTS.inject({}) {|result, item| result[item.titleize] = item; result }
+    Blip::QUADRANTS.inject({}) do |result, item|
+      result[item.titleize] = item
+      result
+    end
   end
 
   def rings
-    Blip::RINGS.inject({}) {|result, item| result[item.titleize] = item; result }
+    Blip::RINGS.inject({}) do |result, item|
+      result[item.titleize] = item
+      result
+    end
   end
 
   def blips
