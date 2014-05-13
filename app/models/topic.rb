@@ -6,4 +6,5 @@ class Topic < ActiveRecord::Base
   validates :slug, presence: true, uniqueness: true
 
   has_many :blips
+  has_many :radars, through: :blips
 end
