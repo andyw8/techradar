@@ -8,9 +8,11 @@ describe RadarsController do
 
   describe "GET 'index'" do
     context "when the user is not signed in" do
-      it "redirects to the sign in page" do
+      it "lists all radars" do
+        all_radars = double('all_radars')
+        Radar.stub(all: all_radars)
         get 'index'
-        expect(response).to redirect_to(new_user_session_path)
+        expect(assigns(:radars)).to eq all_radars
       end
     end
 
@@ -31,6 +33,9 @@ describe RadarsController do
         expect(assigns(:radars)).to eq [my_radar]
       end
     end
+  end
+
+  describe "GET 'show'" do
   end
 
   describe "POST 'create'" do
