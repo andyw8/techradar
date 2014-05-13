@@ -5,6 +5,8 @@ class Radar < ActiveRecord::Base
   validates :name, presence: true
   validates :owner, presence: true
 
+  default_scope { order(updated_at: :desc) }
+
   def new_blip(params)
     blips.new(params)
   end
