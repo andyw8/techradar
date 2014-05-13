@@ -2,18 +2,21 @@ require 'spec_helper'
 
 describe UsersController do
   let(:user) { create(:user) }
+  subject { response }
 
   describe "GET 'show'" do
-    it "redirects non-signed-in users" do
-      get :show, id: user.id
-      expect(response).to redirect_to(root_path)
-    end
+    context "as a guest" do
+      specify do
+        get :show, id: user.id
+        should be_successful
+      end
 
-    xit "should redirect to the radars page after signing in" do
-      # appears to work fine in the browser. the devise test helps
-      # may be messing this up.
-      sign_in user
-      expect(response).to redirect_to(radars_path)
+      xit "should redirect to the radars page after signing in" do
+        # appears to work fine in the browser. the devise test helps
+        # may be messing this up.
+        sign_in user
+        should redirect_to(radars_path)
+      end
     end
 
     context "as a signed-in user" do
@@ -22,25 +25,21 @@ describe UsersController do
         get :show, id: user.id
       end
 
-      it "is not successful" do
-        expect(response).to_not be_successful
+      it { should be_successful }
+    end
+
+    context "as an admin" do
+      let(:admin) { create(:admin) }
+      before do
+        sign_in admin
+        get :show, id: user.id
       end
-    end
-  end
 
-  context "as an admin" do
-    let(:admin) { create(:admin) }
-    before do
-      sign_in admin
-      get :show, id: user.id
-    end
+      it { should be_successful }
 
-    it "it is successful" do
-      expect(response).to be_success
-    end
-
-    it "finds the right user" do
-      expect(assigns(:user)).to eq user
+      it "finds the right user" do
+        expect(assigns(:user)).to eq user
+      end
     end
   end
 end
