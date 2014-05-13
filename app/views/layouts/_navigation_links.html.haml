@@ -1,6 +1,6 @@
+%li= link_to 'Topics', topics_path
+%li= link_to 'Radars', radars_path
 - if user_signed_in?
-  %li= link_to 'Radars', radars_path
-  %li= link_to 'A-Z', blips_path
   %li= link_to 'Account', edit_user_registration_path
   %li= link_to 'Sign Out', destroy_user_session_path, :method=>'delete'
   - if current_user.admin?

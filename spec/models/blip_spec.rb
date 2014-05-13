@@ -4,7 +4,7 @@ describe Blip do
   it { should belong_to(:radar) }
   it { should belong_to(:topic) }
 
-  #it { should validate_presence_of(:topic_id) }
+  it { should validate_presence_of(:topic_id) }
   it { should validate_presence_of(:quadrant) }
   it { should ensure_inclusion_of(:quadrant).in_array(Blip::QUADRANTS) }
   it { should validate_presence_of(:ring) }
@@ -17,10 +17,10 @@ describe Blip do
     let(:topic) { create(:topic) }
     before { create(:blip, topic: topic, radar: radar) }
 
-    specify "cannot have two with same name in the same radar" do
+    specify "cannot have two with same topic in the same radar" do
       duplicate_blip = build(:blip, topic: topic, radar: radar)
       expect(duplicate_blip).to_not be_valid
-      errors = duplicate_blip.errors[:topic]
+      errors = duplicate_blip.errors_on(:topic_id)
       expect(errors).to eq(['already exists in this radar'])
     end
 

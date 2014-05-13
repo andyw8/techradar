@@ -1,0 +1,17 @@
+=title topic.name
+
+This topic appears in the following radars:
+%br
+%br
+%ul
+  - topic.blips.includes(:radar).order('radars.created_at').each do |blip|
+    %li
+      = link_to(blip.radar.name, [blip.radar, blip])
+      %span.label.label-primary= blip.ring.titleize
+
+%hr
+
+- topic.blips.includes(:radar).order('radars.created_at').each do |blip|
+  %h2
+    = link_to blip.radar.name, blip.radar
+  = render 'radars/blips/detail', blip: blip

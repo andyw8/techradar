@@ -1,0 +1,9 @@
+= title 'Topics'
+
+- # TODO would be better for by_letter to be an iterator
+- topics.by_letter.each do |letter, topics|
+  %h3= letter
+  %ul
+  - topics.each do |topic|
+    %li
+      =link_to topic.name, topic, class: 'topic'
