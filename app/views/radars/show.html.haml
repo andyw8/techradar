@@ -1,5 +1,9 @@
 =title @radar.name
 
+%dl
+  %dt Updated
+  %dd= l @radar.updated_at.to_date, format: :long
+
 = render 'blips_grid', radar: @radar
 
 = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-default'
