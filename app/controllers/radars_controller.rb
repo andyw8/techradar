@@ -1,5 +1,5 @@
 class RadarsController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: %i(show index)
   before_action :find_radar, only: [:show, :destroy]
 
   def index
@@ -35,7 +35,11 @@ class RadarsController < ApplicationController
   end
 
   def scoped_radars
-    current_user.radars
+    if current_user
+      current_user.radars
+    else
+      Radar.all
+    end
   end
 
   def find_radar
