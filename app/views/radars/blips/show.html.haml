@@ -1,12 +1,6 @@
-=title blip.name
+=title blip.topic.name
 
-%dl
-  %dt Quadrant:
-  %dd= blip.quadrant.titleize
-  %dt Ring:
-  %dd= blip.ring.titleize
-
-= blip.notes || 'No notes for this blip'
+= render 'detail', blip: blip
 
 %br
 %br
