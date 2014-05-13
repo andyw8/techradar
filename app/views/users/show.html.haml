@@ -1,6 +1,9 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
-= link_to 'Edit account', edit_user_path
+= title @user.name
+
+%h2 Radars
+
+%ul
+- @user.radars.each do |radar|
+  %li
+    =link_to radar.name, radar
+    (#{pluralize(radar.blips.count, 'blip')})
