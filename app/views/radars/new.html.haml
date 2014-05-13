@@ -2,7 +2,10 @@
 
 = simple_form_for(@radar) do |f|
   = f.input :name
-  = f.submit 'Create Radar', class: 'btn btn-default'
+  = f.submit 'Create Radar', class: 'btn btn-primary'
+
+%br
+= link_to 'Back to Radars', radars_path, class: 'btn btn-default'
 
 
 

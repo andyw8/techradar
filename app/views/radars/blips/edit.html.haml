@@ -1,3 +1,5 @@
-= title "Edit Blip: #{blip.name}"
+= title blip.name
 
 = render 'form', quadrants: quadrants, rings: rings, blip: blip, topics: topics, editing: true
+
+= link_to 'Back to Radar', blip.radar, class: 'btn btn-default'
