@@ -32,4 +32,8 @@ class Blip < ActiveRecord::Base
   def name
     topic.name
   end
+
+  def radar_owner
+    radar.owner
+  end
 end

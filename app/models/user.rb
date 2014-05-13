@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
   def new_radar(params)
     radars.new(params)
   end
+
+  def add_radar(params)
+    new_radar(params).tap do |radar|
+      radar.save!
+    end
+  end
 end

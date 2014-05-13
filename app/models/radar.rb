@@ -14,4 +14,10 @@ class Radar < ActiveRecord::Base
   def find_blip(id)
     blips.find(id)
   end
+
+  def add_blip(params)
+    blip = blips.new(params)
+    blip.save!
+    blip
+  end
 end
