@@ -4,9 +4,9 @@ class ThoughtWorksImporter
   end
 
   def run
-    user = User.find(name: 'ThoughtWorks')
-    fail unless user
-    user.radars.delete_all
+    @owner = User.find_by(name: 'ThoughtWorks')
+    fail unless owner
+    owner.radars.delete_all
     data = File.read('db/thoughtworks.json')
     radars = JSON.parse(data)
     radars.each do |radar|
@@ -17,9 +17,9 @@ class ThoughtWorksImporter
   private
 
   def parse_radar(radar_json)
-    owner = User.first # FIXME
-    name = "ThoughtWorks " + radar_json.fetch('date')
-    radar = Radar.create!(name: name, owner: owner)
+    date = Date.parse(radar_json.fetch('date') + '-01')
+    title = "ThoughtWorks " + date.strftime('%B %Y')
+    radar = Radar.create!(name: title, owner: owner)
     radar_json.fetch('blips').each do |blip|
       parse_blip(blip, radar)
     end
@@ -30,7 +30,10 @@ class ThoughtWorksImporter
     ring = blip.fetch('ring').underscore
     quadrant = blip.fetch('quadrant').underscore
     notes = blip.fetch('description')
-    blip = radar.blips.create(name: name, ring: ring, quadrant: quadrant, notes: notes)
+    topic = Topic.find_or_create_by!(name: name)
+    blip = radar.blips.create(topic: topic, ring: ring, quadrant: quadrant, notes: notes)
     blip.save || fail
   end
+
+  attr_reader :owner
 end
