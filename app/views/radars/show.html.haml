@@ -4,11 +4,14 @@
   %dt Updated
   %dd= l @radar.updated_at.to_date, format: :long
 
-= link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-primary'
-%br
-%br
-= button_to 'Delete Radar', radar_path(@radar), method: :delete, class: 'btn btn-danger',
-  data: { confirm: 'Are you sure?' }
+- if can? :create_blip, @radar
+  = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-primary'
+  %br
+  %br
+
+- if can? :delete_radar, @radar
+  = button_to 'Delete Radar', radar_path(@radar), method: :delete, class: 'btn btn-danger',
+    data: { confirm: 'Are you sure?' }
 
 = render 'blips_grid', radar: @radar
 

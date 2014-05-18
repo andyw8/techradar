@@ -20,4 +20,8 @@ class Radar < ActiveRecord::Base
     blip.save!
     blip
   end
+
+  def owned_by?(user)
+    owner == user
+  end
 end
