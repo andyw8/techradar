@@ -9,9 +9,8 @@
   %br
   %br
 
+= render 'blips_grid', radar: @radar
+
 - if can? :delete_radar, @radar
   = button_to 'Delete Radar', radar_path(@radar), method: :delete, class: 'btn btn-danger',
     data: { confirm: 'Are you sure?' }
-
-= render 'blips_grid', radar: @radar
-
