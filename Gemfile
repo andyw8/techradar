@@ -38,6 +38,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'capybara-email'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry'
@@ -51,7 +52,6 @@ group :test do
   gem 'capybara'
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner', '1.0.1'
-  gem 'email_spec'
   # simplecov is used by codeclimate-test-reporter but
   # circleci recommends avoiding 0.8 due to
   # https://github.com/colszowka/simplecov/issues/281

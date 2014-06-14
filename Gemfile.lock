@@ -71,6 +71,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-email (2.3.0)
+      capybara (~> 2.2.0)
+      mail
     chosen-rails (1.1.0)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.1.2)
@@ -115,9 +118,6 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    email_spec (1.5.0)
-      launchy (~> 2.1)
-      mail (~> 2.2)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -291,6 +291,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   capybara
+  capybara-email
   chosen-rails
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
@@ -298,7 +299,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   draper
-  email_spec
   erb2haml
   factory_girl_rails
   foreman

@@ -16,3 +16,20 @@ feature 'Users' do
     expect(current_path).to eq users_path
   end
 end
+
+feature 'Sign up and confirm' do
+  scenario '' do
+    visit new_user_registration_path
+    fill_in "Email", with: "foo@example.com"
+    fill_in "user_password", with: "password1234"
+    fill_in "user_password_confirmation", with: "password1234"
+    click_button "Sign up"
+    expect(page).to have_content('Please open the link to activate your account')
+    open_email('foo@example.com')
+    current_email.click_link 'Confirm my account'
+    fill_in "Email", with: "foo@example.com"
+    fill_in "user_password", with: "password1234"
+    click_button 'Sign in'
+    expect(page).to have_content('Signed in successfully')
+  end
+end
