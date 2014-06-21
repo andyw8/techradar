@@ -30,7 +30,7 @@ describe RadarsController do
         another_user = create(:user)
         create(:radar, owner: another_user)
         get 'index'
-        expect(assigns(:radars)).to eq [my_radar]
+        expect(assigns(:radars).map(&:name)).to eq [my_radar.name]
       end
     end
   end
