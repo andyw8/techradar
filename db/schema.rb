@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140511185936) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "radar_id"
-    t.string   "quadrant"
+    t.string   "quadrant",   null: false
     t.string   "ring",       null: false
     t.text     "notes"
     t.integer  "topic_id"
