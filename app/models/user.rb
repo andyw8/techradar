@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Wisper::Publisher
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -17,5 +19,9 @@ class User < ActiveRecord::Base
     new_radar(params).tap do |radar|
       radar.save!
     end
+  end
+
+  def after_create
+    published(:user_created)
   end
 end
