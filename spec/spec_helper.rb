@@ -58,3 +58,5 @@ RSpec.configure do |config|
   include Warden::Test::Helpers
   Warden.test_mode!
 end
+
+ActiveRecord::Migration.maintain_test_schema!
