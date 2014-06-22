@@ -1,4 +1,4 @@
-- raise 'No title' unless content_for?(:title)
+- raise "No title for #{controller_name}/#{action_name}" unless content_for?(:title)
 !!!
 %html
   %head
