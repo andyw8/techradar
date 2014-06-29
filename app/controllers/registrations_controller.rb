@@ -21,4 +21,8 @@ class RegistrationsController < Devise::RegistrationsController
       )
     end
   end
+
+  def build_resource(args)
+    super.subscribe(Starter.new)
+  end
 end

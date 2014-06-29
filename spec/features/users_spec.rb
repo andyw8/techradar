@@ -18,7 +18,7 @@ feature 'Users' do
 end
 
 feature 'Sign up and confirm' do
-  scenario '' do
+  scenario 'Happy path' do
     visit new_user_registration_path
     fill_in "Email", with: "foo@example.com"
     fill_in "user_password", with: "password1234"
@@ -31,5 +31,9 @@ feature 'Sign up and confirm' do
     fill_in "user_password", with: "password1234"
     click_button 'Sign in'
     expect(page).to have_content('Signed in successfully')
+    expect(page).to have_css(".radars", text: "My First Radar")
+    click_link "My First Radar"
+    within("table") { click_link "techradar.io" }
+    expect(page).to have_text('techradar.io is a great tool')
   end
 end

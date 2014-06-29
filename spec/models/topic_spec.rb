@@ -8,4 +8,20 @@ describe Topic do
   it { should validate_uniqueness_of(:slug) }
 
   it { should have_many(:blips) }
+
+  describe "#techradar" do
+    it "uses the existing topic if present" do
+      existing = create(:topic, name: "techradar.io")
+
+      result = described_class.techradar
+
+      expect(result).to eq existing
+    end
+
+    it "creates the  topic if not present" do
+      result = described_class.techradar
+
+      expect(result.name).to eq "techradar.io"
+    end
+  end
 end
