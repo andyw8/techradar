@@ -20,7 +20,7 @@ describe Blip do
     specify "cannot have two with same topic in the same radar" do
       duplicate_blip = build(:blip, topic: topic, radar: radar)
       expect(duplicate_blip).to_not be_valid
-      errors = duplicate_blip.errors_on(:topic_id)
+      errors = duplicate_blip.errors[:topic_id]
       expect(errors).to eq(['already exists in this radar'])
     end
 

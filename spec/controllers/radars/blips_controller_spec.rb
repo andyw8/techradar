@@ -53,7 +53,7 @@ describe Radars::BlipsController do
 
   context "DELETE /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
-    before { radar.stub(find_blip: blip) }
+    before { allow(radar).to receive(:find_blip) { blip } }
 
     it "destroys the blip" do
       expect(blip).to receive(:destroy!)
@@ -70,7 +70,7 @@ describe Radars::BlipsController do
   context "PUT /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
     let(:params) { { notes: 'updated notes' } }
-    before { radar.stub(find_blip: blip) }
+    before { allow(radar).to receive(:find_blip) { blip } }
 
     it "updates the blip" do
       expect(blip).to receive(:update).with("notes" => 'updated notes')

@@ -57,7 +57,7 @@ describe RadarsController do
 
     it "does not create a radar with invalid params" do
       radar = double('Radar', save: false)
-      user.stub(new_radar: radar)
+      allow(user).to receive(:new_radar) { radar }
       post 'create', radar: params
       expect(response).to render_template('radars/new')
     end
