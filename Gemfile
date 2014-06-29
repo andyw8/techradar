@@ -39,7 +39,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'capybara-email'
+  # https://github.com/dockyard/capybara-email/issues/26
+  gem 'capybara-email', github: 'dockyard/capybara-email'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry'
@@ -50,7 +51,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.3.0'
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner', '1.0.1'
   gem 'rspec-activemodel-mocks'
