@@ -21,7 +21,7 @@ gem 'sendgrid'
 gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'wisper'
+gem 'wisper', github: 'krisleech/wisper'
 
 group :development do
   gem 'better_errors'

@@ -1,33 +1,33 @@
-require 'rspec/expectations'
+# require 'rspec/expectations'
 
-module WisperMatchers
-  class ShouldPublish
-    def initialize(publisher, event)
-      @publisher = publisher
-      @event = event
-    end
+# module WisperMatchers
+#   class ShouldPublish
+#     def initialize(publisher, event)
+#       @publisher = publisher
+#       @event = event
+#     end
 
-    def matches?(block)
-      published = false
-      @publisher.on(@event) { published = true }
+#     def matches?(block)
+#       published = false
+#       @publisher.on(@event) { published = true }
 
-      block.call
+#       block.call
 
-      published
-    end
+#       published
+#     end
 
-    def failure_message_for_should
-      "expected #{@publisher.class.name} to broadcast #{@event} event"
-    end
+#     def failure_message_for_should
+#       "expected #{@publisher.class.name} to broadcast #{@event} event"
+#     end
 
-    def failure_message_for_should_not
-      "expected #{@publisher.class.name} not to broadcast #{@event} event"
-    end
-  end
+#     def failure_message_for_should_not
+#       "expected #{@publisher.class.name} not to broadcast #{@event} event"
+#     end
+#   end
 
-  def publish_event(publisher, event)
-    ShouldPublish.new(publisher, event)
-  end
+#   def publish_event(publisher, event)
+#     ShouldPublish.new(publisher, event)
+#   end
 
-  alias broadcast publish_event
-end
+#   alias_method broadcast publish_event
+# end
