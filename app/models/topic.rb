@@ -8,6 +8,8 @@ class Topic < ActiveRecord::Base
   has_many :blips
   has_many :radars, through: :blips
 
+  belongs_to :creator, class_name: 'User'
+
   def self.techradar
     # TODO do in test setup to avoid running for every spec?
     find_or_create_by(name: "techradar.io")

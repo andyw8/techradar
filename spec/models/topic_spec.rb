@@ -9,6 +9,8 @@ describe Topic do
 
   it { should have_many(:blips) }
 
+  it { should belong_to(:creator).class_name('User') }
+
   describe "#techradar" do
     it "uses the existing topic if present" do
       existing = create(:topic, name: "techradar.io")
