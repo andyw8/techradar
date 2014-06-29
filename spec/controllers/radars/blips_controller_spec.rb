@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Radars::BlipsController do
   include StubCurrentUserHelper

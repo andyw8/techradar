@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Users' do
   scenario 'Non-admin tries to view users list' do

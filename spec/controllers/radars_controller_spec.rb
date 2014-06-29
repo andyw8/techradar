@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe RadarsController do
   include StubCurrentUserHelper
@@ -10,7 +10,7 @@ describe RadarsController do
     context "when the user is not signed in" do
       it "lists all radars" do
         all_radars = double('all_radars')
-        Radar.stub(all: all_radars)
+        allow(Radar).to receive(:all) { all_radars }
         get 'index'
         expect(assigns(:radars)).to eq all_radars
       end
@@ -46,7 +46,7 @@ describe RadarsController do
 
     it "creates a radar" do
       radar = mock_model('Radar', save: true)
-      user.stub(new_radar: radar)
+      allow(user).to receive(:new_radar) { radar }
       post 'create', radar: params
     end
 
