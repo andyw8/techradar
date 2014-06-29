@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def after_create
-    published(:user_created)
+  after_create do |user|
+    publish(:user_created, user)
   end
 end

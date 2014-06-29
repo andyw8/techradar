@@ -14,6 +14,10 @@ describe User do
     expect { User.create!(attrs) }.not_to raise_error
   end
 
+  xit "publishes a message on creation" do # https://github.com/krisleech/wisper/issues/60
+    expect{ user = create(:user) }.to publish_event(:user_created, user)
+  end
+
   it { should validate_presence_of(:email) }
 
   it "should accept valid email addresses" do
