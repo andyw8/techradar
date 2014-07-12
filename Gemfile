@@ -21,14 +21,12 @@ gem 'sendgrid'
 gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'wisper', github: 'krisleech/wisper'
+gem 'wisper'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]
-  gem 'erb2haml'
   gem 'foreman'
-  gem 'html2haml'
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'rails_layout'
