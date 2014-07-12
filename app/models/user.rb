@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
   after_create do |user|
     publish(:user_created, user)
   end
+
+  def self.admin
+    find_by!(admin: true)
+  end
 end

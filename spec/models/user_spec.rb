@@ -15,7 +15,9 @@ describe User do
   end
 
   xit "publishes a message on creation" do # https://github.com/krisleech/wisper/issues/60
-    expect{ user = create(:user) }.to publish_event(:user_created, user)
+    # expect { create(:user) }.to publish_event(User, :user_created)
+    user = nil
+    expect { user = create(:user) }.to broadcast(user, :user_created)
   end
 
   it { should validate_presence_of(:email) }
@@ -65,6 +67,17 @@ describe User do
 
     it "should set the encrypted password attribute" do
       expect(user.encrypted_password).not_to be_blank
+    end
+  end
+
+  describe "#admin" do
+    it "returns the admin account if present" do
+      admin = create(:user, admin: true)
+      expect(described_class.admin.id).to eq admin.id
+    end
+
+    it "raises ActiveRecord::RecordNotFound if not present" do
+      expect { described_class.admin }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
