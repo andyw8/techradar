@@ -1,24 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :update_sanitized_params, if: :devise_controller?
+  PARAMS = %i(name email password password_confirmation)
 
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) do |params|
-      params.permit(
-        :name,
-        :email,
-        :password,
-        :password_confirmation
-      )
+      params.permit(PARAMS)
     end
 
     devise_parameter_sanitizer.for(:account_update) do |params|
-      params.permit(
-        :name,
-        :email,
-        :password,
-        :password_confirmation,
-        :current_password
-      )
+      params.permit(PARAMS + :current_password)
     end
   end
 
