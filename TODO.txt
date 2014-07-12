@@ -1,24 +1,29 @@
 - cleaner way instead of calling warden in feature spec
-- controller specs for other radar actions
 - more concise way of checking permissions (some devise macro?)
 - is strong params enabled?
 - shoulda permit() matcher not working?
-- do i want to share any of my fixes with rails-generator?
 - add badges for gemnasium, etc.
 - try pry-rescue, pry-stack-explorer
 - email copy for confirmation email
 - production is showing blank 500 pages
 - make simple_form forms look decent
-- latest ruby (2.1.something)
 - use Thin for both dev and prod
-- heroku warning: No Procfile detected, using the default web server (webrick)
 - layout of 'We're sorry, but something went wrong.' page is broken
 - avoid all use of instance vars for views?
 - gem to prevent ivars leaking from controller into view
 - inspiration from iusethis.com ?
 - page titles
-- 'forking' a radar?
 - errors don't appear when editing a blip and leave blank fields
 - how to determine when radar was last updated based on child blips
-- rspec 3
+- UUIDs for radars?
 
+CHORES
+- Upgrade Ruby version to 2.1
+- Fix heroku warning: No Procfile detected, using the default web server (webrick)
+- Controller specs for other radar actions
+
+IDEAS
+- 'forking' a radar?
+
+BUGS
+- updating a blip should updated the radar's 'last_updated'
