@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'starter'
 
-describe Starter do
+describe Starter, :admin do
   it "creates a sample radar" do
     user = create(:user)
 

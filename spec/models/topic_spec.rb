@@ -10,14 +10,15 @@ describe Topic do
   it { should have_many(:blips) }
 
   it { should belong_to(:creator).class_name('User') }
+  it { should validate_presence_of(:creator) }
 
-  describe "#techradar" do
+  describe ".techradar", :admin do
     it "uses the existing topic if present" do
-      existing = create(:topic, name: "techradar.io")
+      existing = create(:topic, name: "techradar.io", creator: User.admin)
 
       result = described_class.techradar
 
-      expect(result).to eq existing
+      expect(result.id).to eq existing.id
     end
 
     it "creates the  topic if not present" do

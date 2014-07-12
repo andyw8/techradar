@@ -17,7 +17,7 @@ feature 'Users' do
   end
 end
 
-feature 'Sign up and confirm' do
+feature 'Sign up and confirm', :admin do
   scenario 'Happy path' do
     visit new_user_registration_path
     fill_in "Email", with: "foo@example.com"

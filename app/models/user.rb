@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  MissingAdminAccount = Class.new(RuntimeError)
+
   include Wisper::Publisher
 
   # Include default devise modules. Others available are:
@@ -26,6 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def self.admin
-    find_by!(admin: true)
+    admin = find_by(admin: true)
+    admin || fail(MissingAdminAccount)
   end
 end

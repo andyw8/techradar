@@ -4,6 +4,7 @@ class Topic < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :slug, presence: true, uniqueness: true
+  validates :creator, presence: true
 
   has_many :blips
   has_many :radars, through: :blips
@@ -11,7 +12,6 @@ class Topic < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
 
   def self.techradar
-    # TODO do in test setup to avoid running for every spec?
-    find_or_create_by(name: "techradar.io")
+    find_or_create_by!(name: "techradar.io", creator: User.admin)
   end
 end

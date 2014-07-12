@@ -76,8 +76,8 @@ describe User do
       expect(described_class.admin.id).to eq admin.id
     end
 
-    it "raises ActiveRecord::RecordNotFound if not present" do
-      expect { described_class.admin }.to raise_error(ActiveRecord::RecordNotFound)
+    it "raises User::MissingAdminAccount if not present" do
+      expect { described_class.admin }.to raise_error(User::MissingAdminAccount)
     end
   end
 end
