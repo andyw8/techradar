@@ -1,4 +1,4 @@
-raise "Users exist" if User.count > 0
+fail "Users exist" if User.count > 0
 
 admin = User.create!(
   name:                  ENV['ADMIN_NAME'],
