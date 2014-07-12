@@ -2,7 +2,7 @@
 
 %dl
   %dt Updated
-  %dd= l @radar.updated_at.to_date, format: :long
+  %dd= @radar.updated
 
 - if can? :create_blip, @radar
   = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-primary'

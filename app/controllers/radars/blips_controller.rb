@@ -50,7 +50,7 @@ module Radars
     end
 
     def blip
-      @blip ||= radar.find_blip(params[:id])
+      @blip ||= radar.find_blip(params[:id]).decorate
     end
 
     def quadrants
