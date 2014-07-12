@@ -10,13 +10,6 @@ describe UsersController do
         get :show, id: user.id
         should be_successful
       end
-
-      xit "should redirect to the radars page after signing in" do
-        # appears to work fine in the browser. the devise test helps
-        # may be messing this up.
-        sign_in user
-        should redirect_to(radars_path)
-      end
     end
 
     context "as a signed-in user" do
