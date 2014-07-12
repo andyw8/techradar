@@ -31,7 +31,7 @@ feature 'Sign up and confirm', :admin do
     fill_in "user_password", with: "password1234"
     click_button 'Sign in'
     expect(page).to have_content('Signed in successfully')
-    expect(page).current_path to eq radars_path
+    expect(current_path).to eq radars_path
     expect(page).to have_css(".radars", text: "My First Radar")
     click_link "My First Radar"
     within("table") { click_link "techradar.io" }

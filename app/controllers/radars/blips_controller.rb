@@ -2,7 +2,7 @@ module Radars
   class BlipsController < ApplicationController
     def new
       @blip = radar.new_blip({})
-      locals
+      render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def create
@@ -10,23 +10,23 @@ module Radars
       if blip.save
         redirect_to radar
       else
-        locals 'new'
+        render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
       end
     end
 
     def show
-      locals
+      render 'show', locals: { quadrants: quadrants, rings: rings, blip: blip.decorate, topics: topics }
     end
 
     def edit
-      locals
+      render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def update
       if blip.update(blip_params)
         redirect_to radar, notice: "Blip updated"
       else
-        locals 'edit'
+        render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
       end
     end
 
@@ -37,10 +37,6 @@ module Radars
 
     private
 
-    def locals(template = nil)
-      render template, locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
-    end
-
     def blip_params
       params.require(:blip).permit(:topic_id, :quadrant, :ring, :notes)
     end
@@ -50,7 +46,7 @@ module Radars
     end
 
     def blip
-      @blip ||= radar.find_blip(params[:id]).decorate
+      @blip ||= radar.find_blip(params[:id])
     end
 
     def quadrants

@@ -2,7 +2,7 @@
 
 This topic appears in the following radars:
 
-- topic.blips.includes(:radar).each do |blip|
+- topic.blips.includes(:radar).decorate.each do |blip|
   %h2
     = link_to blip.radar_name, blip.radar
 
