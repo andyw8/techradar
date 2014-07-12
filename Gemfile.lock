@@ -308,6 +308,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
   letter_opener
   pg
   pry

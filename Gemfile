@@ -41,6 +41,7 @@ group :development, :test do
   gem 'capybara-email', github: 'dockyard/capybara-email'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
+  gem 'launchy'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
