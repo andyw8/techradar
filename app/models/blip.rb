@@ -26,11 +26,14 @@ class Blip < ActiveRecord::Base
     Radar
       .includes(:blips)
       .where(blips: { name: name })
-      .order(name: :asc)
   end
 
   def name
     topic.name
+  end
+
+  def radar_name
+    radar.name
   end
 
   def radar_owner
