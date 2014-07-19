@@ -30,8 +30,6 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'rails_layout'
-  # https://github.com/bbatsov/rubocop/issues/1067
-  gem 'rubocop', require: false, github: 'bbatsov/rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
 end
@@ -45,6 +43,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'quality', github: 'andyw8/quality', branch: 'disabled-auto-git-commit'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
 end
