@@ -56,6 +56,6 @@ feature 'Blips' do
     select 'Adopt', from: 'Ring'
     click_button 'Update Blip'
     expect(current_path).to eq radar_path(radar)
-    expect(page).to have_css('.tools .adopt' , text: 'Java')
+    expect(page).to have_css('.tools .adopt', text: 'Java')
   end
 end

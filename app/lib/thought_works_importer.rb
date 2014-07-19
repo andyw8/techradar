@@ -40,8 +40,9 @@ class ThoughtWorksImporter
       Topic.create!(name: name, creator: User.thoughtworks)
     blip = radar.blips.create(topic: topic, ring: ring, quadrant: quadrant, notes: notes)
     blip.save!
+
     if last_modified.present?
-      date = Date.parse(last_modified + '-01') if last_modified.present?
+      date = Date.parse(last_modified + '-01')
       blip.update_attributes!(created_at: date, updated_at: date)
     end
   end

@@ -31,7 +31,7 @@ module ApplicationHelper
       blip = resource
       blip.radar.owned_by?(current_user)
     else
-      raise "Unknown action #{action} for #{resource}"
+      fail "Unknown action #{action} for #{resource}"
     end
   end
 end
