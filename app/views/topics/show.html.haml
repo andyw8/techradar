@@ -6,6 +6,8 @@ This topic appears in the following radars:
   %h2
     = link_to blip.radar_name, blip.radar
 
-  Owner:
-  = link_to blip.radar_owner.name, blip.radar_owner
+  = admin do
+    Owner:
+    = link_to blip.radar_owner.name, blip.radar_owner
+
   = render 'radars/blips/detail', blip: blip

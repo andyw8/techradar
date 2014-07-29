@@ -34,4 +34,10 @@ module ApplicationHelper
       fail "Unknown action #{action} for #{resource}"
     end
   end
+
+  def admin
+    content_tag("div", class: "admin") do
+      yield if current_user && current_user.admin?
+    end
+  end
 end
