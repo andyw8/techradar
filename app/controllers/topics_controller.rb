@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    topics_presenter = TopicsPresenter.new(Topic.order("lower(name)"))
+    topics_presenter = TopicsPresenter.new(Topic.by_name)
     render locals: { topics: topics_presenter }
   end
 

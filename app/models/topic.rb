@@ -14,4 +14,8 @@ class Topic < ActiveRecord::Base
   def self.techradar
     find_or_create_by!(name: "techradar.io", creator: User.admin)
   end
+
+  def self.by_name
+    order("lower(name)")
+  end
 end
