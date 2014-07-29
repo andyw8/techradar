@@ -19,5 +19,7 @@
 %br
 %p= link_to 'More about this topic', blip.topic
 
-%p= link_to 'Back to Radar', blip.radar
+%p
+  This blip is from
+  = link_to blip.radar.name, blip.radar
 
