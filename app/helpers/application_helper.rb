@@ -40,4 +40,8 @@ module ApplicationHelper
       yield if current_user && current_user.admin?
     end
   end
+
+  def body_classes
+    [params[:controller], params[:action]].join(" ")
+  end
 end
