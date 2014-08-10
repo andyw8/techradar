@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/repos/536e251be30ba07904050a05/badges/a3e1d1e19aae3b8dc406/gpa.png)](https://codeclimate.com/repos/536e251be30ba07904050a05/feed)
+[ ![Codeship Status for andyw8/techradar](https://codeship.io/projects/591ae180-02f3-0132-c1a0-6602e923814a/status)](https://codeship.io/projects/30336)
 
 Techradar
 =========
