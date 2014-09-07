@@ -14,10 +14,8 @@ describe User do
     expect { User.create!(attrs) }.not_to raise_error
   end
 
-  xit "publishes a message on creation" do # https://github.com/krisleech/wisper/issues/60
-    # expect { create(:user) }.to publish_event(User, :user_created)
-    user = nil
-    expect { user = create(:user) }.to broadcast(user, :user_created)
+  it "publishes a message on creation" do # https://github.com/krisleech/wisper/issues/60
+    expect { create(:user) }.to broadcast(:user_created)
   end
 
   it { should validate_presence_of(:email) }

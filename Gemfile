@@ -21,7 +21,7 @@ gem 'select2-rails'
 gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'wisper'
+gem 'wisper', github: "krisleech/wisper", ref: "d2ba188cccf6fa4ec19d0b1150030466f964fe62"
 
 group :development do
   gem 'better_errors'

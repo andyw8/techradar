@@ -1,4 +1,8 @@
+require "wisper/rspec/matchers"
+
 RSpec.configure do |config|
+  config.include Wisper::Rspec::BroadcastMatcher
+
   config.order = :random
   Kernel.srand config.seed
 
