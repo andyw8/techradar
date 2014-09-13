@@ -53,10 +53,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner', '1.0.1'
   gem 'rspec-activemodel-mocks'
-  # simplecov is used by codeclimate-test-reporter but
-  # circleci recommends avoiding 0.8 due to
-  # https://github.com/colszowka/simplecov/issues/281
-  gem 'simplecov', '~> 0.7.1'
+  gem 'simplecov', '~> 0.9'
 end
 
 group :production do
