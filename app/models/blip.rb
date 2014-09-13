@@ -9,14 +9,12 @@ class Blip < ActiveRecord::Base
             presence: true,
             uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
 
-  validates :topic, presence: true
+  validates :topic, :radar, presence: true
 
   validates :quadrant,
             presence: true,
             inclusion:
               { in: QUADRANTS }
-
-  validates :radar, presence: true
 
   validates :ring,
             presence: true,
@@ -28,9 +26,7 @@ class Blip < ActiveRecord::Base
       .where(blips: { name: name })
   end
 
-  def name
-    topic.name
-  end
+  delegate :name, to: :topic
 
   def radar_name
     radar.name
