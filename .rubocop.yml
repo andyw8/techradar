@@ -13,5 +13,3 @@ PercentLiteralDelimiters:
   Enabled: false
 Documentation:
   Enabled: false
-IrresponsibleModule:
-  Enabled: false
