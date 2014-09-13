@@ -23,7 +23,7 @@ feature 'Show radar' do
   scenario 'User has a radar' do
     create(:radar, name: 'March 2014', owner: user)
     visit radars_path
-    within('.radars') do
+    within('ul.radars') do
       expect(page).to have_text('March 2014')
     end
   end
@@ -46,11 +46,9 @@ feature 'Show radar' do
   scenario 'Delete a radar' do
     radar = create(:radar, owner: user)
     navigate_to_radars
-    within('.radars') { click_link radar.name }
+    within('ul.radars') { click_link radar.name }
     click_button 'Delete'
-    within('.radars') do
-      expect(page).to have_no_text(radar.name)
-    end
+    expect(page).to have_no_text(radar.name)
   end
 
   private
