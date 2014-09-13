@@ -15,3 +15,10 @@ PercentLiteralDelimiters:
   Enabled: false
 Documentation:
   Enabled: false
+Metrics/MethodLength:
+  Exclude:
+    - app/helpers/application_helper.rb
+    - app/lib/thought_works_importer.rb
+Style/GuardClause:
+  Exclude:
+    - app/lib/thought_works_importer.rb
