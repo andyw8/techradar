@@ -9,3 +9,5 @@ require 'quality/rake/task'
 Quality::Rake::Task.new do |t|
   t.skip_tools = %w(cane flog flay)
 end
+
+task default: [:spec, :quality]
