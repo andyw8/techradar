@@ -2,7 +2,7 @@ if ENV["COVERAGE"]
   require 'simplecov'
   SimpleCov.start do
     add_filter '/spec'
-    add_filter '/config/initializers/airbrake.rb'
+    add_filter '/config/initializers/airbrake\.rb'
   end
 end
 
