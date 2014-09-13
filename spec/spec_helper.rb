@@ -1,3 +1,11 @@
+if ENV["COVERAGE"]
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter '/spec'
+    add_filter '/config/initializers/airbrake.rb'
+  end
+end
+
 require "wisper/rspec/matchers"
 
 RSpec.configure do |config|
