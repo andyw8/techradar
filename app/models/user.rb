@@ -20,9 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def add_radar(params)
-    new_radar(params).tap do |radar|
-      radar.save!
-    end
+    new_radar(params).tap(&(:save!))
   end
 
   after_create do |user|
