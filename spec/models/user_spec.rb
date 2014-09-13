@@ -10,8 +10,8 @@ describe User do
     }
   end
 
-  it "should create a new instance given a valid attribute" do
-    expect { User.create!(attrs) }.not_to raise_error
+  it "creates a new instance given a valid attribute" do
+    expect { described_class.create!(attrs) }.not_to raise_error
   end
 
   it "publishes a message on creation" do # https://github.com/krisleech/wisper/issues/60
@@ -20,18 +20,18 @@ describe User do
 
   it { should validate_presence_of(:email) }
 
-  it "should accept valid email addresses" do
+  it "accepts valid email addresses" do
     addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
     addresses.each do |address|
-      valid_email_user = User.new(attrs.merge(email: address))
+      valid_email_user = described_class.new(attrs.merge(email: address))
       expect(valid_email_user).to be_valid
     end
   end
 
-  it "should reject invalid email addresses" do
+  it "rejects invalid email addresses" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
     addresses.each do |address|
-      invalid_email_user = User.new(attrs.merge(email: address))
+      invalid_email_user = described_class.new(attrs.merge(email: address))
       expect(invalid_email_user).not_to be_valid
     end
   end
@@ -39,13 +39,13 @@ describe User do
   it { should validate_uniqueness_of(:email).case_insensitive }
 
   describe "passwords" do
-    let(:user) { User.new(attrs) }
+    let(:user) { described_class.new(attrs) }
 
-    it "should have a password attribute" do
+    it "has a password attribute" do
       expect(user).to respond_to(:password)
     end
 
-    it "should have a password confirmation attribute" do
+    it "has a password confirmation attribute" do
       expect(user).to respond_to(:password_confirmation)
     end
   end
@@ -57,13 +57,13 @@ describe User do
   end
 
   describe "password encryption" do
-    let(:user) { User.create!(attrs) }
+    let(:user) { described_class.create!(attrs) }
 
-    it "should have an encrypted password attribute" do
+    it "has an encrypted password attribute" do
       expect(user).to respond_to(:encrypted_password)
     end
 
-    it "should set the encrypted password attribute" do
+    it "sets the encrypted password attribute" do
       expect(user.encrypted_password).not_to be_blank
     end
   end

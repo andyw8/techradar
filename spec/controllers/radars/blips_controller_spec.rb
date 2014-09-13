@@ -14,7 +14,7 @@ describe Radars::BlipsController do
   end
 
   describe "GET 'new'" do
-    it "should be successful" do
+    specify do
       get :new, radar_id: radar.to_param
       expect(response).to be_successful
     end

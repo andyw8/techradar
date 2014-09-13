@@ -31,9 +31,9 @@ describe Blip do
     end
   end
 
-  xit "should touch its parent radar when saved" do
+  xit "touches its parent radar when saved" do
   end
 
-  xit "should touch its parent when a new blip is added" do
+  xit "touches its parent when a new blip is added" do
   end
 end

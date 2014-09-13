@@ -5,7 +5,7 @@ describe Starter, :admin do
   it "creates a sample radar" do
     user = create(:user)
 
-    Starter.new.user_created(user)
+    described_class.new.user_created(user)
 
     radars = user.radars
     expect(radars.count).to eq(1)
@@ -15,7 +15,7 @@ describe Starter, :admin do
   it "creates a sample blip" do
     user = create(:user)
 
-    Starter.new.user_created(user)
+    described_class.new.user_created(user)
 
     expect(user.radars.first.blips.count).to eq(1)
   end
