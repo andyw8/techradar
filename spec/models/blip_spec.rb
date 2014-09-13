@@ -30,4 +30,10 @@ describe Blip do
       expect(duplicate_blip).to be_valid
     end
   end
+
+  xit "should touch its parent radar when saved" do
+  end
+
+  xit "should touch its parent when a new blip is added" do
+  end
 end
