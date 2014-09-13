@@ -43,7 +43,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
-  gem 'quality', github: 'andyw8/quality', branch: 'disabled-auto-git-commit'
+  gem 'quality'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
 end
