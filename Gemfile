@@ -42,6 +42,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pry-rescue'
   gem 'pry-stack_explorer'
   gem 'quality', github: 'andyw8/quality', branch: 'disabled-auto-git-commit'
   gem 'rspec-rails'
