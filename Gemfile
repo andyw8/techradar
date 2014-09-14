@@ -4,6 +4,7 @@ ruby '2.1.2'
 gem 'rails', '4.1.6'
 
 gem 'airbrake'
+gem 'analytics-ruby', '~> 2.0.0', require: 'segment/analytics'
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
