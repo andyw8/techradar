@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/krisleech/wisper.git
-  revision: d2ba188cccf6fa4ec19d0b1150030466f964fe62
-  ref: d2ba188cccf6fa4ec19d0b1150030466f964fe62
-  specs:
-    wisper (1.3.0)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 29f8f768f1702c6d032854b870d14eadb81cea88
   branch: master
@@ -308,6 +301,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    wisper (1.6.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -362,4 +356,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
-  wisper!
+  wisper
