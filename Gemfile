@@ -26,7 +26,7 @@ gem 'wisper', github: "krisleech/wisper", ref: "d2ba188cccf6fa4ec19d0b1150030466
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', platforms: %i(mri_19 mri_20 mri_21 rbx)
+  gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :mri_21, :rbx]
   gem 'foreman'
   gem 'letter_opener'
   gem 'quiet_assets'
