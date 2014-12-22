@@ -18,7 +18,10 @@
 # minimal Rails specific artifacts
 db/*.sqlite3
 /db/*.sqlite3-journal
-/log/*
+
+# Ignore all logfiles and tempfiles
++/log/*
++!/log/.keep
 /tmp/*
 
 # various artifacts

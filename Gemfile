@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 ruby "2.1.2"
 
-gem "rails", "4.1.6"
+gem "rails", "4.2.0"
 
 gem "airbrake"
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics"
 gem "bootstrap-sass"
-gem "coffee-rails", "~> 4.0.0"
+gem "coffee-rails", "~> 4.1.0"
 gem "devise"
 gem "draper"
 gem "friendly_id"
@@ -15,7 +15,8 @@ gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
-gem "sass-rails", "~> 4.0.3"
+gem "responders", github: "plataformatec/responders" # waiting for official 4.2 support
+gem "sass-rails", "~> 5.0"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "sendgrid"
@@ -27,8 +28,6 @@ gem "unicorn"
 gem "wisper"
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller", platforms: [:mri_19, :mri_20, :mri_21, :rbx]
   gem "foreman"
   gem "letter_opener"
   gem "quiet_assets"
@@ -50,6 +49,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop-rspec"
   gem "shoulda-matchers", require: false
+  gem "web-console", "~> 2.0"
 end
 
 group :test do
