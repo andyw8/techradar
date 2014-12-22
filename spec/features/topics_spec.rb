@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Topics' do
+feature "Topics" do
   scenario "View list of topics" do
     create(:topic, name: "Java")
     create(:topic, name: "Python")

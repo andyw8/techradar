@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Topic do
   before(:all) do
@@ -15,7 +15,7 @@ describe Topic do
 
   it { should have_many(:blips) }
 
-  it { should belong_to(:creator).class_name('User') }
+  it { should belong_to(:creator).class_name("User") }
   it { should validate_presence_of(:creator) }
 
   describe ".techradar", :admin do

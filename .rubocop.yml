@@ -8,7 +8,7 @@ AllCops:
     - db/migrate/*.rb
     - config/initializers/devise.rb
 StringLiterals:
-  Enabled: false
+  EnforcedStyle: double_quotes
 LineLength:
   Enabled: false
 PercentLiteralDelimiters:

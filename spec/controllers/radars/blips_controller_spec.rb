@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Radars::BlipsController do
   include StubCurrentUserHelper
 
   let(:radar) { build_stubbed(:radar) }
-  let(:blip) { double('Blip') }
+  let(:blip) { double("Blip") }
 
   before do
     user = build(:user)
@@ -46,7 +46,7 @@ describe Radars::BlipsController do
       end
 
       it "renders the 'new' template" do
-        expect(response).to render_template('new')
+        expect(response).to render_template("new")
       end
     end
   end
@@ -57,42 +57,42 @@ describe Radars::BlipsController do
 
     it "destroys the blip" do
       expect(blip).to receive(:destroy!)
-      delete 'destroy', radar_id: radar.id, id: blip.id
+      delete "destroy", radar_id: radar.id, id: blip.id
     end
 
     it "redirects to the parent radar" do
       allow(blip).to receive(:destroy!)
-      delete 'destroy', radar_id: radar.id, id: blip.id
+      delete "destroy", radar_id: radar.id, id: blip.id
       expect(response).to redirect_to(radar)
     end
   end
 
   context "PUT /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
-    let(:params) { { notes: 'updated notes' } }
+    let(:params) { { notes: "updated notes" } }
     before { allow(radar).to receive(:find_blip) { blip } }
 
     it "updates the blip" do
-      expect(blip).to receive(:update).with("notes" => 'updated notes')
-      put 'update', radar_id: radar.id, id: blip.id, blip: params
+      expect(blip).to receive(:update).with("notes" => "updated notes")
+      put "update", radar_id: radar.id, id: blip.id, blip: params
     end
 
     it "redirects to the parent radar on success" do
       allow(blip).to receive(:update) { true }
-      put 'update', radar_id: radar.id, id: blip.id, blip: params
+      put "update", radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 
     it "redirects to the parent radar on success" do
       allow(blip).to receive(:update) { true }
-      put 'update', radar_id: radar.id, id: blip.id, blip: params
+      put "update", radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 
     it "re-renders the 'edit' template in failure" do
       allow(blip).to receive(:update) { false }
-      put 'update', radar_id: radar.id, id: blip.id, blip: { name: 'updated name' }
-      expect(response).to render_template('edit')
+      put "update", radar_id: radar.id, id: blip.id, blip: { name: "updated name" }
+      expect(response).to render_template("edit")
     end
   end
 end

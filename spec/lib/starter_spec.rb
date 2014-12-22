@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'starter'
+require "rails_helper"
+require "starter"
 
 describe Starter, :admin do
   it "creates a sample radar" do

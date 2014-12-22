@@ -7,7 +7,7 @@ class Blip < ActiveRecord::Base
 
   validates :topic_id,
             presence: true,
-            uniqueness: { scope: :radar_id, message: 'already exists in this radar' }
+            uniqueness: { scope: :radar_id, message: "already exists in this radar" }
 
   validates :topic, :radar, presence: true
 

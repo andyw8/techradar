@@ -5,7 +5,7 @@ class Starter
   def user_created(user)
     radar = user.add_radar(name: DEFAULT_RADAR_NAME)
     topic = Topic.techradar
-    radar.add_blip(topic: topic, quadrant: 'tools', ring: 'assess', notes: DEFAULT_NOTES)
+    radar.add_blip(topic: topic, quadrant: "tools", ring: "assess", notes: DEFAULT_NOTES)
   end
 
   private

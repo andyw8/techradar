@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe RadarsController do
   include StubCurrentUserHelper
@@ -9,9 +9,9 @@ describe RadarsController do
   describe "GET 'index'" do
     context "when the user is not signed in" do
       it "lists all radars" do
-        all_radars = double('all_radars')
+        all_radars = double("all_radars")
         allow(Radar).to receive(:all) { all_radars }
-        get 'index'
+        get "index"
         expect(assigns(:radars)).to eq all_radars
       end
     end
@@ -20,16 +20,16 @@ describe RadarsController do
       before { sign_in(user) }
 
       context do
-        before { get 'index' }
+        before { get "index" }
         specify { expect(response).to be_success }
-        specify { expect(response).to render_template('radars/index') }
+        specify { expect(response).to render_template("radars/index") }
       end
 
       it "lists only radars created by the owner" do # should this be here?
         my_radar = create(:radar, owner: user)
         another_user = create(:user)
         create(:radar, owner: another_user)
-        get 'index'
+        get "index"
         expect(assigns(:radars).map(&:name)).to eq [my_radar.name]
       end
     end
@@ -45,21 +45,21 @@ describe RadarsController do
     end
 
     it "creates a radar" do
-      radar = mock_model('Radar', save: true)
+      radar = mock_model("Radar", save: true)
       allow(user).to receive(:new_radar) { radar }
-      post 'create', radar: params
+      post "create", radar: params
     end
 
     it "redirects to the newly created radar" do
-      post 'create', radar: params
+      post "create", radar: params
       expect(response).to redirect_to(radar_path(Radar.last))
     end
 
     it "does not create a radar with invalid params" do
-      radar = double('Radar', save: false)
+      radar = double("Radar", save: false)
       allow(user).to receive(:new_radar) { radar }
-      post 'create', radar: params
-      expect(response).to render_template('radars/new')
+      post "create", radar: params
+      expect(response).to render_template("radars/new")
     end
   end
 
@@ -73,7 +73,7 @@ describe RadarsController do
       radar = build_stubbed(:radar)
       expect(user).to receive(:find_radar).with(radar.id.to_s).and_return(radar)
       expect(radar).to receive(:destroy!)
-      delete 'destroy', id: radar.id
+      delete "destroy", id: radar.id
     end
   end
 end

@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin
     return if current_user && current_user.admin?
-    redirect_to root_url, notice: 'Access denied, admin only'
+    redirect_to root_url, notice: "Access denied, admin only"
   end
 end

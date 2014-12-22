@@ -2,7 +2,7 @@ module Radars
   class BlipsController < ApplicationController
     def new
       @blip = radar.new_blip({})
-      render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
+      render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def create
@@ -10,23 +10,23 @@ module Radars
       if blip.save
         redirect_to radar
       else
-        render 'new', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
+        render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
       end
     end
 
     def show
-      render 'show', locals: { quadrants: quadrants, rings: rings, blip: blip.decorate, topics: topics }
+      render "show", locals: { quadrants: quadrants, rings: rings, blip: blip.decorate, topics: topics }
     end
 
     def edit
-      render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
+      render "edit", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def update
       if blip.update(blip_params)
         redirect_to radar, notice: "Blip updated"
       else
-        render 'edit', locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
+        render "edit", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
       end
     end
 

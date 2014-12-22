@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :radars, foreign_key: 'owner_id'
+  has_many :radars, foreign_key: "owner_id"
 
   def find_radar(id)
     radars.find(id)

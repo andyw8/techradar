@@ -1,5 +1,5 @@
 class Radar < ActiveRecord::Base
-  belongs_to :owner, class_name: 'User'
+  belongs_to :owner, class_name: "User"
   has_many :blips, dependent: :delete_all
 
   validates :name, presence: true

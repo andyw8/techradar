@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
 # Pick the frameworks you want:
 require "active_record/railtie"
@@ -17,7 +17,7 @@ module Techradar
     config.generators do |generators|
 
       generators.test_framework :rspec, fixture: true
-      generators.fixture_replacement :factory_girl, dir: 'spec/factories'
+      generators.fixture_replacement :factory_girl, dir: "spec/factories"
 
       generators.view_specs false
       generators.helper_specs false

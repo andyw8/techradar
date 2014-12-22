@@ -19,7 +19,7 @@ class RadarsController < ApplicationController
     if @radar.save
       redirect_to @radar
     else
-      render 'new'
+      render "new"
     end
   end
 
