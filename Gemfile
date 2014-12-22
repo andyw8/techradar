@@ -37,6 +37,8 @@ group :development do
 end
 
 group :development, :test do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
@@ -49,7 +51,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop-rspec"
   gem "shoulda-matchers", require: false
-  gem "web-console", "~> 2.0"
 end
 
 group :test do
