@@ -42,6 +42,7 @@ group :development, :test do
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "haml-lint"
   gem "launchy"
   gem "pry"
   gem "pry-byebug"
