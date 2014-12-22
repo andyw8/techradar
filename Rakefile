@@ -5,10 +5,12 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-require 'quality/rake/task'
-Quality::Rake::Task.new do |t|
-  t.skip_tools = %w(cane flog flay)
-  t.ruby_dirs = %w(app lib spec)
+if Rails.env.test?
+  require 'quality/rake/task'
+  Quality::Rake::Task.new do |t|
+    t.skip_tools = %w(cane flog flay)
+    t.ruby_dirs = %w(app lib spec)
+  end
 end
 
 # BROKEN fails with Devise secret key error
