@@ -8,7 +8,7 @@ Rails.application.load_tasks
 if Rails.env.development? || Rails.env.test?
   require "quality/rake/task"
   Quality::Rake::Task.new do |t|
-    t.skip_tools = %w(cane flog flay)
+    t.skip_tools = %w(cane flog flay reek)
     t.ruby_dirs = %w(app lib spec)
   end
 end
