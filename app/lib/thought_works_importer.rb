@@ -35,7 +35,7 @@ class ThoughtWorksImporter
     quadrant = blip.fetch("quadrant").underscore
     notes = blip.fetch("description")
     last_modified = blip.fetch("lastModified")
-    puts "Adding: #{name}"
+    logger.info "Adding: #{name}"
     topic = Topic.where(["lower(name) = ?", name.downcase]).first ||
             Topic.create!(name: name, creator: User.thoughtworks)
     blip = radar.blips.create(topic: topic, ring: ring, quadrant: quadrant, notes: notes)
