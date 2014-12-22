@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg'
+gem 'rack-timeout' # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
 gem 'sass-rails', '~> 4.0.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -22,6 +23,7 @@ gem 'select2-rails'
 gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'unicorn'
 gem 'wisper', github: "krisleech/wisper", ref: "d2ba188cccf6fa4ec19d0b1150030466f964fe62"
 
 group :development do
