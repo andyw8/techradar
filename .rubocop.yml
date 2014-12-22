@@ -1,6 +1,7 @@
 require: rubocop-rspec
 
 AllCops:
+  RunRailsCops: true
   Exclude:
     - bin/*
     - db/schema.rb
