@@ -15,7 +15,6 @@ module Techradar
   class Application < Rails::Application
     # don't generate RSpec tests for views and helpers
     config.generators do |generators|
-
       generators.test_framework :rspec, fixture: true
       generators.fixture_replacement :factory_girl, dir: "spec/factories"
 

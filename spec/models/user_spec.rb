@@ -21,7 +21,7 @@ describe User do
   it { should validate_presence_of(:email) }
 
   it "accepts valid email addresses" do
-    addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
+    addresses = %w(user@foo.com THE_USER@foo.bar.org first.last@foo.jp)
     addresses.each do |address|
       valid_email_user = described_class.new(attrs.merge(email: address))
       expect(valid_email_user).to be_valid
@@ -29,7 +29,7 @@ describe User do
   end
 
   it "rejects invalid email addresses" do
-    addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
+    addresses = %w(user@foo,com user_at_foo.org example.user@foo.)
     addresses.each do |address|
       invalid_email_user = described_class.new(attrs.merge(email: address))
       expect(invalid_email_user).not_to be_valid

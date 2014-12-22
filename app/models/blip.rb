@@ -1,6 +1,6 @@
 class Blip < ActiveRecord::Base
-  QUADRANTS = %w{techniques tools platforms languages_and_frameworks}
-  RINGS = %w{assess trial adopt hold}
+  QUADRANTS = %w(techniques tools platforms languages_and_frameworks)
+  RINGS = %w(assess trial adopt hold)
 
   belongs_to :radar
   belongs_to :topic

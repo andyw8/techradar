@@ -7,18 +7,26 @@ AllCops:
     - db/seeds.rb
     - db/migrate/*.rb
     - config/initializers/devise.rb
-StringLiterals:
-  EnforcedStyle: double_quotes
-LineLength:
-  Enabled: false
-PercentLiteralDelimiters:
-  Enabled: false
-Documentation:
+Metrics/AbcSize:
+  Exclude:
+    - app/lib/thought_works_importer.rb # TODO
+Metrics/LineLength:
   Enabled: false
 Metrics/MethodLength:
   Exclude:
     - app/helpers/application_helper.rb
     - app/lib/thought_works_importer.rb
+Rails/Delegate:
+  Exclude:
+    - app/models/blip.rb # TODO
+Rails/Output:
+  Exclude:
+    - config/initializers/analytics_ruby.rb
+    - config/unicorn.rb
+Style/Documentation:
+  Enabled: false
 Style/GuardClause:
   Exclude:
     - app/lib/thought_works_importer.rb
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
