@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  THOUGHTWORKS_EMAIL = "thoughtworks@techradar.io"
-
   MissingAdminAccount = Class.new(RuntimeError)
 
   include Wisper::Publisher
@@ -30,9 +28,5 @@ class User < ActiveRecord::Base
   def self.admin
     admin = find_by(admin: true)
     admin || fail(MissingAdminAccount)
-  end
-
-  def self.thoughtworks
-    find_by!(email: THOUGHTWORKS_EMAIL)
   end
 end
