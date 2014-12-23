@@ -14,6 +14,15 @@ GIT
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
+GIT
+  remote: git@github.com:circleci/rspec_junit_formatter.git
+  revision: 7b098c8ab2ac5e5f78190b51629ed6d67a9de4d1
+  specs:
+    rspec_junit_formatter (0.2.0)
+      builder (< 4)
+      rspec (>= 2, < 4)
+      rspec-core (!= 2.12.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -251,6 +260,10 @@ GEM
       ruby_parser (~> 3.3)
       sexp_processor
     request_store (1.0.8)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
     rspec-activemodel-mocks (1.0.1)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -381,6 +394,7 @@ DEPENDENCIES
   responders!
   rspec-activemodel-mocks
   rspec-rails
+  rspec_junit_formatter!
   rubocop-rspec
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

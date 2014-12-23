@@ -58,6 +58,7 @@ group :test do
   gem "capybara"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner", "1.0.1"
+  gem "rspec_junit_formatter", git: "git@github.com:circleci/rspec_junit_formatter.git" # for CircleCI
   gem "rspec-activemodel-mocks"
   gem "simplecov", "~> 0.9"
 end
