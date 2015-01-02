@@ -1,6 +1,6 @@
 class RadarsController < ApplicationController
   before_action :authenticate_user!, except: %i(show index)
-  before_action :find_radar, only: [:show, :destroy]
+  before_action :find_radar, only: [:show, :destroy, :edit, :update]
 
   def index
     @radars = scoped_radars
@@ -12,6 +12,17 @@ class RadarsController < ApplicationController
 
   def new
     @radar = scoped_radars.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @radar.update_attributes(radar_params)
+      redirect_to @radar
+    else
+      render "edit"
+    end
   end
 
   def create

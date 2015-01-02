@@ -1,9 +1,12 @@
 = title 'Radars'
 
-%ul.radars
-  - @radars.each do |radar|
-    %li
-      =link_to radar.name, radar
+- if @radars.any?
+  %ul.radars
+    - @radars.each do |radar|
+      %li
+        =link_to radar.name, radar
+- else
+  No radars
 
 - if can? :create_radar
   = link_to 'New Radar', new_radar_path, class: 'btn btn-default'

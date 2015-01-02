@@ -1,0 +1,8 @@
+= title 'Edit Radar'
+
+= simple_form_for(@radar) do |f|
+  = f.input :name
+  = f.submit 'Update Radar', class: 'btn btn-primary'
+
+%br
+= link_to 'Back to Radar', radar_path(@radar), class: 'btn btn-default'
