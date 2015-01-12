@@ -10,3 +10,11 @@ admin = User.create!(
 admin.confirm!
 puts "Admin Created: #{admin.email}"
 
+thoughtworks = User.create!(
+  name:                  "ThoughtWorks",
+  email:                 User::THOUGHTWORKS_EMAIL,
+  password:              ENV['ADMIN_PASSWORD'],
+  password_confirmation: ENV['ADMIN_PASSWORD']
+)
+thoughtworks.confirm!
+puts "ThoughtWorks Created: #{thoughtworks.email}"
