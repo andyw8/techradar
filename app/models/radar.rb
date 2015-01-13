@@ -2,7 +2,12 @@ class Radar < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :blips, dependent: :delete_all
 
-  validates :name, presence: true
+  validates :name,
+    presence: true,
+    uniqueness: { 
+      scope: :owner,
+      case_sensitive: false
+    }
   validates :owner, presence: true
 
   default_scope { order(updated_at: :desc) }
