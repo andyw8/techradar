@@ -18,4 +18,8 @@ class Topic < ActiveRecord::Base
   def self.by_name
     order("lower(name)")
   end
+
+  def self.lookup(name)
+    Topic.where(["lower(name) = ?", name.downcase]).first
+  end
 end
