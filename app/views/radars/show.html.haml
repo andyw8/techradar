@@ -1,11 +1,5 @@
 =title @radar.name
 
-%dl
-  %dt Created
-  %dd= @radar.created
-  %dt Updated
-  %dd= @radar.updated
-
 - if can? :create_blip, @radar
   = link_to 'New Blip', new_radar_blip_path(@radar), class: 'btn btn-primary'
   %br
