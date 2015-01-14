@@ -9,6 +9,9 @@ class Radar < ActiveRecord::Base
       case_sensitive: false
     }
   validates :owner, presence: true
+  validates :uuid, presence: true, uniqueness: true
+
+  before_validation :set_uuid, on: :create
 
   default_scope { order(updated_at: :desc) }
 
@@ -17,7 +20,7 @@ class Radar < ActiveRecord::Base
   end
 
   def find_blip(id)
-    blips.find(id)
+    blips.friendly.find(id)
   end
 
   def add_blip(params)
@@ -28,5 +31,15 @@ class Radar < ActiveRecord::Base
 
   def owned_by?(user)
     owner == user
+  end
+
+  def to_param
+    uuid
+  end
+
+  private
+
+  def set_uuid
+    self.uuid = SecureRandom.uuid
   end
 end
