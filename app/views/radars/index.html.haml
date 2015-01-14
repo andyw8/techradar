@@ -1,5 +1,8 @@
 = title 'Radars'
 
+- if current_user.first_sign_in?
+  We have a created a radar to get you started.
+
 - if @radars.any?
   %ul.radars
     - @radars.each do |radar|

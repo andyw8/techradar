@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     new_radar(params).tap(&(:save!))
   end
 
+  def first_sign_in?
+    sign_in_count == 1
+  end
+
   after_create do |user|
     publish(:user_created, user)
   end
