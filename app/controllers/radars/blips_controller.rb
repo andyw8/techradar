@@ -1,13 +1,13 @@
 module Radars
   class BlipsController < ApplicationController
     def new
-      @blip = radar.new_blip({})
+      @blip = radar.new_blip(params[:blip])
       render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def create
       @blip = radar.new_blip(blip_params)
-      if blip.save
+      if @blip.save
         redirect_to radar
       else
         render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
@@ -42,7 +42,7 @@ module Radars
     end
 
     def radar
-      @radar ||= Radar.find(params[:radar_id])
+      @radar ||= current_user.find_radar(uuid: params[:radar_id])
     end
 
     def blip
@@ -62,7 +62,7 @@ module Radars
     end
 
     def topics
-      Topic.order(:name)
+      current_user.topics.by_name
     end
   end
 end
