@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629143630) do
+ActiveRecord::Schema.define(version: 20150113193254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blips", force: true do |t|
+  create_table "blips", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "radar_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140629143630) do
   add_index "blips", ["radar_id"], name: "index_blips_on_radar_id", using: :btree
   add_index "blips", ["topic_id"], name: "index_blips_on_topic_id", using: :btree
 
-  create_table "friendly_id_slugs", force: true do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
@@ -42,16 +42,17 @@ ActiveRecord::Schema.define(version: 20140629143630) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "radars", force: true do |t|
+  create_table "radars", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.string   "uuid"
   end
 
   add_index "radars", ["owner_id"], name: "index_radars_on_owner_id", using: :btree
 
-  create_table "topics", force: true do |t|
+  create_table "topics", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "slug",       null: false
     t.datetime "created_at"
@@ -62,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140629143630) do
   add_index "topics", ["creator_id"], name: "index_topics_on_creator_id", using: :btree
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
