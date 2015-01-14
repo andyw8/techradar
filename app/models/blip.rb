@@ -9,7 +9,7 @@ class Blip < ActiveRecord::Base
             presence: true,
             uniqueness: { scope: :radar_id, message: "already exists in this radar" }
 
-  validates :topic, :radar, presence: true
+  validates :radar, presence: true
 
   validates :quadrant,
             presence: true,
