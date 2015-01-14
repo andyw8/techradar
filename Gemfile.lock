@@ -391,6 +391,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_12factor
   rails_layout
+  rails_stdout_logging
   responders!
   rspec-activemodel-mocks
   rspec-rails

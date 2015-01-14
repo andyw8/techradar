@@ -32,6 +32,7 @@ group :development do
   gem "letter_opener"
   gem "quiet_assets"
   gem "rails_layout"
+  gem "rails_stdout_logging"
   gem "spring"
   gem "spring-commands-rspec"
 end
