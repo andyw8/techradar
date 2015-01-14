@@ -35,4 +35,8 @@ class Blip < ActiveRecord::Base
   def radar_owner
     radar.owner
   end
+
+  def to_param
+    topic.slug
+  end
 end
