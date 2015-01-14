@@ -1,13 +1,16 @@
 =title topic.name
 
-This topic appears in the following radars:
+- if topic.blips.any?
+  This topic appears your following radars:
 
-- topic.blips.includes(:radar).decorate.each do |blip|
-  %h2
-    = link_to blip.radar_name, blip.radar
+  - topic.blips.includes(:radar).decorate.each do |blip|
+    %h2
+      = link_to blip.radar_name, blip.radar
 
-  = admin do
-    Owner:
-    = link_to blip.radar_owner.name, blip.radar_owner
+    = admin do
+      Owner:
+      = link_to blip.radar_owner.name, blip.radar_owner
 
-  = render 'radars/blips/detail', blip: blip
+    = render 'radars/blips/detail', blip: blip
+- else
+  This topic doesn't yet appear on any of your radars.

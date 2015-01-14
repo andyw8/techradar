@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :radars, foreign_key: "owner_id"
+  has_many :topics, foreign_key: "creator_id"
 
-  def find_radar(id)
-    radars.find(id)
+  def find_radar(uuid:)
+    radars.find_by!(uuid: uuid)
   end
 
   def new_radar(params)
@@ -39,4 +40,6 @@ class User < ActiveRecord::Base
   def self.thoughtworks
     find_by!(email: THOUGHTWORKS_EMAIL)
   end
+
+
 end
