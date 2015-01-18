@@ -1,0 +1,3 @@
+- Blip::QUADRANTS.each_with_index do |quadrant, i|
+  = link_to quadrant.titleize, radar_quadrant_path(@radar, quadrant: quadrant)
+  = "|" unless i == Blip::QUADRANTS.size - 1
