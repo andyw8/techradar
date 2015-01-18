@@ -13,8 +13,10 @@ gem "friendly_id"
 gem "haml-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
+gem "jquery-turbolinks"
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
+gem "rasem"
 gem "responders", github: "plataformatec/responders" # waiting for official 4.2 support
 gem "sass-rails", "~> 5.0"
 # bundle exec rake doc:rails generates the API under doc/api.
