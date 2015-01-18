@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "techradar.io - Confirmation instructions"
+      reset_password_instructions:
+        subject: "techradar.io - Reset password instructions"
+      unlock_instructions:
+        subject: "techradar.io - Unlock instructions"
