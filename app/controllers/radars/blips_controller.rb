@@ -8,7 +8,7 @@ module Radars
     def create
       @blip = radar.new_blip(blip_params)
       if @blip.save
-        redirect_to radar
+        redirect_to radar_quadrant_path(radar, quadrant: blip.quadrant)
       else
         render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
       end
