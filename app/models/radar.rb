@@ -20,7 +20,19 @@ class Radar < ActiveRecord::Base
   end
 
   def find_blip(id)
-    blips.friendly.find(id)
+    blips.includes(:topic).find_by!("topics.slug" => id)
+  end
+
+  def blips_in_quadrant(quadrant)
+    blips.where(quadrant: quadrant)
+  end
+
+  def blips_in_ring(ring)
+    blips.where(ring: ring)
+  end
+
+  def blips_in_scope(ring:, quadrant:)
+    blips.includes(:topic).where(ring: ring, quadrant: quadrant).order("topics.name")
   end
 
   def add_blip(params)

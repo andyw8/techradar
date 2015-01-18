@@ -12,6 +12,7 @@
 # about supported directives.
 #
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap
@@ -20,3 +21,15 @@
 
 $(document).ready ->
   $(".select2").select2()
+  $("circle").on("mouseover", (e) ->
+    $("a#" + e.target.id).toggleClass("highlight")
+  )
+  $("circle").on("mouseout", (e) ->
+    $("a#" + e.target.id).toggleClass("highlight")
+  )
+  $("a.blip").on("mouseover", (e) ->
+    $("circle#" + e.target.id).attr("style", "fill:yellow;")
+  )
+  $("a.blip").on("mouseout", (e) ->
+    $("circle#" + e.target.id).attr("style", "fill:black;")
+  )

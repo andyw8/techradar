@@ -32,7 +32,8 @@ module Radars
 
     def destroy
       blip.destroy!
-      redirect_to radar
+      quadrant = blip.quadrant
+      redirect_to radar_quadrant_path(radar, quadrant)
     end
 
     private
