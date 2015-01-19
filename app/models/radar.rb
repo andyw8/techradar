@@ -15,6 +15,8 @@ class Radar < ActiveRecord::Base
 
   default_scope { order(updated_at: :desc) }
 
+  attr_accessor :topics
+
   def new_blip(params)
     blips.new(params)
   end
