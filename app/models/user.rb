@@ -12,6 +12,23 @@ class User < ActiveRecord::Base
   has_many :radars, foreign_key: "owner_id"
   has_many :topics, foreign_key: "creator_id"
 
+  attr_accessor :login
+
+  validates :username,
+    presence: true,
+    uniqueness: {
+    case_sensitive: false
+  }
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
+    end
+  end
+
   def find_radar(uuid:)
     radars.find_by!(uuid: uuid)
   end
