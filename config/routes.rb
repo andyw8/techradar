@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   get "/radars/:id(/:quadrant)", controller: "radars", action: "show", as: "radar_quadrant"
   resources :topics, only: [:index, :show, :new, :create]
+  get "/about", controller: "pages", action: "about"
 end
