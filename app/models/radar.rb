@@ -49,6 +49,10 @@ class Radar < ActiveRecord::Base
     uuid
   end
 
+  def blips_in_quadrant_count(quadrant)
+    blips.where(quadrant: quadrant).count
+  end
+
   private
 
   def set_uuid

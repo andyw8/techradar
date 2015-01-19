@@ -1,4 +1,11 @@
-=title @radar.name
+.clearfix
+  =title @radar.name
+
+  - if current_user
+    .public-sharing-link
+      =link_to "Public Sharing Link", radar_url(@radar)
+
+%h3= "Created by #{@radar.owner.name}" unless current_user
 
 = render 'management', radar: @radar
 %br

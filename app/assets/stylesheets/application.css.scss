@@ -19,6 +19,12 @@
 .home h1, .tagline { text-align: center }
 div.admin { background-color: yellow; }
 
+.radars {
+  h1 {
+    float: left;
+  }
+}
+
 form.button_to { display: inline; }
 .highlight {
   background-color: yellow;
@@ -38,4 +44,8 @@ form.button_to { display: inline; }
 .social-links {
   text-align: right;
   font-size:small;
+}
+
+.public-sharing-link {
+  text-align: right;
 }
