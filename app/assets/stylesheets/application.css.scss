@@ -12,9 +12,13 @@
  *
  *= require select2
  *= require select2-bootstrap
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .home h1, .tagline { text-align: center }
 div.admin { background-color: yellow; }
