@@ -3,6 +3,9 @@ module Radars
     before_action :authenticate_user!, except: :show
 
     def new
+      if current_user.topics.empty?
+        return redirect_to(new_topic_path, notice: "Please add some topics before attempting to add blips to your radar")
+      end
       @blip = radar.new_blip(params[:blip])
       render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
