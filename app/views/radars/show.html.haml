@@ -1,6 +1,8 @@
 .clearfix
   =title radar.name
 
+%p= radar.description if radar.description?
+
 %h3= "Created by #{radar.owner.name}" unless current_user
 
 = render 'management', radar: @radar

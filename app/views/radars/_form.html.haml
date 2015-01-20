@@ -1,0 +1,5 @@
+= simple_form_for(radar) do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :topics, as: :text, input_html: { rows: 6 }, hint: "List any new topics that you want track, one per line. You can add more later." unless radar.persisted?
+  = f.submit class: 'btn btn-primary'

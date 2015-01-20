@@ -60,7 +60,7 @@ class RadarsController < ApplicationController
   private
 
   def radar_params
-    params.require(:radar).permit(:name, :topics)
+    params.require(:radar).permit(:name, :description, :topics)
   end
 
   def scoped_radars
