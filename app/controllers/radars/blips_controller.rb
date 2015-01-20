@@ -1,5 +1,7 @@
 module Radars
   class BlipsController < ApplicationController
+    before_action :authenticate_user!, except: :show
+
     def new
       @blip = radar.new_blip(params[:blip])
       render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
@@ -15,7 +17,7 @@ module Radars
     end
 
     def show
-      render "show", locals: { quadrants: quadrants, rings: rings, blip: blip.decorate, topics: topics }
+      render "show", locals: { quadrants: quadrants, rings: rings, blip: blip.decorate } # , topics: topics }
     end
 
     def edit
@@ -43,7 +45,11 @@ module Radars
     end
 
     def radar
-      @radar ||= current_user.find_radar(uuid: params[:radar_id])
+      if current_user
+        @radar ||= current_user.find_radar(uuid: params[:radar_id])
+      else
+        @radar ||= Radar.find_by(uuid: params[:radar_id])
+      end
     end
 
     def blip
