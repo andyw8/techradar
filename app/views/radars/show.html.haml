@@ -1,24 +1,10 @@
 .clearfix
-  =title @radar.name
+  =title radar.name
 
-  - if current_user
-    .public-sharing-link
-      =link_to "Public Sharing Link", radar_url(@radar)
-
-%h3= "Created by #{@radar.owner.name}" unless current_user
+%h3= "Created by #{radar.owner.name}" unless current_user
 
 = render 'management', radar: @radar
 %br
 %br
 
-.quadrant-nav
-  = render 'quadrant_nav'
-
-- if params[:quadrant]
-  .row
-    .col-md-6
-      = render 'categorized_blips', radar: @radar
-    .col-md-6
-      = raw @svg
-- else
-  Please choose a quadrant to view.
+= render 'radar', locals: { radar: @radar }

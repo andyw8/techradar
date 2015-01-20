@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :radars, foreign_key: "owner_id"
   has_many :topics, foreign_key: "creator_id"
+  has_many :blips, through: :radars
 
   attr_accessor :login
 

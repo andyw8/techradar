@@ -4,9 +4,9 @@
   %p
     Welcome to <strong>techradar.io</strong>. We have a created a radar to help you get started.
 
-- if @radars.any?
+- if radars.any?
   %ul.radars
-    - @radars.each do |radar|
+    - radars.each do |radar|
       %li
         =link_to radar.name, radar
 - else

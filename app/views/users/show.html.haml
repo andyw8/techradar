@@ -1,4 +1,6 @@
-= title @user.email
+= title @user.username
+
+= "#{@user.name} has published #{pluralize @user.radars.count, "radar"} with #{pluralize @user.blips.count, "blip"}."
 
 %h2 Radars
 

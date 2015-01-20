@@ -1,0 +1,11 @@
+.quadrant-nav
+  = render 'quadrant_nav'
+
+- if params[:quadrant]
+  .row
+    .col-md-6
+      = render 'categorized_blips', radar: @radar
+    .col-md-6
+      = raw @svg
+- else
+  Please choose a quadrant to view.
