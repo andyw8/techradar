@@ -5,6 +5,7 @@ class UsernameConstraint
 end
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "home#show"
   devise_for :users, controllers: { registrations: "registrations" }
   get "/:username", constraints: UsernameConstraint, controller: "users", action: "show"

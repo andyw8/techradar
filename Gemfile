@@ -18,6 +18,7 @@ gem "jquery-rails"
 gem "jquery-turbolinks"
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
+gem "rails_admin"
 gem "rasem"
 gem "responders", github: "plataformatec/responders" # waiting for official 4.2 support
 gem "sass-rails", "~> 5.0"
