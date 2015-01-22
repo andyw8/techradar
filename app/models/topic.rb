@@ -5,8 +5,7 @@ class Topic < ActiveRecord::Base
   validates :name,
     presence: true,
     uniqueness: {
-      case_sensitive: false,
-      scope: :creator
+      case_sensitive: false
     }
   validates :slug, presence: true, uniqueness: true
   validates :creator, presence: true

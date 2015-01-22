@@ -18,8 +18,8 @@ class TopicsController < ApplicationController
 
   def create
     topic = scoped_topics.new(topic_params)
-    if topic.save
-      redirect_to topics_path
+    if topic.save!
+      redirect_to radars_path
     else
       render "new", locals: { topic: topic }
     end
@@ -32,6 +32,6 @@ class TopicsController < ApplicationController
   end
 
   def scoped_topics
-    current_user.topics
+    current_user.created_topics
   end
 end

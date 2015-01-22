@@ -1,6 +1,5 @@
 class RadarsController < ApplicationController
   before_action :authenticate_user!, except: :show
-  # before_action :find_radar, only: [:show, :destroy, :edit, :update]
 
   def index
     render "index", locals: { radars: scoped_radars }
@@ -68,11 +67,6 @@ class RadarsController < ApplicationController
   end
 
   def find_radar
-    radar_uuid = params.fetch(:id)
-    if current_user
-      @radar = current_user.find_radar(uuid: radar_uuid)
-    else
-      @radar = Radar.find_by!(uuid: params[:id])
-    end
+    @radar = Radar.find_by!(uuid: params[:id])
   end
 end

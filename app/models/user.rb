@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :radars, foreign_key: "owner_id"
-  has_many :topics, foreign_key: "creator_id"
+  has_many :created_topics, foreign_key: "creator_id", class_name: "Topic"
   has_many :blips, through: :radars
 
   attr_accessor :login
@@ -58,6 +58,4 @@ class User < ActiveRecord::Base
   def self.thoughtworks
     find_by!(email: THOUGHTWORKS_EMAIL)
   end
-
-
 end
