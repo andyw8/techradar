@@ -28,7 +28,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :twitter_username)
   end
 
   def scoped_topics

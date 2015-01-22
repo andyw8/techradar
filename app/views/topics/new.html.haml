@@ -2,6 +2,7 @@
 
 = simple_form_for topic do |f|
   = f.input :name
+  = f.input :twitter_username, hint: "This account's avatar will be used as an icon for the topic"
   = f.submit class: 'btn btn-primary'
 
 
