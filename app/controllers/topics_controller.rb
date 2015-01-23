@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
 
   def create
     topic = scoped_topics.new(topic_params)
-    if topic.save!
+    if topic.save
       redirect_to radars_path
     else
       render "new", locals: { topic: topic }

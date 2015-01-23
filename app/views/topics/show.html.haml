@@ -1,4 +1,6 @@
-=title topic.name
+- if topic.twitter_profile_image
+  = image_tag topic.twitter_profile_image, alt: topic.name, class: "twitter-profile"
+= title topic.name
 
 - if topic.blips.any?
   This topic appears your following radars:
@@ -14,3 +16,4 @@
     = render 'radars/blips/detail', blip: blip
 - else
   This topic doesn't yet appear on any of your radars.
+

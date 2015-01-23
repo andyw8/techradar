@@ -15,6 +15,8 @@ class Topic < ActiveRecord::Base
 
   belongs_to :creator, class_name: "User"
 
+  before_create :set_twitter_profile_image
+
   def self.techradar
     find_or_create_by!(name: "techradar.io", creator: User.admin)
   end
@@ -25,5 +27,12 @@ class Topic < ActiveRecord::Base
 
   def self.lookup(name)
     Topic.where(["lower(name) = ?", name.downcase]).first
+  end
+
+  private
+
+  def set_twitter_profile_image
+    return unless twitter_username.present?
+    self.twitter_profile_image = TwitterProfileImage.call(twitter_username)
   end
 end
