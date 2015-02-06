@@ -15,7 +15,7 @@ class Topic < ActiveRecord::Base
 
   belongs_to :creator, class_name: "User"
 
-  before_create :set_twitter_profile_image
+  # before_create :set_twitter_profile_image
 
   def self.techradar
     find_or_create_by!(name: "techradar.io", creator: User.admin)
