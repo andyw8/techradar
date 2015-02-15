@@ -55,7 +55,7 @@ group :development, :test do
   gem "pry-rescue"
   gem "pry-stack_explorer"
   gem "quality"
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 3.2.0"
   gem "rubocop-rspec"
   gem "shoulda-matchers", require: false
 end
