@@ -16,6 +16,6 @@ RSpec.configure do |config|
   include Warden::Test::Helpers
   Warden.test_mode!
   config.before(:example, admin: true) do
-    User.create!(name: "Admin", email: "admin@example.com", admin: true, password: "abcd1234")
+    User.create!(name: "Admin", email: "admin@example.com", username: "admin", admin: true, password: "abcd1234")
   end
 end
