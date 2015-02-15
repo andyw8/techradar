@@ -1,14 +1,7 @@
 require "rails_helper"
 
 describe User do
-  let(:attrs) do
-    {
-      name: "Example User",
-      email: "user@example.com",
-      password: "changeme",
-      password_confirmation: "changeme"
-    }
-  end
+  let(:attrs) { attributes_for(:user) }
 
   it "creates a new instance given a valid attribute" do
     expect { described_class.create!(attrs) }.not_to raise_error
