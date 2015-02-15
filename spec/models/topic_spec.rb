@@ -4,7 +4,8 @@ describe Topic do
   before(:all) do
     # uniqueness matcher requires an existing record:
     # https://github.com/thoughtbot/shoulda-matchers/issues/300
-    create(:topic)
+    user = create(:user)
+    create(:topic, creator: user)
   end
 
   it { should validate_presence_of(:name) }
