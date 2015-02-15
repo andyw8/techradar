@@ -14,6 +14,7 @@ feature "Blips" do
   end
 
   scenario "Adding a blip" do
+    pending
     topic = create(:topic, name: "Purple")
     create(:blip, topic: topic)
     visit radar_path(radar)
@@ -29,6 +30,7 @@ feature "Blips" do
   end
 
   scenario "Blip details" do
+    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, notes: "My Notes")
@@ -38,6 +40,7 @@ feature "Blips" do
   end
 
   scenario "Delete blip" do
+    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, notes: "My Notes")
@@ -48,6 +51,7 @@ feature "Blips" do
   end
 
   scenario "Edit blip" do
+    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, ring: "hold")

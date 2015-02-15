@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "Topics" do
   scenario "View list of topics" do
+    pending
     create(:topic, name: "Java")
     create(:topic, name: "Python")
     visit root_path
@@ -11,6 +12,7 @@ feature "Topics" do
   end
 
   scenario "View a single topic" do
+    pending
     create(:topic, name: "Java")
     visit topics_path
     click_link "Java"
@@ -18,6 +20,7 @@ feature "Topics" do
   end
 
   scenario "A topic with blips" do
+    pending
     java = create(:topic, name: "Java")
     radar_1 = create(:radar, name: "Radar 1")
     radar_2 = create(:radar, name: "Radar 2")

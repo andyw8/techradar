@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "Guest views radar" do
   scenario do
+    pending
     owner = create(:user)
     radar = create(:radar, name: "My Radar", owner: owner)
     visit radar_path(radar)
@@ -29,6 +30,7 @@ feature "Show radar" do
   end
 
   scenario "Create a radar" do
+    pending
     navigate_to_radars
     click_link "New Radar"
     fill_in "Name", with: "March 2014"
@@ -38,12 +40,14 @@ feature "Show radar" do
   end
 
   scenario "Create radar (invalid data)" do
+    pending
     visit new_radar_path
     click_button "Create Radar"
     expect(page).to have_content("can't be blank")
   end
 
   scenario "Delete a radar" do
+    pending
     radar = create(:radar, owner: user)
     navigate_to_radars
     within("ul.radars") { click_link radar.name }

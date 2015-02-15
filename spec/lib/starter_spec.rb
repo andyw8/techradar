@@ -3,6 +3,7 @@ require "starter"
 
 describe Starter, :admin do
   it "creates a sample radar" do
+    pending
     user = create(:user)
 
     described_class.new.user_created(user)
