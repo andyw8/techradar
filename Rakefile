@@ -20,4 +20,4 @@ task :spec_with_coverage do
   Rake::Task["spec"].execute
 end
 
-task default: [:spec, :quality]
+task default: [:spec]
