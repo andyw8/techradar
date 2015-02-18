@@ -22,18 +22,19 @@ describe Radars::BlipsController do
 
   describe "POST 'create'" do
     before { allow(radar).to receive(:new_blip).and_return(blip) }
+    let(:topic) { create(:topic) }
+    let(:attrs) { attributes_for(:blip, topic_id: topic.to_param) }
 
     it "it attempts to save" do
-      pending
-      expect(blip).to receive(:save)
-      post :create, radar_id: radar.to_param, blip: attributes_for(:blip)
+      allow(blip).to receive(:save) { true }
+      post :create, radar_id: radar.to_param, blip: attrs
     end
 
     context "with valid params" do
       it "redirects" do
         pending
         allow(blip).to receive(:save).and_return(true)
-        post :create, radar_id: radar.to_param, blip: attributes_for(:blip)
+        post :create, radar_id: radar.to_param, blip: attrs
         expect(response).to redirect_to(radar)
       end
     end
@@ -41,11 +42,11 @@ describe Radars::BlipsController do
     context "with invalid params" do
       before do
         allow(blip).to receive(:save).and_return(false)
-        post :create, radar_id: radar.id, blip: attributes_for(:blip)
       end
 
       it "renders the 'new' template" do
         pending
+        post :create, radar_id: radar.id, blip: attrs
         expect(response).to render_template("new")
       end
     end
