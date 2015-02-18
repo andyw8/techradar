@@ -31,11 +31,14 @@ describe Radars::BlipsController do
     end
 
     context "with valid params" do
-      it "redirects" do
-        pending
+      it "redirects and remembers the quadrant" do
+        allow(blip).to receive(:quadrant) { "tools" }
         allow(blip).to receive(:save).and_return(true)
+
         post :create, radar_id: radar.to_param, blip: attrs
-        expect(response).to redirect_to(radar)
+
+        expected_path = radar_quadrant_path(radar, quadrant: "tools")
+        expect(response).to redirect_to(expected_path)
       end
     end
 
