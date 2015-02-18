@@ -3,11 +3,11 @@ require "rails_helper"
 describe Radars::BlipsController do
   include StubCurrentUserHelper
 
-  let(:radar) { build_stubbed(:radar) }
+  let(:user) { create(:user) }
+  let(:radar) { create(:radar, owner: user) }
   let(:blip) { double("Blip") }
 
   before do
-    user = build(:user)
     sign_in(user)
     stub_current_user_with(user)
     allow(Radar).to receive(:find).and_return(radar)
@@ -15,7 +15,6 @@ describe Radars::BlipsController do
 
   describe "GET 'new'" do
     specify do
-      pending
       get :new, radar_id: radar.to_param
       expect(response).to be_successful
     end
