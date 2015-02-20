@@ -63,16 +63,17 @@ describe Radars::BlipsController do
 
   context "DELETE /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
-    before { allow(radar).to receive(:find_blip) { blip } }
+    before do
+      allow(radar).to receive(:find_blip) { blip }
+      allow(user).to receive(:find_radar) { radar }
+    end
 
     it "destroys the blip" do
-      pending
       expect(blip).to receive(:destroy!)
       delete "destroy", radar_id: radar.id, id: blip.id
     end
 
     it "redirects to the parent radar" do
-      pending
       allow(blip).to receive(:destroy!)
       delete "destroy", radar_id: radar.id, id: blip.id
       expect(response).to redirect_to(radar)
@@ -82,32 +83,31 @@ describe Radars::BlipsController do
   context "PUT /radars/:radar_id/blips/:id" do
     let(:blip) { mock_model(Blip) }
     let(:params) { { notes: "updated notes" } }
-    before { allow(radar).to receive(:find_blip) { blip } }
+    before do
+      allow(radar).to receive(:find_blip) { blip }
+      allow(user).to receive(:find_radar) { radar }
+    end
 
     it "updates the blip" do
-      pending
       expect(blip).to receive(:update).with("notes" => "updated notes")
       put "update", radar_id: radar.id, id: blip.id, blip: params
     end
 
     it "redirects to the parent radar on success" do
-      pending
       allow(blip).to receive(:update) { true }
       put "update", radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 
     it "redirects to the parent radar on success" do
-      pending
       allow(blip).to receive(:update) { true }
       put "update", radar_id: radar.id, id: blip.id, blip: params
       expect(response).to redirect_to(radar)
     end
 
     it "re-renders the 'edit' template in failure" do
-      pending
       allow(blip).to receive(:update) { false }
-      put "update", radar_id: radar.id, id: blip.id, blip: { name: "updated name" }
+      put "update", radar_id: radar.id, id: blip.id, blip: {quadrant: "x" }
       expect(response).to render_template("edit")
     end
   end
