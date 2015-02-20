@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe Blip do
+  include ActiveSupport::Testing::TimeHelpers
+
   it { should belong_to(:radar) }
   it { should belong_to(:topic) }
 
@@ -31,9 +33,28 @@ describe Blip do
     end
   end
 
-  xit "touches its parent radar when saved" do
+  it "touches its parent radar when saved" do
+    radar = nil
+    blip = nil
+    travel(1.day) do
+      radar = create(:radar)
+      blip = create(:blip, radar: radar)
+    end
+
+    blip.save!
+
+    expect(radar.updated_at.to_s).to eq(blip.updated_at.to_s)
   end
 
-  xit "touches its parent when a new blip is added" do
+  it "touches its parent when a new blip is added" do
+    radar = nil
+    travel(1.day) do
+      radar = create(:radar)
+    end
+    blip = create(:blip, radar: radar)
+
+    blip.save!
+
+    expect(radar.updated_at.to_s).to eq(blip.updated_at.to_s)
   end
 end

@@ -8,7 +8,7 @@ class Blip < ActiveRecord::Base
   }
   RINGS = %w(adopt trial assess hold)
 
-  belongs_to :radar
+  belongs_to :radar, touch: true
   belongs_to :topic
 
   validates :topic_id,
