@@ -38,7 +38,7 @@ class RadarsController < ApplicationController
   def create
     ActiveRecord::Base.transaction do
       radar = current_user.new_radar(radar_params)
-      topic_names = params[:radar][:topics].split
+      topic_names = String(params[:radar][:topics]).split
       topic_names.each do |topic_name|
         next if current_user.topics.find_by(name: topic_name)
         current_user.topics.create!(name: topic_name)

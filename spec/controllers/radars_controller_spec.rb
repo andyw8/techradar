@@ -9,11 +9,18 @@ describe RadarsController do
   describe "GET 'index'" do
     context "when the user is not signed in" do
       it "lists all radars" do
-        pending
-        all_radars = double("all_radars")
-        allow(Radar).to receive(:all) { all_radars }
+        sign_in(user)
+        stub_current_user_with(user)
+        radars = double("radars")
+        allow(user).to receive(:radars) { radars }
+        allow(controller).to receive(:render)
+
         get "index"
-        expect(assigns(:radars)).to eq all_radars
+
+        expect(controller).to have_received(:render).with(
+          "index",
+          locals: { radars: radars }
+        )
       end
     end
 
@@ -27,12 +34,17 @@ describe RadarsController do
       end
 
       it "lists only radars created by the owner" do # should this be here?
-        pending
         my_radar = create(:radar, owner: user)
         another_user = create(:user)
         create(:radar, owner: another_user)
+        allow(controller).to receive(:render)
+
         get "index"
-        expect(assigns(:radars).map(&:name)).to eq [my_radar.name]
+
+        expect(controller).to have_received(:render).with(
+          "index",
+          locals: { radars: [my_radar] }
+        )
       end
     end
   end
@@ -47,20 +59,17 @@ describe RadarsController do
     end
 
     it "creates a radar" do
-      pending
       radar = mock_model("Radar", save: true)
       allow(user).to receive(:new_radar) { radar }
       post "create", radar: params
     end
 
     it "redirects to the newly created radar" do
-      pending
       post "create", radar: params
       expect(response).to redirect_to(radar_path(Radar.last))
     end
 
     it "does not create a radar with invalid params" do
-      pending
       radar = double("Radar", save: false)
       allow(user).to receive(:new_radar) { radar }
       post "create", radar: params
@@ -75,9 +84,8 @@ describe RadarsController do
     end
 
     it "destroys the radar" do
-      pending
       radar = build_stubbed(:radar)
-      expect(user).to receive(:find_radar).with(radar.id.to_s).and_return(radar)
+      expect(Radar).to receive(:find_by!).with(uuid: radar.id.to_s) { radar }
       expect(radar).to receive(:destroy!)
       delete "destroy", id: radar.id
     end
