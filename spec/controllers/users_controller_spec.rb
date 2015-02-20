@@ -8,30 +8,38 @@ describe UsersController do
     context "as a guest" do
       specify do
         get :show, id: user.id
-        should be_successful
+
+        expect(response).to be_successful
       end
     end
 
     context "as a signed-in user" do
       before do
         sign_in user
-        get :show, id: user.id
-      end
 
-      it { should be_successful }
+        get :show, id: user.id
+
+        expect(response).to be_successful
+      end
     end
 
     context "as an admin" do
-      let(:admin) { create(:admin) }
-      before do
+      specify do
+        admin = create(:admin)
         sign_in admin
-        get :show, id: user.id
+
+        get :show, username: user.username
+
+        expect(response).to be_successful
       end
 
-      it { should be_successful }
 
       it "finds the right user" do
-        pending
+        admin = create(:admin)
+        sign_in admin
+
+        get :show, username: user.username
+
         expect(assigns(:user)).to eq user
       end
     end
