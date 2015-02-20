@@ -21,37 +21,43 @@ describe Radars::BlipsController do
   end
 
   describe "POST 'create'" do
-    before { allow(radar).to receive(:new_blip).and_return(blip) }
-    let(:topic) { create(:topic) }
-    let(:attrs) { attributes_for(:blip, topic_id: topic.to_param) }
+    it "delegates to radar for new" do
+      allow(user).to receive(:find_radar) { radar }
+      topic = double(:topic)
+      attrs = attributes_for(:blip, topic_id: topic.to_param)
+      blip = double("blip", quadrant: "tools", save: true)
+      allow(radar).to receive(:new_blip) { blip }
 
-    it "it attempts to save" do
-      allow(blip).to receive(:save) { true }
       post :create, radar_id: radar.to_param, blip: attrs
+
+      expect(radar).to have_received(:new_blip).with(
+        topic_id: topic.to_param,
+        quadrant: "tools",
+        ring: "adopt"
+      )
     end
 
-    context "with valid params" do
-      it "redirects and remembers the quadrant" do
-        allow(blip).to receive(:quadrant) { "tools" }
-        allow(blip).to receive(:save).and_return(true)
+    it "redirects on success" do
+      allow(user).to receive(:find_radar) { radar }
+      attrs = attributes_for(:blip, topic_id: 1)
+      blip = double("blip", quadrant: "tools", save: true)
+      allow(radar).to receive(:new_blip) { blip }
 
-        post :create, radar_id: radar.to_param, blip: attrs
+      post :create, radar_id: radar.to_param, blip: attrs
 
-        expected_path = radar_quadrant_path(radar, quadrant: "tools")
-        expect(response).to redirect_to(expected_path)
-      end
+      expected_path = radar_quadrant_path(radar, quadrant: "tools")
+      expect(response).to redirect_to(expected_path)
     end
 
-    context "with invalid params" do
-      before do
-        allow(blip).to receive(:save).and_return(false)
-      end
+    it "re-renders on failure" do
+      allow(user).to receive(:find_radar) { radar }
+      attrs = attributes_for(:blip, topic_id: 1)
+      blip = double("blip", quadrant: "tools", save: false)
+      allow(radar).to receive(:new_blip) { blip }
 
-      it "renders the 'new' template" do
-        pending
-        post :create, radar_id: radar.id, blip: attrs
-        expect(response).to render_template("new")
-      end
+      post :create, radar_id: radar.to_param, blip: attrs
+
+      expect(response).to render_template("new")
     end
   end
 
