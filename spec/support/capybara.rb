@@ -1,2 +1,2 @@
 require "capybara/email/rspec"
-Capybara.asset_host = "http://localhost:5000"
+Capybara.asset_host = "techradar.dev"
