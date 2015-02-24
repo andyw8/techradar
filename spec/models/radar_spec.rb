@@ -14,7 +14,9 @@ describe Radar do
       another_radar = build(:radar, owner: owner, name: "my radar")
 
       another_radar.valid?
-      expect(another_radar.errors.messages).to include(name: ["has already been taken"])
+      expect(another_radar.errors.messages).to include(
+        name: ["has already been taken"]
+      )
     end
 
     it "should allow duplicate names for radars with a different owner" do
@@ -35,5 +37,4 @@ describe Radar do
       subject.new_blip(params)
     end
   end
-
 end
