@@ -48,7 +48,6 @@ feature "Blips" do
   end
 
   scenario "Edit blip" do
-    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, ring: "hold")
@@ -57,6 +56,7 @@ feature "Blips" do
     select "Adopt", from: "Ring"
     click_button "Update Blip"
     expect(current_path).to eq radar_path(radar)
-    expect(page).to have_css(".tools .adopt", text: "Java")
+    click_link "Tools"
+    expect(page).to have_css(".adopt.tools", text: "Java")
   end
 end
