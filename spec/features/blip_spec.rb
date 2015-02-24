@@ -28,23 +28,22 @@ feature "Blips" do
   end
 
   scenario "Blip details" do
-    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, notes: "My Notes")
     visit radar_path(radar)
+    click_link "Tools"
     click_link blip.name
-    expect(page).to have_content("My Notes")
+    expect(page.status_code).to eq(200)
   end
 
   scenario "Delete blip" do
-    pending
     java = create(:topic, name: "Java")
     radar = create(:radar, owner: user)
     blip = create(:blip, topic: java, radar: radar, notes: "My Notes")
     visit radar_blip_path(radar, blip)
     click_button "Delete Blip"
-    expect(current_path).to eq radar_path(radar)
+    expect(current_path).to eq radar_quadrant_path(radar, quadrant: "tools")
     expect(page).to have_no_content("Java")
   end
 
