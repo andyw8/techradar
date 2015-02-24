@@ -2,7 +2,6 @@ require "rails_helper"
 
 feature "Topics" do
   scenario "View list of topics" do
-    pending
     create(:topic, name: "Java")
     create(:topic, name: "Python")
     visit root_path

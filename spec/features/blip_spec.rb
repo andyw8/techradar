@@ -14,7 +14,6 @@ feature "Blips" do
   end
 
   scenario "Adding a blip" do
-    pending
     topic = create(:topic, name: "Purple")
     create(:blip, topic: topic)
     visit radar_path(radar)
@@ -24,9 +23,8 @@ feature "Blips" do
     select "Adopt", from: "Ring"
     fill_in "Notes", with: "My Notes"
     click_button "Create Blip"
-    expect(page).to have_css(".tools .adopt", text: "Purple")
-    purple = page.find(".blip", text: "Purple")
-    expect(purple[:title]).to eq "My Notes"
+    click_link "Tools"
+    expect(page).to have_css(".adopt.tools", text: "Purple")
   end
 
   scenario "Blip details" do

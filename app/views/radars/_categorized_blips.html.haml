@@ -2,7 +2,7 @@
   %h2= ring.titleize
   - blips_in_scope = radar.blips_in_scope(ring: ring, quadrant: params[:quadrant])
   - if blips_in_scope.any?
-    %ul
+    %ul{class: [ring, params[:quadrant]]}
       - blips_in_scope.each do |blip|
         %li
           = link_to blip.name, radar_blip_path(radar, blip), id: "blip_#{blip.id}", class: "blip"
