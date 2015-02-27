@@ -36,8 +36,8 @@ describe Blip do
   it "touches its parent radar when saved" do
     radar = nil
     blip = nil
+    radar = create(:radar)
     travel(1.day) do
-      radar = create(:radar)
       blip = create(:blip, radar: radar)
     end
 
