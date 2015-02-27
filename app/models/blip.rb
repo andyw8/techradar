@@ -24,12 +24,6 @@ class Blip < ActiveRecord::Base
             presence: true,
             inclusion: { in: RINGS }
 
-  def radars
-    Radar
-      .includes(:blips)
-      .where(blips: { name: name })
-  end
-
   delegate :name, to: :topic
 
   def radar_name
