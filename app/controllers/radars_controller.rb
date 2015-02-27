@@ -1,4 +1,6 @@
 class RadarsController < ApplicationController
+  DEFAULT_QUADRANT = "tools"
+
   before_action :authenticate_user!, except: :show
 
   def index
@@ -14,8 +16,10 @@ class RadarsController < ApplicationController
         radar_diagram.add_blip(id: "blip_#{blip.id}", ring: Blip::RINGS.index(blip.ring), title: blip.name)
       end
       @svg = radar_diagram.draw
+      render "radars/show", locals: { radar: radar }
+    else
+      redirect_to radar_quadrant_path(radar, quadrant: DEFAULT_QUADRANT)
     end
-    render "radars/show", locals: { radar: radar }
   end
 
   def new

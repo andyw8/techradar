@@ -50,6 +50,22 @@ describe RadarsController do
   end
 
   describe "GET 'show'" do
+    it "renders the specified quadrant" do
+      radar = create(:radar, uuid: "abc123")
+
+      get "show", id: radar.uuid, quadrant: "tools"
+
+      expect(response).to render_template("radars/show")
+    end
+
+    it "redirects if no quadrant specified" do
+      radar = create(:radar, uuid: "abc123")
+      expected_path = radar_quadrant_path(radar, quadrant: "tools")
+
+      get "show", id: radar.uuid
+
+      expect(response).to redirect_to(expected_path)
+    end
   end
 
   describe "POST 'create'" do
