@@ -41,10 +41,7 @@ class ThoughtWorksImporter
 
   def parse_blip(blip, radar)
     name = blip.fetch("name")
-    if corrections.key?(name)
-      puts "changing #{name} to " + corrections.fetch(name)
-      name = corrections.fetch(name)
-    end
+    name = corrections.fetch(name) if corrections.key?(name)
     ring = blip.fetch("ring").underscore
     quadrant = blip.fetch("quadrant").underscore
     notes = ActionController::Base.helpers.strip_tags(blip.fetch("description"))

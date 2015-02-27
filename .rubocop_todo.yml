@@ -5,6 +5,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+Lint/UnusedMethodArgument:
+  Exclude:
+    - app/models/svg_path.rb
+
 # Offense count: 7
 Metrics/AbcSize:
   Max: 26
