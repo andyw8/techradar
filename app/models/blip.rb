@@ -13,15 +13,13 @@ class Blip < ActiveRecord::Base
 
   validates :topic_id,
             presence: true,
-            uniqueness: { scope: :radar_id, message: "already exists in this radar" }
-
+            uniqueness: {
+              scope: :radar_id, message: "already exists in this radar"
+            }
   validates :radar, presence: true
-
   validates :quadrant,
             presence: true,
-            inclusion:
-              { in: QUADRANTS }
-
+            inclusion: { in: QUADRANTS }
   validates :ring,
             presence: true,
             inclusion: { in: RINGS }

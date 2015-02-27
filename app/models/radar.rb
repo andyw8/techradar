@@ -4,7 +4,7 @@ class Radar < ActiveRecord::Base
 
   validates :name,
     presence: true,
-    uniqueness: { 
+    uniqueness: {
       scope: :owner,
       case_sensitive: false
     }
