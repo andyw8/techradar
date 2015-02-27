@@ -76,18 +76,6 @@ Style/EmptyLinesAroundClassBody:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/HashSyntax:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/IndentHash:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/MultilineOperationIndentation:
   Enabled: false
 
@@ -136,14 +124,4 @@ Style/TrailingBlankLines:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
 Style/TrailingComma:
-  Enabled: false
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/TrailingWhitespace:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/UnneededPercentQ:
   Enabled: false

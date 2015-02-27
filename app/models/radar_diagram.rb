@@ -72,14 +72,14 @@ class RadarDiagram
     draw_arc origin_x: 2*UNIT, origin_y: 4*UNIT, radius: 2*UNIT, x: 0, y: 2*UNIT
     draw_arc origin_x: 1*UNIT, origin_y: 4*UNIT, radius: 1*UNIT, x: 0, y: 3*UNIT
   end
-  
+
   def draw_sw
     draw_arc origin_x: 0,      origin_y: 0, radius: 4*UNIT, x: 4*UNIT, y: 4*UNIT
     draw_arc origin_x: 1*UNIT, origin_y: 0, radius: 3*UNIT, x: 4*UNIT, y: 3*UNIT
     draw_arc origin_x: 2*UNIT, origin_y: 0, radius: 2*UNIT, x: 4*UNIT, y: 2*UNIT
     draw_arc origin_x: 3*UNIT, origin_y: 0, radius: 1*UNIT, x: 4*UNIT, y: 1*UNIT
   end
-  
+
   def draw_se
     draw_arc origin_x: 0, origin_y: 4*UNIT, radius: 4*UNIT, x: 4*UNIT, y: 0
     draw_arc origin_x: 0, origin_y: 3*UNIT, radius: 3*UNIT, x: 3*UNIT, y: 0
@@ -87,7 +87,7 @@ class RadarDiagram
     draw_arc origin_x: 0, origin_y: 1*UNIT, radius: 1*UNIT, x: 1*UNIT, y: 0
   end
 
-  
+
   def draw_arc(origin_x:, origin_y:, radius:, x:, y:)
     opts = { fill: "none", stroke: "black", stroke_width: 2 }
     data = [
