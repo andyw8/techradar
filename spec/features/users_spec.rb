@@ -20,6 +20,7 @@ end
 feature "Sign up and confirm", :admin do
   scenario "Happy path" do
     visit new_user_registration_path
+    fill_in "Name", with: "Joe Bloggs"
     fill_in "Email", with: "foo@example.com"
     fill_in "user_password", with: "password1234"
     fill_in "user_username", with: "username"

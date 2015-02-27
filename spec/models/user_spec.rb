@@ -11,6 +11,8 @@ describe User do
     expect { create(:user) }.to broadcast(:user_created)
   end
 
+  it { should validate_presence_of(:name) }
+
   it { should validate_presence_of(:email) }
 
   it "accepts valid email addresses" do
