@@ -55,7 +55,7 @@ feature "Blips" do
     click_link "Edit Blip"
     select "Adopt", from: "Ring"
     click_button "Update Blip"
-    expect(current_path).to eq radar_path(radar)
+    expect(current_path).to eq radar_quadrant_path(radar, quadrant: "tools")
     click_link "Tools"
     expect(page).to have_css(".adopt.tools", text: "Java")
   end

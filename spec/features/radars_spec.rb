@@ -33,7 +33,7 @@ feature "Show radar" do
     click_link "New Radar"
     fill_in "Name", with: "March 2014"
     click_button "Create Radar"
-    expect(current_path).to eq radar_path(Radar.last)
+    expect(current_path).to eq radar_quadrant_path(Radar.last, quadrant: "tools")
     expect(page).to have_text("March 2014")
   end
 
