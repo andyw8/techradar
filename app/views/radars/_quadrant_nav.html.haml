@@ -1,4 +1,8 @@
-- Blip::QUADRANTS.each_with_index do |quadrant, i|
-  = link_to quadrant.titleize, radar_quadrant_path(@radar, quadrant: quadrant)
-  = "(#{@radar.blips_in_quadrant_count(quadrant)})"
-  = "|" unless i == Blip::QUADRANTS.size - 1
+-#   -# .badge= @radar.blips_in_quadrant_count(quadrant)
+
+%ul.nav.nav-pills
+  - Blip::QUADRANTS.each_with_index do |quadrant, i|
+    %li{class: quadrant == params[:quadrant] ? "active" : ""}
+      = link_to radar_quadrant_path(@radar, quadrant: quadrant) do
+        = quadrant.titleize
+        .badge= @radar.blips_in_quadrant_count(quadrant)
