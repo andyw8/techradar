@@ -33,7 +33,6 @@ describe UsersController do
         expect(response).to be_successful
       end
 
-
       it "finds the right user" do
         admin = create(:admin)
         sign_in admin

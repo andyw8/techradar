@@ -3,10 +3,10 @@ class Topic < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   validates :name,
-    presence: true,
-    uniqueness: {
-      case_sensitive: false
-    }
+            presence: true,
+            uniqueness: {
+              case_sensitive: false
+            }
   validates :slug, presence: true, uniqueness: true
   validates :creator, presence: true
 

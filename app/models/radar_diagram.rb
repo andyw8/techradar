@@ -18,7 +18,7 @@ class RadarDiagram
   end
 
   def draw
-    points.group_by(&:ring).each do |ring, points_range|
+    points.group_by(&:ring).each do |_ring, points_range|
       delta = 90 / (points_range.size + 1)
       offset = delta
       points_range.each do |point|
@@ -86,7 +86,6 @@ class RadarDiagram
     draw_arc origin_x: 0, origin_y: 2*UNIT, radius: 2*UNIT, x: 2*UNIT, y: 0
     draw_arc origin_x: 0, origin_y: 1*UNIT, radius: 1*UNIT, x: 1*UNIT, y: 0
   end
-
 
   def draw_arc(origin_x:, origin_y:, radius:, x:, y:)
     opts = { fill: "none", stroke: "black", stroke_width: 2 }

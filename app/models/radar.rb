@@ -3,11 +3,11 @@ class Radar < ActiveRecord::Base
   has_many :blips, dependent: :delete_all
 
   validates :name,
-    presence: true,
-    uniqueness: {
-      scope: :owner,
-      case_sensitive: false
-    }
+            presence: true,
+            uniqueness: {
+              scope: :owner,
+              case_sensitive: false
+            }
   validates :owner, presence: true
   validates :uuid, presence: true, uniqueness: true
 
