@@ -29,7 +29,7 @@ feature "Sign up and confirm", :admin do
     expect(page).to have_content("Please open the link to activate your account")
     open_email("foo@example.com")
     current_email.click_link "Confirm my account"
-    fill_in "Login", with: "username"
+    fill_in "Username", with: "username"
     fill_in "user_password", with: "password1234"
     click_button "Sign in"
     expect(page).to have_content("Signed in successfully")

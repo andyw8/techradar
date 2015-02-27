@@ -1,7 +1,7 @@
 = title 'Sign in'
 
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-vertical' }) do |f|
-  = f.input :login, autofocus: true
+  = f.input :login, autofocus: true, label: "Username"
   = f.input :password
   = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
   = f.button :submit, "Sign in", class: 'btn-primary'
