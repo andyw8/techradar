@@ -22,7 +22,7 @@ class Radar < ActiveRecord::Base
   end
 
   def find_blip(id)
-    blips.includes(:topic).find_by!("topics.slug" => id)
+    blips.joins(:topic).find_by!("topics.slug" => id)
   end
 
   def blips_in_quadrant(quadrant)
