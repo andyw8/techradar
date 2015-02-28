@@ -28,9 +28,7 @@ class RadarsController < ApplicationController
 
   def edit
     radar = find_my_radar
-    unless radar
-      return redirect_to(new_user_session_path)
-    end
+    return redirect_to(new_user_session_path) unless radar
     render "edit", radar: radar
   end
 
