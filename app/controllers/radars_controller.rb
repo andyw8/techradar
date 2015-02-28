@@ -8,7 +8,7 @@ class RadarsController < ApplicationController
   end
 
   def show
-    radar = find_radar.decorate
+    radar = find_public_radar.decorate
     if params[:quadrant]
       corner = Blip::CORNERS.invert.fetch(params[:quadrant])
       radar_diagram = RadarDiagram.new(corner)
@@ -27,15 +27,19 @@ class RadarsController < ApplicationController
   end
 
   def edit
-    render "edit", radar: find_radar
+    radar = find_my_radar
+    unless radar
+      return redirect_to(new_user_session_path)
+    end
+    render "edit", radar: radar
   end
 
   def update
-    radar = find_radar
+    radar = find_my_radar
     if radar.update_attributes(radar_params)
       redirect_to radar
     else
-      render "edit", radar: find_radar
+      render "edit", radar: find_my_radar
     end
   end
 
@@ -56,7 +60,9 @@ class RadarsController < ApplicationController
   end
 
   def destroy
-    find_radar.destroy!
+    radar = find_my_radar
+    return redirect_to(new_user_session_path) unless radar
+    radar.destroy!
     redirect_to radars_path
   end
 
@@ -70,7 +76,11 @@ class RadarsController < ApplicationController
     current_user.radars
   end
 
-  def find_radar
-    @radar = Radar.find_by!(uuid: params[:id])
+  def find_my_radar
+    @radar = Radar.find_by(uuid: params[:id], owner: current_user)
+  end
+
+  def find_public_radar
+    @radar = Radar.find_by(uuid: params[:id])
   end
 end

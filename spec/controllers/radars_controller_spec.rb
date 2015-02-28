@@ -49,6 +49,35 @@ describe RadarsController do
     end
   end
 
+  describe "GET 'edit'" do
+    it "redirects to login if not signed in" do
+      radar = create(:radar, owner: user)
+
+      get "edit", id: radar.uuid, quadrant: "tools"
+
+      expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it "renders the edit page if the user has permission" do
+      radar = create(:radar, owner: user)
+      sign_in(user)
+
+      get "edit", id: radar.uuid, quadrant: "tools"
+
+      expect(response).to render_template("radars/edit")
+    end
+
+    it "redirects to login if no permission on radar" do
+      another_user = create(:user)
+      radar = create(:radar, owner: another_user)
+      sign_in(user)
+
+      get "edit", id: radar.uuid, quadrant: "tools"
+
+      expect(response).to redirect_to(new_user_session_path)
+    end
+  end
+
   describe "GET 'show'" do
     it "renders the specified quadrant" do
       radar = create(:radar, uuid: "abc123")
@@ -101,7 +130,7 @@ describe RadarsController do
 
     it "destroys the radar" do
       radar = build_stubbed(:radar)
-      expect(Radar).to receive(:find_by!).with(uuid: radar.id.to_s) { radar }
+      expect(Radar).to receive(:find_by).with(uuid: radar.id.to_s, owner: user) { radar }
       expect(radar).to receive(:destroy!)
       delete "destroy", id: radar.id
     end
