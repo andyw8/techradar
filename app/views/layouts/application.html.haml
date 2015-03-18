@@ -22,7 +22,12 @@
         = render 'layouts/messages'
         = yield
         .social-links
-          = link_to "Follow @techradar_io on Twitter", "https://twitter.com/techradar_io"
+          Follow
+          = link_to "@techradar_io", "https://twitter.com/techradar_io"
+          on Twitter
         .disclaimer
           techradar.io is not affiliated with, sponsored or endorsed by
           = link_to "ThoughtWorks", "http://www.thoughtworks.com/"
+        .credit
+          Built by
+          = link_to "@andyw8", "https://twitter.com/andyw8"
