@@ -19,21 +19,39 @@ end
 
 feature "Sign up and confirm", :admin do
   scenario "Happy path" do
+    user = build(:user)
+    register_account(user)
+    confirm_account(user)
+    sign_in(user)
+    verify_sample_radar_presence
+  end
+
+  def register_account(user)
     visit new_user_registration_path
-    fill_in "Name", with: "Joe Bloggs"
-    fill_in "Email", with: "foo@example.com"
-    fill_in "user_password", with: "password1234"
-    fill_in "user_username", with: "username"
-    fill_in "user_password_confirmation", with: "password1234"
+    fill_in "Name", with: user.name
+    fill_in "Email", with: user.email
+    fill_in "user_password", with: user.password
+    fill_in "user_password_confirmation", with: user.password
+    fill_in "user_username", with: user.username
     click_button "Sign up"
     expect(page).to have_content("Please open the link to activate your account")
-    open_email("foo@example.com")
+  end
+
+  def confirm_account(user)
+    open_email(user.email)
     current_email.click_link "Confirm my account"
-    fill_in "Username", with: "username"
-    fill_in "user_password", with: "password1234"
+  end
+
+  def sign_in(user)
+    visit new_user_session_path
+    fill_in "Username", with: user.username
+    fill_in "user_password", with: user.password
     click_button "Sign in"
     expect(page).to have_content("Signed in successfully")
     expect(current_path).to eq radars_path
+  end
+
+  def verify_sample_radar_presence
     expect(page).to have_css(".radars", text: "Personal Radar")
     radar_name = User.last.radars.first.name
     click_link radar_name

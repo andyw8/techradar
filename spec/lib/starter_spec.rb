@@ -3,14 +3,13 @@ require "starter"
 
 describe Starter, :admin do
   it "creates a sample radar" do
-    pending
     user = create(:user)
 
     described_class.new.user_created(user)
 
     radars = user.radars
     expect(radars.count).to eq(1)
-    expect(radars.first.name).to eq(described_class::DEFAULT_RADAR_NAME)
+    expect(radars.first.name).to match("Personal Radar for")
   end
 
   it "creates a sample blip" do
