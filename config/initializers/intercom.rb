@@ -43,7 +43,7 @@ IntercomRails.config do |config|
   # user object, or a Proc which will be passed the current user.
   #
   config.user.custom_data = {
-    :radars_count => Proc.new { |current_user| current_user.radars.count }
+    radars_count: proc { |current_user| current_user.radars.count }
   }
 
   # == User -> Company association
