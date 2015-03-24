@@ -14,7 +14,7 @@ feature "Blips" do
   end
 
   scenario "Adding a blip" do
-    topic = create(:topic, name: "Purple")
+    topic = create(:topic, name: "Purple", creator: user)
     create(:blip, topic: topic)
     visit radar_path(radar)
     click_link "New Blip"

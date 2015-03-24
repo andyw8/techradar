@@ -5,7 +5,8 @@ class Topic < ActiveRecord::Base
   validates :name,
             presence: true,
             uniqueness: {
-              case_sensitive: false
+              case_sensitive: false,
+              scope: :creator_id,
             }
   validates :slug, presence: true, uniqueness: true
   validates :creator, presence: true
@@ -27,6 +28,10 @@ class Topic < ActiveRecord::Base
 
   def self.lookup(name)
     Topic.where(["lower(name) = ?", name.downcase]).first
+  end
+
+  def self.for_user(user)
+    where(creator_id: user)
   end
 
   private

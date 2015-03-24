@@ -69,7 +69,7 @@ module Radars
     end
 
     def topics
-      Topic.by_name
+      Topic.for_user(current_user).by_name
     end
   end
 end

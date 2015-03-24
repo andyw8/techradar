@@ -9,7 +9,7 @@ describe Topic do
   end
 
   it { should validate_presence_of(:name) }
-  it { should validate_uniqueness_of(:name).case_insensitive }
+  it { should validate_uniqueness_of(:name).case_insensitive.scoped_to(:creator_id) }
 
   it { should validate_presence_of(:slug) }
   it { should validate_uniqueness_of(:slug) }
