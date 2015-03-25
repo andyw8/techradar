@@ -1,0 +1,8 @@
+= title "Contact Us"
+
+= simple_form_for :contact, url: "https://formkeep.com/f/9b4b2e9ae9cf" do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :message, as: :text
+  = f.submit "Send"
+
