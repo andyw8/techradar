@@ -48,7 +48,7 @@ feature "Sign up and confirm", :admin do
     fill_in "user_password", with: user.password
     click_button "Sign in"
     expect(page).to have_content("Signed in successfully")
-    expect(current_path).to eq radars_path
+    expect(current_path).to eq new_bulk_topic_path
   end
 
   def verify_sample_radar_presence
