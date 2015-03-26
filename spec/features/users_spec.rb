@@ -52,6 +52,7 @@ feature "Sign up and confirm", :admin do
   end
 
   def verify_sample_radar_presence
+    visit radars_path
     expect(page).to have_css(".radars", text: "Personal Radar")
     radar_name = User.last.radars.first.name
     click_link radar_name

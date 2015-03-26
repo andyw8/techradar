@@ -4,7 +4,7 @@ feature "Sign up and confirm", :admin do
   scenario "Happy path" do
     user = create(:user)
     sign_in(user)
-    expect(current_path).to eq(radars_path)
+    expect(current_path).to eq(new_bulk_topic_path)
   end
 
   def sign_in(user)
