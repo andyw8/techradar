@@ -26,6 +26,8 @@ Rails/Output:
   Exclude:
     - config/initializers/analytics_ruby.rb
     - config/unicorn.rb
+RSpec/FilePath:
+  Enabled: false # doesn't work with method name on same line as describe
 Style/Documentation:
   Enabled: false
 Style/GuardClause:
