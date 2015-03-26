@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.5"
+ruby `cat .ruby-version`.strip
 
 gem "rails", "4.2.0"
 
