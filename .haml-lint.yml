@@ -1,3 +1,8 @@
 linters:
   LineLength:
-    max: 120
+    enabled: false
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+  SpaceInsideHashAttributes:
+    enabled: false

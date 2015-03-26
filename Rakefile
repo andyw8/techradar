@@ -20,4 +20,4 @@ task :spec_with_coverage do
   Rake::Task["spec"].execute
 end
 
-task default: [:spec, :rubocop]
+task default: [:spec, :rubocop, :haml_lint]

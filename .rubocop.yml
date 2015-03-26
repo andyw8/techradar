@@ -33,3 +33,5 @@ Style/GuardClause:
     - app/lib/thought_works_importer.rb
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  Enabled: false # otherwise haml-lint complains, think this may be a bug though
