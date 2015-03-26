@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(_resource)
-    radars_path
+    # new users will already have one sample topic
+    if current_user.created_topics.count > 1
+      radars_path
+    else
+      new_bulk_topic_path
+    end
   end
 
   def authenticate_admin

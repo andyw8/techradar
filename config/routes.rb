@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   get "/radars/:id(/:quadrant)", controller: "radars", action: "show", as: "radar_quadrant"
   resources :topics, only: [:show, :new, :create]
+  resources :bulk_topics, only: [:new, :create]
   get "/about", controller: "pages", action: "about"
 end

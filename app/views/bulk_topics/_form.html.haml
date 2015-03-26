@@ -1,0 +1,9 @@
+%p
+  To get started, let's make a list of all the topics in which you have a interest. At the moment you don't need to worry about which ring or quadrant to put them in.
+
+%p
+  Enter the topics in the box below, one per line.
+
+= simple_form_for(@bulk_topic) do |f|
+  = f.input :topics, as: :text
+  = f.submit "Create Topics"
