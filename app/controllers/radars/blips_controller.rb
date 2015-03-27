@@ -69,7 +69,7 @@ module Radars
     end
 
     def topics
-      Topic.for_user(current_user).by_name
+      Topic.blippable(radar).sort_by(&:name)
     end
   end
 end

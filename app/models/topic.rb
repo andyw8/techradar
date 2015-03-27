@@ -34,6 +34,13 @@ class Topic < ActiveRecord::Base
     where(creator_id: user)
   end
 
+  def self.blippable(radar)
+    user = radar.owner
+    where(creator_id: user).reject do |topic|
+      radar.topic?(topic)
+    end
+  end
+
   private
 
   def set_twitter_profile_image

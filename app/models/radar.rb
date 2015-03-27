@@ -55,6 +55,12 @@ class Radar < ActiveRecord::Base
     blips.where(quadrant: quadrant).count
   end
 
+  def topic?(topic)
+    blips.any? do |blip|
+      blip.topic == topic
+    end
+  end
+
   private
 
   def set_uuid
