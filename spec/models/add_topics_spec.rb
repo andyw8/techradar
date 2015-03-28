@@ -1,6 +1,13 @@
 require "rails_helper"
 
 describe AddTopics, "#call" do
+  before do
+    # When running the specs with `rake spec` they intermittently fail. Seems
+    # something isn't been cleared out but I can't figure out what's going on.
+    # So using this as a temporary workaround.
+    Topic.delete_all
+  end
+
   it "adds no topics if given an empty collection" do
     creator = create(:user)
     described_class.call(topics: [], creator: creator)
