@@ -1,5 +1,6 @@
 module ApplicationHelper
   def display_base_errors(resource)
+    # :nocov:
     errors = resource.errors
     return "" if errors.empty? || errors[:base].empty?
     messages = errors[:base].map { |msg| content_tag(:p, msg) }.join
@@ -11,6 +12,7 @@ module ApplicationHelper
     </div>
     HTML
     html.html_safe
+    # :nocov:
   end
 
   def title(text)
@@ -31,13 +33,9 @@ module ApplicationHelper
       blip = resource
       blip.radar.owned_by?(current_user)
     else
+      # :nocov:
       fail "Unknown action #{action} for #{resource}"
-    end
-  end
-
-  def admin
-    content_tag("div", class: "admin") do
-      yield if current_user && current_user.admin?
+      # :nocov:
     end
   end
 

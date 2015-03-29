@@ -33,12 +33,14 @@ class RadarsController < ApplicationController
   end
 
   def update
+    # :nocov:
     radar = find_my_radar
     if radar.update_attributes(radar_params)
       redirect_to radar
     else
       render "edit", radar: find_my_radar
     end
+    # :nocov:
   end
 
   def create

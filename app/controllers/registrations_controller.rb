@@ -8,7 +8,9 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     devise_parameter_sanitizer.for(:account_update) do |params|
+      # :nocov:
       params.permit(PARAMS + :current_password)
+      # :nocov:
     end
   end
 

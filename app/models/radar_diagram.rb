@@ -1,4 +1,5 @@
 class RadarDiagram
+  # :nocov:
   DEGREES_IN_QUADRANT = 90
   UNIT = 100
   RADIUS = 10
@@ -113,4 +114,5 @@ class RadarDiagram
     end
     img.text(0, 0, "")
   end
+  # :nocov:
 end
