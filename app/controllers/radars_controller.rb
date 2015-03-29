@@ -8,7 +8,7 @@ class RadarsController < ApplicationController
   end
 
   def show
-    radar = find_public_radar.decorate
+    radar = find_public_radar
     if params[:quadrant]
       corner = Blip::CORNERS.invert.fetch(params[:quadrant])
       radar_diagram = RadarDiagram.new(corner)

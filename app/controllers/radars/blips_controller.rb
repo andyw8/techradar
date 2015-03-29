@@ -17,7 +17,7 @@ module Radars
     end
 
     def show
-      render "show", locals: { quadrants: quadrants, rings: rings, blip: blip.decorate } # , topics: topics }
+      render "show", locals: { quadrants: quadrants, rings: rings, blip: blip } # , topics: topics }
     end
 
     def edit
