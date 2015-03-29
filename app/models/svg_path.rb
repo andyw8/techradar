@@ -18,7 +18,7 @@ module SVGPath
       [COMMANDS.fetch(:elliptical_arc), data]
     end
 
-    def self.circular_arc(r: r, x_axis_rotation: 0, large_arc_flag: 0, sweep_flag: 0, x:, y:, opts: {})
+    def self.circular_arc(r:, x_axis_rotation: 0, large_arc_flag: 0, sweep_flag: 0, x:, y:, opts: {})
       elliptical_arc(rx: r,
                      ry: r,
                      x_axis_rotation: x_axis_rotation,
