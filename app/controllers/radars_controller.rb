@@ -42,18 +42,11 @@ class RadarsController < ApplicationController
   end
 
   def create
-    ActiveRecord::Base.transaction do
-      radar = current_user.new_radar(radar_params)
-      topic_names = String(params[:radar][:topics]).split
-      topic_names.each do |topic_name|
-        next if current_user.topics.find_by(name: topic_name)
-        current_user.topics.create!(name: topic_name)
-      end
-      if radar.save
-        redirect_to radar
-      else
-        render "new", locals: { radar: radar }
-      end
+    radar = current_user.new_radar(radar_params)
+    if radar.save
+      redirect_to radar
+    else
+      render "new", locals: { radar: radar }
     end
   end
 
