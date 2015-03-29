@@ -13,7 +13,6 @@ if Rails.env.development? || Rails.env.test?
   end
 end
 
-# BROKEN fails with Devise secret key error
 desc "Run RSpec with code coverage"
 task :spec_with_coverage do
   ENV["COVERAGE"] = "true"
