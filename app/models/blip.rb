@@ -26,14 +26,6 @@ class Blip < ActiveRecord::Base
 
   delegate :name, to: :topic
 
-  def radar_name
-    radar.name
-  end
-
-  def radar_owner
-    radar.owner
-  end
-
   def to_param
     topic.slug
   end

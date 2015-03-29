@@ -20,18 +20,6 @@ class Topic < ActiveRecord::Base
     find_or_create_by!(name: "techradar.io", creator: User.admin)
   end
 
-  def self.by_name
-    order("lower(name)")
-  end
-
-  def self.lookup(name)
-    Topic.where(["lower(name) = ?", name.downcase]).first
-  end
-
-  def self.for_user(user)
-    where(creator_id: user)
-  end
-
   def self.blippable(radar)
     user = radar.owner
     where(creator_id: user).reject do |topic|

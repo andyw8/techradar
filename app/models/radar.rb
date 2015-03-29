@@ -29,10 +29,6 @@ class Radar < ActiveRecord::Base
     blips.where(quadrant: quadrant)
   end
 
-  def blips_in_ring(ring)
-    blips.where(ring: ring)
-  end
-
   def blips_in_scope(ring:, quadrant:)
     blips.includes(:topic).where(ring: ring, quadrant: quadrant).order("topics.name")
   end
