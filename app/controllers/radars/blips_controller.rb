@@ -48,7 +48,7 @@ module Radars
       if current_user
         @radar ||= current_user.find_radar(uuid: params[:radar_id])
       else
-        @radar ||= Radar.find_by!(uuid: params[:radar_id])
+        @radar ||= Radar.lookup!(params[:radar_id])
       end
     end
 

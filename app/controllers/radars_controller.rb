@@ -70,10 +70,10 @@ class RadarsController < ApplicationController
   end
 
   def find_my_radar
-    @radar = Radar.find_by(uuid: params[:id], owner: current_user)
+    @radar = Radar.lookup_for_owner(params[:id], current_user)
   end
 
   def find_public_radar
-    @radar = Radar.find_by(uuid: params[:id])
+    @radar = Radar.lookup(params[:id])
   end
 end

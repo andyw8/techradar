@@ -17,6 +17,18 @@ class Radar < ActiveRecord::Base
 
   attr_accessor :topics
 
+  def self.lookup(uuid)
+    find_by(uuid: uuid)
+  end
+
+  def self.lookup!(uuid)
+    find_by!(uuid: uuid)
+  end
+
+  def self.lookup_for_owner(uuid, owner)
+    find_by(uuid: uuid, owner: owner)
+  end
+
   def new_blip(params)
     blips.new(params)
   end
