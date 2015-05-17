@@ -363,7 +363,6 @@ GEM
       thor (~> 0.14)
     sendgrid (1.2.0)
       json
-      json
     sexp_processor (4.4.4)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
