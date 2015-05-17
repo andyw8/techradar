@@ -17,6 +17,7 @@ desc "Run RSpec with code coverage"
 task :spec_with_coverage do
   ENV["RAILS_ENV"] = "test"
   ENV["COVERAGE"] = "true"
+  Rake::Task["spec"].clear
   Rake::Task["spec"].execute
 end
 
