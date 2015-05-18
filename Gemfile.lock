@@ -8,13 +8,6 @@ GIT
       sysexits (~> 1.1)
 
 GIT
-  remote: git://github.com/plataformatec/responders.git
-  revision: 7fbac142d7f93acb588bea718c8def7e442023c6
-  specs:
-    responders (2.0.2)
-      railties (>= 4.2.0.alpha, < 5)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 29f8f768f1702c6d032854b870d14eadb81cea88
   branch: master
@@ -310,6 +303,8 @@ GEM
       sexp_processor
     remotipart (1.2.1)
     request_store (1.0.8)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -460,7 +455,7 @@ DEPENDENCIES
   rails_layout
   rails_stdout_logging
   rasem
-  responders!
+  responders
   rspec-activemodel-mocks
   rspec-rails (~> 3.2.0)
   rspec_junit_formatter!
