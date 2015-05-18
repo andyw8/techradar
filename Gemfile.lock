@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/causes/haml-lint.git
-  revision: 11ca42abc87ed71b5ae76bb6d7e932e5c7224216
-  specs:
-    haml-lint (0.11.0)
-      haml (~> 4.0)
-      rubocop (>= 0.25.0)
-      sysexits (~> 1.1)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 29f8f768f1702c6d032854b870d14eadb81cea88
   branch: master
@@ -163,6 +154,10 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.5)
       tilt
+    haml-lint (0.13.0)
+      haml (~> 4.0)
+      rubocop (>= 0.25.0)
+      sysexits (~> 1.1)
     haml-rails (0.5.3)
       actionpack (>= 4.0.1)
       activesupport (>= 4.0.1)
@@ -432,7 +427,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   friendly_id
-  haml-lint!
+  haml-lint
   haml-rails
   high_voltage
   intercom-rails

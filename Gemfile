@@ -50,7 +50,7 @@ group :development, :test do
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml-lint", github: "causes/haml-lint" # waiting for release of https://github.com/causes/haml-lint/issues/68
+  gem "haml-lint"
   gem "launchy"
   gem "nokogiri", ">= 1.6.6.2"
   gem "pry"
