@@ -52,8 +52,8 @@ describe Radar do
 
   describe "default scope" do
     it "orders by the updated timestamp" do
-      middle = create(:radar, updated_at: 2.day.ago)
-      oldest = create(:radar, updated_at: 3.day.ago)
+      middle = create(:radar, updated_at: 2.days.ago)
+      oldest = create(:radar, updated_at: 3.days.ago)
       newest = create(:radar, updated_at: 1.day.ago)
 
       result = described_class.all

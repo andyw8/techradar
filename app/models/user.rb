@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def add_radar(params)
-    new_radar(params).tap(&(:save!))
+    new_radar(params).tap(&:save!)
   end
 
   def first_sign_in?
@@ -57,6 +57,6 @@ class User < ActiveRecord::Base
 
   def self.admin
     admin = find_by(admin: true)
-    admin || fail(MissingAdminAccount)
+    admin || raise(MissingAdminAccount)
   end
 end

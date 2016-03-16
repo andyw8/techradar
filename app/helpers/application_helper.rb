@@ -34,7 +34,7 @@ module ApplicationHelper
       blip.radar.owned_by?(current_user)
     else
       # :nocov:
-      fail "Unknown action #{action} for #{resource}"
+      raise "Unknown action #{action} for #{resource}"
       # :nocov:
     end
   end

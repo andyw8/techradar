@@ -52,7 +52,7 @@ class RadarDiagram
   private
 
   def draw_nw
-    draw_arc origin_x: 4*UNIT, origin_y: 0,   radius: 4*UNIT, x: 0,   y: 4*UNIT
+    draw_arc origin_x: 4*UNIT, origin_y: 0, radius: 4*UNIT, x: 0, y: 4*UNIT
     draw_arc origin_x: 4*UNIT, origin_y: 1*UNIT, radius: 3*UNIT, x: 1*UNIT, y: 4*UNIT
     draw_arc origin_x: 4*UNIT, origin_y: 2*UNIT, radius: 2*UNIT, x: 2*UNIT, y: 4*UNIT
     draw_arc origin_x: 4*UNIT, origin_y: 3*UNIT, radius: 1*UNIT, x: 3*UNIT, y: 4*UNIT
@@ -87,7 +87,7 @@ class RadarDiagram
     opts = { fill: "none", stroke: "black", stroke_width: 2 }
     data = [
       SVGPath::Absolute.move_to(x: origin_x, y: origin_y),
-      SVGPath::Absolute.circular_arc(r: radius, x: x, y: y, opts: opts),
+      SVGPath::Absolute.circular_arc(r: radius, x: x, y: y, opts: opts)
     ].join(" ")
     img.path(d: data, opts: opts)
   end

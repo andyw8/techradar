@@ -6,7 +6,7 @@ class Topic < ActiveRecord::Base
             presence: true,
             uniqueness: {
               case_sensitive: false,
-              scope: :creator_id,
+              scope: :creator_id
             }
   validates :slug, presence: true, uniqueness: true
   validates :creator, presence: true
