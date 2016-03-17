@@ -53,7 +53,7 @@ describe Topic do
       result = described_class.blippable(radar)
 
       expect(result.map(&:id)).to include(unblipped_topic.id)
-      expect(result.map(&:id)).to_not include(blipped_topic.id)
+      expect(result.map(&:id)).not_to include(blipped_topic.id)
     end
   end
 end
