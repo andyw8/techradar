@@ -60,6 +60,7 @@ group :development, :test do
   gem "quality"
   gem "rspec-rails", "~> 3.2.0"
   gem "rubocop-rspec"
+  gem "rubocop"
   gem "shoulda-matchers", require: false
 end
 
