@@ -1,10 +1,10 @@
-- fail "No title for #{controller_name}/#{action_name}" unless content_for?(:title)
+- raise "No title for #{controller_name}/#{action_name}" unless content_for?(:title)
 !!!
 %html
   %head
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %title= yield(:title) + ' :: techradar.io'
-    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Techradar'}"}
+    %meta{name: "description", content: (content_for?(:description) ? yield(:description) : 'Techradar')}
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
