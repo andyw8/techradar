@@ -4,6 +4,7 @@
   %head
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %title= yield(:title) + ' :: techradar.io'
+    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css"}
     %meta{name: "description", content: (content_for?(:description) ? yield(:description) : 'Techradar')}
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
