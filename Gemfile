@@ -34,10 +34,6 @@ gem "uglifier", ">= 1.3.0"
 gem "unicorn"
 gem "wisper"
 
-# should only be in :development, :test
-# but fails on CodeShip
-gem "haml-lint"
-
 group :development do
   gem "foreman"
   gem "letter_opener"
@@ -54,6 +50,7 @@ group :development, :test do
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "haml_lint", github: "brigade/haml-lint" # "https://github.com/brigade/haml-lint/issues/108"
   gem "launchy"
   gem "nokogiri", ">= 1.6.7.2"
   gem "pry"
