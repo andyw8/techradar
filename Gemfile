@@ -23,6 +23,8 @@ gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-ti
 gem "rails_admin"
 gem "rasem"
 gem "responders"
+# gem "rubocop-rspec"
+gem "rubocop"
 gem "sass-rails", "~> 5.0"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
@@ -59,8 +61,6 @@ group :development, :test do
   gem "pry-stack_explorer"
   gem "quality"
   gem "rspec-rails", "~> 3.2.0"
-  gem "rubocop-rspec"
-  gem "rubocop"
   gem "shoulda-matchers", require: false
 end
 
