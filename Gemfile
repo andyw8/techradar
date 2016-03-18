@@ -60,7 +60,7 @@ group :development, :test do
   gem "pry-rescue"
   gem "pry-stack_explorer"
   gem "quality"
-  gem "rspec-rails", "~> 3.2.0"
+  gem "rspec-rails", "~> 3.3.0"
   gem "shoulda-matchers", require: false
 end
 
