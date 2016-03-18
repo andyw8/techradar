@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby `cat .ruby-version`.strip
 
-gem "rails", "4.2.2"
+gem "rails", "4.2.6"
 
 gem "airbrake"
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics"
