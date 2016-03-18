@@ -52,7 +52,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "haml-lint"
   gem "launchy"
-  gem "nokogiri", ">= 1.6.6.2"
+  gem "nokogiri", ">= 1.6.7.2"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rescue"
