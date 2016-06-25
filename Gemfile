@@ -1,5 +1,4 @@
-source "https://rubygems.org"
-
+gem "http", "~> 0.6.4"
 ruby `cat .ruby-version`.strip
 
 gem "rails", "4.2.6"
@@ -32,7 +31,7 @@ gem "sendgrid"
 gem "select2-rails"
 gem "simple_form", github: "plataformatec/simple_form", branch: "master"
 gem "twitter"
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", ">= 2.7.2"
 gem "unicorn"
 gem "wisper"
 
@@ -54,7 +53,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "haml_lint", github: "brigade/haml-lint" # "https://github.com/brigade/haml-lint/issues/108"
   gem "launchy"
-  gem "nokogiri", ">= 1.6.7.2"
+  gem "nokogiri", ">= 1.6.8"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rescue"

@@ -136,7 +136,7 @@ GEM
       request_store (~> 1.0.3)
     equalizer (0.0.9)
     erubis (2.7.0)
-    execjs (2.2.2)
+    execjs (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.6.0)
@@ -169,7 +169,7 @@ GEM
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
     high_voltage (2.2.1)
-    http (0.6.3)
+    http (0.6.4)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
@@ -201,19 +201,21 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (2.99.1)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.0.0)
     nested_form (0.3.2)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
     parallel (1.3.2)
     parser (2.3.0.6)
       ast (~> 2.2)
     pg (0.17.1)
+    pkg-config (1.1.7)
     powerpack (0.1.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -393,9 +395,8 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.5.3)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.0.0)
+      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.0.2)
     unicorn (4.8.3)
       kgio (~> 2.6)
@@ -432,12 +433,13 @@ DEPENDENCIES
   haml-rails
   haml_lint!
   high_voltage
+  http (~> 0.6.4)
   intercom-rails
   jbuilder (~> 2.0)
   jquery-rails (~> 3.1.3)
   launchy
   letter_opener
-  nokogiri (>= 1.6.7.2)
+  nokogiri (>= 1.6.8)
   pg
   pry
   pry-byebug
@@ -467,7 +469,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   twitter
-  uglifier (>= 1.3.0)
+  uglifier (>= 2.7.2)
   unicorn
   wisper
 
