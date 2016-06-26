@@ -112,7 +112,7 @@ GEM
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    devise (3.5.6)
+    devise (3.5.10)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -421,7 +421,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner (= 1.0.1)
-  devise
+  devise (~> 3.5.10)
   dotenv-rails
   draper
   factory_girl_rails
