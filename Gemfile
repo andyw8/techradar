@@ -4,7 +4,6 @@ ruby `cat .ruby-version`.strip
 
 gem "rails", "4.2.6"
 
-gem "airbrake"
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics"
 gem "bh", "~> 1.2"
 gem "bootstrap-sass"
@@ -23,6 +22,7 @@ gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-ti
 gem "rails_admin"
 gem "rasem"
 gem "responders"
+gem "rollbar"
 # gem "rubocop-rspec"
 gem "rubocop"
 gem "sass-rails", "~> 5.0"
