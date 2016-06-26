@@ -31,6 +31,8 @@ Rails/Output:
     - config/unicorn.rb
 # RSpec/FilePath:
 #   Enabled: false # doesn't work with method name on same line as describe
+Style/IfUnlessModifier:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
