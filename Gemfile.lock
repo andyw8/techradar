@@ -454,7 +454,7 @@ DEPENDENCIES
   responders
   rollbar
   rspec-activemodel-mocks
-  rspec-rails
+  rspec-rails (~> 3.4.2)
   rspec_junit_formatter!
   rubocop
   sass-rails (~> 5.0)
