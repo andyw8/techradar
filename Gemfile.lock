@@ -433,7 +433,6 @@ DEPENDENCIES
   haml-rails
   haml_lint!
   high_voltage
-  http (~> 0.6.4)
   intercom-rails
   jbuilder (~> 2.0)
   jquery-rails (~> 3.1.3)

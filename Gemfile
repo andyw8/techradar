@@ -1,4 +1,5 @@
-gem "http", "~> 0.6.4"
+source "https://rubygems.org"
+
 ruby `cat .ruby-version`.strip
 
 gem "rails", "4.2.6"
