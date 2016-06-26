@@ -37,7 +37,7 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.action_mailer.default_url_options = { host: ENV.fetch("DEFAULT_URL_OPTIONS_HOST") }
+  config.action_mailer.default_url_options = { host: ENV.fetch("DEFAULT_URL_OPTIONS_HOST", "") }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
