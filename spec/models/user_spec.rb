@@ -48,7 +48,7 @@ describe User do
   describe "password validations" do
     it { should validate_presence_of(:password) }
     it { should validate_confirmation_of(:password) }
-    it { should ensure_length_of(:password).is_at_least(8) }
+    it { should validate_length_of(:password).is_at_least(8) }
   end
 
   describe "password encryption" do

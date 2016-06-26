@@ -61,7 +61,7 @@ group :development, :test do
   gem "pry-stack_explorer"
   gem "quality"
   gem "rspec-rails"
-  gem "shoulda-matchers", require: false
+  gem "shoulda-matchers"
 end
 
 group :test do

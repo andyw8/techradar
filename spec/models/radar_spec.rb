@@ -7,7 +7,6 @@ describe Radar do
 
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:owner) }
-    it { should validate_uniqueness_of(:name) }
 
     it "prevents duplicate names for radars with the same owner" do
       owner = create(:user)
