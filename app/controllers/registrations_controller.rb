@@ -1,17 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :update_sanitized_params, if: :devise_controller?
-  PARAMS = %i(name username email password password_confirmation)
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) do |params|
-      params.permit(PARAMS)
-    end
+  protected
 
-    devise_parameter_sanitizer.for(:account_update) do |params|
-      # :nocov:
-      params.permit(PARAMS + :current_password)
-      # :nocov:
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :name, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :name, :username])
   end
 
   def build_resource(args)
