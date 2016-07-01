@@ -23,11 +23,11 @@ describe User do
   end
 
   it "rejects invalid email addresses" do
-    addresses = %w(user@foo,com user_at_foo.org example.user@foo.)
-    addresses.each do |address|
-      invalid_email_user = described_class.new(attrs.merge(email: address))
-      expect(invalid_email_user).not_to be_valid
-    end
+    user = described_class.new(attrs.merge(email: "foobar"))
+
+    user.valid?
+
+    expect(user).not_to be_valid
   end
 
   describe "passwords" do
