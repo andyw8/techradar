@@ -109,12 +109,11 @@ GEM
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
-    devise (3.5.10)
+    devise (4.0.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 5.1)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -411,7 +410,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
-  devise (~> 3.5.10)
+  devise (~> 4.0.0)
   dotenv-rails
   draper
   factory_girl_rails
@@ -460,5 +459,8 @@ DEPENDENCIES
   unicorn
   wisper
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
