@@ -39,6 +39,7 @@ feature "Sign up and confirm", :admin do
 
   def confirm_account(user)
     open_email(user.email)
+    raise "No mail" unless current_email
     current_email.click_link "Confirm my account"
   end
 
