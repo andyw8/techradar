@@ -10,6 +10,9 @@ Devise.setup do |config|
     config.secret_key = 'f0ac510abc0baaae7fdfd4671a2d99135a93cf1240cf116e2df17dde089d30a47575b0c8f33823284ac0c9c77086375f1671cf2aae0b82ac173ee82b268f51a0'
   end
 
+  # To avoid deprecation warning. Can be removed after upgrading to Devise 4.1.
+  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
