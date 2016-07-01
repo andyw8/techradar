@@ -23,6 +23,10 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 8
 
+Rails/OutputSafety:
+  Exclude:
+    - app/helpers/application_helper.rb
+
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
