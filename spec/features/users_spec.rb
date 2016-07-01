@@ -56,6 +56,6 @@ feature "Sign up and confirm", :admin do
     expect(page).to have_css(".radars", text: "Personal Radar")
     radar_name = User.last.radars.first.name
     click_link radar_name
-    expect(page).to have_css("h1", radar_name)
+    expect(page).to have_css("h1", text: radar_name)
   end
 end
