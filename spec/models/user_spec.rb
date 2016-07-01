@@ -12,7 +12,6 @@ describe User do
   end
 
   it { should validate_presence_of(:name) }
-
   it { should validate_presence_of(:email) }
 
   it "accepts valid email addresses" do
@@ -30,8 +29,6 @@ describe User do
       expect(invalid_email_user).not_to be_valid
     end
   end
-
-  it { should validate_uniqueness_of(:email).case_insensitive }
 
   describe "passwords" do
     let(:user) { described_class.new(attrs) }
