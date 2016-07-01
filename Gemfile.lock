@@ -65,7 +65,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    analytics-ruby (2.0.13)
+    analytics-ruby (2.1.0)
     arel (6.0.3)
     ast (2.3.0)
     autoprefixer-rails (6.3.6.2)
@@ -468,7 +468,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  analytics-ruby (~> 2.0.0)
+  analytics-ruby
   better_errors
   bh (~> 1.2)
   binding_of_caller

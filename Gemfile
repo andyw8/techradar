@@ -4,7 +4,7 @@ ruby `cat .ruby-version`.strip
 
 gem "rails", "4.2.6"
 
-gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics"
+gem "analytics-ruby", require: "segment"
 gem "bh", "~> 1.2"
 gem "bootstrap-sass"
 gem "coffee-rails", "~> 4.1.0"
