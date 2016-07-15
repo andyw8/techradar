@@ -1,5 +1,7 @@
 [ ![Codeship Status for andyw8/techradar](https://codeship.io/projects/591ae180-02f3-0132-c1a0-6602e923814a/status)](https://codeship.io/projects/30336)
 
+[![Dependency Status](https://dependencyci.com/github/andyw8/techradar/badge)](https://dependencyci.com/github/andyw8/techradar)
+
 # techradar.io
 
 This repo contains the Rails app behind [techradar.io](http://techradar.io),
