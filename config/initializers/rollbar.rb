@@ -24,9 +24,7 @@ Rollbar.configure do |config|
   # Valid levels: 'critical', 'error', 'warning', 'info', 'debug', 'ignore'
   # 'ignore' will cause the exception to not be reported at all.
 
-  config.exception_level_filters.merge!(
-    'ActionController::RoutingError' => 'ignore',
-  )
+  config.exception_level_filters['ActionController::RoutingError'] = 'ignore'
 
   # You can also specify a callable, which will be called with the exception instance.
   # config.exception_level_filters.merge!('MyCriticalException' => lambda { |e| 'critical' })
