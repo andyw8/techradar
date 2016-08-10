@@ -23,7 +23,7 @@ gem "rails_admin"
 gem "rasem"
 gem "responders"
 gem "rollbar"
-# gem "rubocop-rspec"
+gem "rubocop-rspec", github: "nevir/rubocop-rspec", branch: "master"
 gem "rubocop"
 gem "sass-rails", "~> 5.0"
 # bundle exec rake doc:rails generates the API under doc/api.
