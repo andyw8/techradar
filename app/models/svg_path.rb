@@ -34,4 +34,3 @@ module SVGPath
     end
   end
 end
-

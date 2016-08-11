@@ -131,7 +131,7 @@ describe Radars::BlipsController do
 
       it "re-renders the 'edit' template in failure" do
         allow(blip).to receive(:update) { false }
-        put "update", radar_id: radar.id, id: blip.id, blip: {quadrant: "x" }
+        put "update", radar_id: radar.id, id: blip.id, blip: { quadrant: "x" }
         expect(response).to render_template("edit")
       end
     end

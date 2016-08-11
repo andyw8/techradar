@@ -8,4 +8,3 @@ class TwitterProfileImage
     user.profile_image_url.to_s.gsub("_normal", "")
   end
 end
-

@@ -7,4 +7,3 @@ class RadarPoint
 
   attr_reader :id, :ring, :title
 end
-

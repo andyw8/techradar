@@ -52,34 +52,34 @@ class RadarDiagram
   private
 
   def draw_nw
-    draw_arc origin_x: 4*UNIT, origin_y: 0, radius: 4*UNIT, x: 0, y: 4*UNIT
-    draw_arc origin_x: 4*UNIT, origin_y: 1*UNIT, radius: 3*UNIT, x: 1*UNIT, y: 4*UNIT
-    draw_arc origin_x: 4*UNIT, origin_y: 2*UNIT, radius: 2*UNIT, x: 2*UNIT, y: 4*UNIT
-    draw_arc origin_x: 4*UNIT, origin_y: 3*UNIT, radius: 1*UNIT, x: 3*UNIT, y: 4*UNIT
+    draw_arc origin_x: 4 * UNIT, origin_y: 0, radius: 4 * UNIT, x: 0, y: 4 * UNIT
+    draw_arc origin_x: 4 * UNIT, origin_y: 1 * UNIT, radius: 3 * UNIT, x: 1 * UNIT, y: 4 * UNIT
+    draw_arc origin_x: 4 * UNIT, origin_y: 2 * UNIT, radius: 2 * UNIT, x: 2 * UNIT, y: 4 * UNIT
+    draw_arc origin_x: 4 * UNIT, origin_y: 3 * UNIT, radius: 1 * UNIT, x: 3 * UNIT, y: 4 * UNIT
     draw_labels(:nw)
   end
 
   def draw_ne
-    draw_arc origin_x: 4*UNIT, origin_y: 4*UNIT, radius: 4*UNIT, x: 0, y: 0
-    draw_arc origin_x: 3*UNIT, origin_y: 4*UNIT, radius: 3*UNIT, x: 0, y: 1*UNIT
-    draw_arc origin_x: 2*UNIT, origin_y: 4*UNIT, radius: 2*UNIT, x: 0, y: 2*UNIT
-    draw_arc origin_x: 1*UNIT, origin_y: 4*UNIT, radius: 1*UNIT, x: 0, y: 3*UNIT
+    draw_arc origin_x: 4 * UNIT, origin_y: 4 * UNIT, radius: 4 * UNIT, x: 0, y: 0
+    draw_arc origin_x: 3 * UNIT, origin_y: 4 * UNIT, radius: 3 * UNIT, x: 0, y: 1 * UNIT
+    draw_arc origin_x: 2 * UNIT, origin_y: 4 * UNIT, radius: 2 * UNIT, x: 0, y: 2 * UNIT
+    draw_arc origin_x: 1 * UNIT, origin_y: 4 * UNIT, radius: 1 * UNIT, x: 0, y: 3 * UNIT
     draw_labels(:ne)
   end
 
   def draw_sw
-    draw_arc origin_x: 0,      origin_y: 0, radius: 4*UNIT, x: 4*UNIT, y: 4*UNIT
-    draw_arc origin_x: 1*UNIT, origin_y: 0, radius: 3*UNIT, x: 4*UNIT, y: 3*UNIT
-    draw_arc origin_x: 2*UNIT, origin_y: 0, radius: 2*UNIT, x: 4*UNIT, y: 2*UNIT
-    draw_arc origin_x: 3*UNIT, origin_y: 0, radius: 1*UNIT, x: 4*UNIT, y: 1*UNIT
+    draw_arc origin_x: 0, origin_y: 0, radius: 4 * UNIT, x: 4 * UNIT, y: 4 * UNIT
+    draw_arc origin_x: 1 * UNIT, origin_y: 0, radius: 3 * UNIT, x: 4 * UNIT, y: 3 * UNIT
+    draw_arc origin_x: 2 * UNIT, origin_y: 0, radius: 2 * UNIT, x: 4 * UNIT, y: 2 * UNIT
+    draw_arc origin_x: 3 * UNIT, origin_y: 0, radius: 1 * UNIT, x: 4 * UNIT, y: 1 * UNIT
     draw_labels(:sw)
   end
 
   def draw_se
-    draw_arc origin_x: 0, origin_y: 4*UNIT, radius: 4*UNIT, x: 4*UNIT, y: 0
-    draw_arc origin_x: 0, origin_y: 3*UNIT, radius: 3*UNIT, x: 3*UNIT, y: 0
-    draw_arc origin_x: 0, origin_y: 2*UNIT, radius: 2*UNIT, x: 2*UNIT, y: 0
-    draw_arc origin_x: 0, origin_y: 1*UNIT, radius: 1*UNIT, x: 1*UNIT, y: 0
+    draw_arc origin_x: 0, origin_y: 4 * UNIT, radius: 4 * UNIT, x: 4 * UNIT, y: 0
+    draw_arc origin_x: 0, origin_y: 3 * UNIT, radius: 3 * UNIT, x: 3 * UNIT, y: 0
+    draw_arc origin_x: 0, origin_y: 2 * UNIT, radius: 2 * UNIT, x: 2 * UNIT, y: 0
+    draw_arc origin_x: 0, origin_y: 1 * UNIT, radius: 1 * UNIT, x: 1 * UNIT, y: 0
     draw_labels(:se)
   end
 
@@ -93,7 +93,7 @@ class RadarDiagram
   end
 
   def img
-    @img ||= Rasem::SVGImage.new(UNIT*4, UNIT*4)
+    @img ||= Rasem::SVGImage.new(UNIT * 4, UNIT * 4)
   end
 
   def draw_labels(corner)
@@ -101,15 +101,15 @@ class RadarDiagram
     if corner.in?(%i(ne nw))
       rings.reverse! if corner == :nw
       rings.each_with_index do |name, n|
-        img.text(20 + n*UNIT, 4*UNIT - 5, name)
+        img.text(20 + n * UNIT, 4 * UNIT - 5, name)
       end
     end
     if corner.in?(%i(se sw))
       # rings.reverse! if corner == :nw
       rings.each_with_index do |name, n|
         left_margin = 10
-        left_margin = 3.25*UNIT if corner == :sw
-        img.text(left_margin, UNIT * 0.5 + n*UNIT, name)
+        left_margin = 3.25 * UNIT if corner == :sw
+        img.text(left_margin, UNIT * 0.5 + n * UNIT, name)
       end
     end
     img.text(0, 0, "")
