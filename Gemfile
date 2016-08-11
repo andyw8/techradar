@@ -30,7 +30,7 @@ gem "sass-rails", "~> 5.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "sendgrid"
 gem "select2-rails"
-gem "simple_form", github: "plataformatec/simple_form", branch: "master"
+gem "simple_form"
 gem "twitter"
 gem "uglifier", ">= 2.7.2"
 gem "unicorn"

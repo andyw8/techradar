@@ -17,15 +17,6 @@ GIT
       rubocop (>= 0.42.0)
 
 GIT
-  remote: git://github.com/plataformatec/simple_form.git
-  revision: daaf41a2fccf8493b4c352fb25e4837b42ac67fc
-  branch: master
-  specs:
-    simple_form (3.2.1)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
-
-GIT
   remote: git@github.com:circleci/rspec_junit_formatter.git
   revision: 6885218137afbadf560c922114767866953f8cbf
   specs:
@@ -355,6 +346,9 @@ GEM
     sexp_processor (4.7.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     simple_oauth (0.3.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
@@ -459,7 +453,7 @@ DEPENDENCIES
   select2-rails
   sendgrid
   shoulda-matchers
-  simple_form!
+  simple_form
   simplecov (~> 0.9)
   spring
   spring-commands-rspec
