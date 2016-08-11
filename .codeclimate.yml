@@ -6,7 +6,24 @@ engines:
     enabled: true
   coffeelint:
     enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  fixme:
+    enabled: true
   reek:
     enabled: true
   rubocop:
     enabled: true
+ratings:
+  paths:
+  - "**.coffee"
+  - "**.erb"
+  - "**.haml"
+  - "**.js"
+  - "**.rb"
