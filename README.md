@@ -2,6 +2,8 @@
 
 [![Dependency Status](https://dependencyci.com/github/andyw8/techradar/badge)](https://dependencyci.com/github/andyw8/techradar)
 
+[![Code Climate](https://codeclimate.com/github/andyw8/techradar/badges/gpa.svg)](https://codeclimate.com/github/andyw8/techradar)
+
 # techradar.io
 
 This repo contains the Rails app behind [techradar.io](http://techradar.io),
