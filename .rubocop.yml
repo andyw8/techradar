@@ -39,8 +39,6 @@ Rails/Output:
     - config/unicorn.rb
 Rails/HttpPositionalArguments:
   Enabled: false # Rails 5 only
-# RSpec/FilePath:
-#   Enabled: false # doesn't work with method name on same line as describe
 Style/IfUnlessModifier:
   Enabled: false
 Style/Documentation:
