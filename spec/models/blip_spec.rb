@@ -3,15 +3,15 @@ require "rails_helper"
 describe Blip do
   include ActiveSupport::Testing::TimeHelpers
 
-  it { should belong_to(:radar) }
-  it { should belong_to(:topic) }
+  it { is_expected.to belong_to(:radar) }
+  it { is_expected.to belong_to(:topic) }
 
-  it { should validate_presence_of(:topic_id) }
-  it { should validate_presence_of(:quadrant) }
-  it { should validate_inclusion_of(:quadrant).in_array(Blip::QUADRANTS) }
-  it { should validate_presence_of(:ring) }
-  it { should validate_inclusion_of(:ring).in_array(Blip::RINGS) }
-  it { should validate_presence_of(:radar) }
+  it { is_expected.to validate_presence_of(:topic_id) }
+  it { is_expected.to validate_presence_of(:quadrant) }
+  it { is_expected.to validate_inclusion_of(:quadrant).in_array(Blip::QUADRANTS) }
+  it { is_expected.to validate_presence_of(:ring) }
+  it { is_expected.to validate_inclusion_of(:ring).in_array(Blip::RINGS) }
+  it { is_expected.to validate_presence_of(:radar) }
 
   context "duplicate topics" do
     let(:user) { create(:user) }

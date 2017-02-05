@@ -2,11 +2,11 @@ require "rails_helper"
 
 describe Radar do
   describe "validations" do
-    it { should belong_to(:owner).class_name("User") }
-    it { should have_many(:blips).dependent(:delete_all) }
+    it { is_expected.to belong_to(:owner).class_name("User") }
+    it { is_expected.to have_many(:blips).dependent(:delete_all) }
 
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:owner) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:owner) }
 
     it "prevents duplicate names for radars with the same owner" do
       owner = create(:user)

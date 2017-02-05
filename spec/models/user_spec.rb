@@ -11,8 +11,8 @@ describe User do
     expect { create(:user) }.to broadcast(:user_created)
   end
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:email) }
 
   it "accepts valid email addresses" do
     addresses = %w(user@foo.com THE_USER@foo.bar.org first.last@foo.jp)
@@ -43,9 +43,9 @@ describe User do
   end
 
   describe "password validations" do
-    it { should validate_presence_of(:password) }
-    it { should validate_confirmation_of(:password) }
-    it { should validate_length_of(:password).is_at_least(8) }
+    it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_confirmation_of(:password) }
+    it { is_expected.to validate_length_of(:password).is_at_least(8) }
   end
 
   describe "password encryption" do
