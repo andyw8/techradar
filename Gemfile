@@ -54,7 +54,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "haml_lint", github: "brigade/haml-lint" # "https://github.com/brigade/haml-lint/issues/108"
   gem "launchy"
-  gem "nokogiri", ">= 1.6.8"
+  gem "nokogiri"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rescue"

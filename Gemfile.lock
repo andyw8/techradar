@@ -421,7 +421,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1.3)
   launchy
   letter_opener
-  nokogiri (>= 1.6.8)
+  nokogiri
   pg
   pry
   pry-byebug
@@ -457,7 +457,7 @@ DEPENDENCIES
   wisper
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.3p222
 
 BUNDLED WITH
-   1.12.5
+   1.13.7
