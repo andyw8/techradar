@@ -45,9 +45,6 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/GuardClause:
-  Exclude:
-    - app/lib/thought_works_importer.rb
 Style/MutableConstant:
   Enabled: false
 Style/StringLiterals:
