@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "rails", "4.2.6"
+gem "rails", "4.2.7.1"
 
 gem "analytics-ruby", require: "segment"
 gem "bh", "~> 1.2"
