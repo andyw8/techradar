@@ -1,4 +1,4 @@
-if Rails.env.test?
+if Rails.env.test? || !ENV.key?("SEGMENT_WRITE_KEY")
   class Analytics
     def self.track(*)
     end
