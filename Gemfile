@@ -52,7 +52,7 @@ group :development, :test do
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", github: "brigade/haml-lint" # "https://github.com/brigade/haml-lint/issues/108"
+  gem "haml_lint", "~> 0.19.0"
   gem "launchy"
   gem "nokogiri"
   gem "pry"
