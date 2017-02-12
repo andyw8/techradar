@@ -26,8 +26,6 @@ gem "rollbar"
 gem "rubocop", "0.46.0" # match Code Climate
 gem "rubocop-rspec", "1.8.0" # match Code Climate
 gem "sass-rails", "~> 5.0"
-# bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc", "~> 0.4.0", group: :doc
 gem "select2-rails"
 gem "sendgrid"
 gem "simple_form"
