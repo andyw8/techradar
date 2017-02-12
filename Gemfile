@@ -23,8 +23,6 @@ gem "rails_admin"
 gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "responders"
 gem "rollbar"
-gem "rubocop", "0.46.0" # match Code Climate
-gem "rubocop-rspec", "1.8.0" # match Code Climate
 gem "sass-rails", "~> 5.0"
 gem "select2-rails"
 gem "sendgrid"
@@ -59,6 +57,8 @@ group :development, :test do
   gem "pry-rescue"
   gem "pry-stack_explorer"
   gem "rspec-rails", "~> 3.4.2"
+  gem "rubocop", "0.46.0" # match Code Climate
+  gem "rubocop-rspec", "1.8.0" # match Code Climate
   gem "shoulda-matchers"
 end
 
