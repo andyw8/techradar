@@ -1,11 +1,11 @@
 fail "Users exist" if User.count > 0
 
 admin = User.create!(
-  name:                  ENV['ADMIN_NAME'],
-  email:                 ENV['ADMIN_EMAIL'],
+  name:                  ENV.fetch('ADMIN_NAME'),
+  email:                 ENV.fetch('ADMIN_EMAIL'),
   username:              "admin",
-  password:              ENV['ADMIN_PASSWORD'],
-  password_confirmation: ENV['ADMIN_PASSWORD'],
+  password:              ENV.fetch('ADMIN_PASSWORD'),
+  password_confirmation: ENV.fetch('ADMIN_PASSWORD'),
   admin: true
 )
 admin.confirm!
