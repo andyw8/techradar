@@ -49,6 +49,7 @@ end
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "bundler-audit"
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
