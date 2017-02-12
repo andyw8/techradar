@@ -20,7 +20,7 @@ gem "jquery-rails", "~> 3.1.3"
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
 gem "rails_admin"
-gem "rasem"
+gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "responders"
 gem "rollbar"
 gem "rubocop", "0.46.0" # match Code Climate

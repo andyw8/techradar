@@ -433,7 +433,7 @@ DEPENDENCIES
   rails_admin
   rails_layout
   rails_stdout_logging
-  rasem
+  rasem (= 0.6.1)
   responders
   rollbar
   rspec-activemodel-mocks
