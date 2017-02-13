@@ -18,10 +18,6 @@ class Radar < ActiveRecord::Base
   attr_accessor :topics
 
   def self.lookup(uuid)
-    find_by(uuid: uuid)
-  end
-
-  def self.lookup!(uuid)
     find_by!(uuid: uuid)
   end
 
