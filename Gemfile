@@ -43,8 +43,10 @@ group :development do
 end
 
 group :development, :test do
+  gem "awesome_print"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "bullet"
   gem "bundler-audit"
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
@@ -54,12 +56,15 @@ group :development, :test do
   gem "nokogiri"
   gem "pry"
   gem "pry-byebug"
-  gem "pry-rescue"
-  gem "pry-stack_explorer"
-  gem "rspec-rails", "~> 3.4.2"
+  gem "pry-rails"
+  gem "rspec-rails", "~> 3.5"
   gem "rubocop", "0.46.0" # match Code Climate
   gem "rubocop-rspec", "1.8.0" # match Code Climate
   gem "shoulda-matchers"
+end
+
+group :development, :staging do
+  gem "rack-mini-profiler", require: false
 end
 
 group :test do
