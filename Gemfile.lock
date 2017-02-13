@@ -207,6 +207,7 @@ GEM
     nested_form (0.3.2)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    oj (2.12.14)
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -422,6 +423,7 @@ DEPENDENCIES
   launchy
   letter_opener
   nokogiri
+  oj (~> 2.12.14)
   pg
   pry
   pry-byebug

@@ -17,6 +17,7 @@ gem "high_voltage"
 gem "intercom-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails", "~> 3.1.3"
+gem "oj", "~> 2.12.14" # recommended by Rollbar README
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
 gem "rails_admin"
