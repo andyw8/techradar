@@ -4,6 +4,7 @@ ruby RUBY_VERSION
 
 gem "rails", "4.2.7.1"
 
+gem "active_model_serializers"
 gem "analytics-ruby", require: "segment"
 gem "bh", "~> 1.2"
 gem "bootstrap-sass"
@@ -34,7 +35,6 @@ gem "unicorn"
 gem "wisper"
 
 group :development do
-  gem "active_model_serializers"
   gem "foreman"
   gem "letter_opener"
   gem "quiet_assets"
