@@ -34,6 +34,7 @@ gem "unicorn"
 gem "wisper"
 
 group :development do
+  gem "active_model_serializers"
   gem "foreman"
   gem "letter_opener"
   gem "quiet_assets"

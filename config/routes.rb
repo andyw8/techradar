@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   resources :topics, only: [:show, :new, :create]
   resources :bulk_topics, only: [:new, :create]
   get "/about", controller: "pages", action: "about"
+
+  namespace "api" do
+    namespace "v1" do
+      resources :radars, only: :show
+    end
+  end
 end
