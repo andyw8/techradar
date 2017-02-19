@@ -41,12 +41,6 @@ class Radar < ActiveRecord::Base
     blips.includes(:topic).where(ring: ring, quadrant: quadrant).order("topics.name")
   end
 
-  def add_blip(params)
-    blip = blips.new(params)
-    blip.save!
-    blip
-  end
-
   def owned_by?(user)
     owner == user
   end
