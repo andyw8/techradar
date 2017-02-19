@@ -14,6 +14,7 @@ RSpec.configure do |config|
 
   config.order = :random
   Kernel.srand config.seed
+  config.warnings = false
 
   config.expect_with :rspec do |expectations|
     expectations.syntax = :expect
