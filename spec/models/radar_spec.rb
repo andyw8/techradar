@@ -9,10 +9,9 @@ describe Radar do
     it { is_expected.to validate_presence_of(:owner) }
 
     it "prevents duplicate names for radars with the same owner" do
-      owner = create(:user)
-      create(:radar, owner: owner, name: "My Radar")
+      first_radar = create(:radar, name: "My Radar")
 
-      another_radar = build(:radar, owner: owner, name: "my radar")
+      another_radar = build(:radar, owner: first_radar.owner, name: "my radar")
 
       another_radar.valid?
       expect(another_radar.errors.messages).to include(
