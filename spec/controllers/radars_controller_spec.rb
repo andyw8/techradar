@@ -53,7 +53,7 @@ describe RadarsController do
     it "redirects to login if not signed in" do
       radar = create(:radar, owner: user)
 
-      get "edit", id: radar.uuid, quadrant: "tools"
+      get "edit", params: { id: radar.uuid, quadrant: "tools" }
 
       expect(response).to redirect_to(new_user_session_path)
     end
@@ -62,7 +62,7 @@ describe RadarsController do
       radar = create(:radar, owner: user)
       sign_in(user)
 
-      get "edit", id: radar.uuid, quadrant: "tools"
+      get "edit", params: { id: radar.uuid, quadrant: "tools" }
 
       expect(response).to render_template("radars/edit")
     end
@@ -72,7 +72,7 @@ describe RadarsController do
       radar = create(:radar, owner: another_user)
       sign_in(user)
 
-      get "edit", id: radar.uuid, quadrant: "tools"
+      get "edit", params: { id: radar.uuid, quadrant: "tools" }
 
       expect(response).to redirect_to(new_user_session_path)
     end
@@ -82,7 +82,7 @@ describe RadarsController do
     it "renders the specified quadrant" do
       radar = create(:radar, uuid: "abc123")
 
-      get "show", id: radar.uuid, quadrant: "tools"
+      get "show", params: { id: radar.uuid, quadrant: "tools" }
 
       expect(response).to render_template("radars/show")
     end
@@ -91,7 +91,7 @@ describe RadarsController do
       radar = create(:radar, uuid: "abc123")
       expected_path = radar_quadrant_path(radar, quadrant: "tools")
 
-      get "show", id: radar.uuid
+      get "show", params: { id: radar.uuid }
 
       expect(response).to redirect_to(expected_path)
     end
@@ -106,18 +106,18 @@ describe RadarsController do
     it "creates a radar" do
       radar = mock_model("Radar", save: true)
       allow(user).to receive(:new_radar) { radar }
-      post "create", radar: params
+      post "create", params: { radar: params }
     end
 
     it "redirects to the newly created radar" do
-      post "create", radar: params
+      post "create", params: { radar: params }
       expect(response).to redirect_to(radar_path(Radar.last))
     end
 
     it "does not create a radar with invalid params" do
       radar = double("Radar", save: false)
       allow(user).to receive(:new_radar) { radar }
-      post "create", radar: params
+      post "create", params: { radar: params }
       expect(response).to render_template("radars/new")
     end
   end
@@ -132,7 +132,7 @@ describe RadarsController do
       radar = build_stubbed(:radar)
       expect(Radar).to receive(:find_by).with(uuid: radar.id.to_s, owner: user) { radar }
       expect(radar).to receive(:destroy!)
-      delete "destroy", id: radar.id
+      delete "destroy", params: { id: radar.id }
     end
   end
 end
