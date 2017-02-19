@@ -1,4 +1,4 @@
-class Blip < ActiveRecord::Base
+class Blip < ApplicationRecord
   QUADRANTS = %w(techniques tools platforms languages_and_frameworks)
   CORNERS = {
     nw: "techniques",
