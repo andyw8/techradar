@@ -2,22 +2,22 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "rails", "4.2.8.rc1"
+gem "rails", "5.0.1"
 
 gem "active_model_serializers"
 gem "analytics-ruby", require: "segment"
 gem "bh", "~> 1.2"
 gem "bootstrap-sass"
-gem "coffee-rails", "~> 4.1.0"
-gem "devise", "~> 4.0.0"
-gem "draper"
+gem "coffee-rails"
+gem "devise"
+gem "draper", "3.0.0.pre1"
 gem "font-awesome-sass"
 gem "friendly_id"
 gem "haml-rails"
 gem "high_voltage"
 gem "intercom-rails"
 gem "jbuilder", "~> 2.0"
-gem "jquery-rails", "~> 3.1.3"
+gem "jquery-rails"
 gem "oj" # recommended by Rollbar README
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
@@ -37,7 +37,7 @@ gem "wisper"
 group :development do
   gem "foreman"
   gem "letter_opener"
-  gem "quiet_assets"
+  # gem "quiet_assets" not yet Rails 5 compatible https://github.com/evrone/quiet_assets/issues/54
   gem "rails_layout"
   gem "rails_stdout_logging"
   gem "spring"
@@ -59,7 +59,7 @@ group :development, :test do
   gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.5"
+  gem "rspec-rails"
   gem "rubocop", "0.46.0" # match Code Climate
   gem "rubocop-rspec", "1.8.0" # match Code Climate
   gem "shoulda-matchers"
@@ -73,6 +73,7 @@ group :test do
   gem "capybara"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
+  gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
   gem "rspec_junit_formatter", git: "git@github.com:circleci/rspec_junit_formatter.git" # for CircleCI
   gem "simplecov", "~> 0.9"
