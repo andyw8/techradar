@@ -3,3 +3,27 @@ DuplicateMethodCall:
   max_calls: 3
 IrresponsibleModule:
   enabled: false
+"app/controllers":
+  NestedIterators:
+    max_allowed_nesting: 2
+  UnusedPrivateMethod:
+    enabled: false
+  InstanceVariableAssumption:
+    enabled: false
+"app/helpers":
+  IrresponsibleModule:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+"db/migrate":
+  FeatureEnvy:
+    enabled: false
+  TooManyStatements:
+    enabled: false
+  UncommunicativeVariableName:
+    accept: t # for generated migrations
+"app/models":
+  UncommunicativeVariableName:
+    accept:
+    - x
+    - y
