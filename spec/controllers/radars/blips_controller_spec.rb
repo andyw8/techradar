@@ -46,7 +46,6 @@ describe Radars::BlipsController do
 
     describe "POST 'create'" do
       it "delegates to radar for new" do
-        pending "needs fixed for Rails 5"
         allow(user).to receive(:find_radar) { radar }
         topic = double(:topic)
         attrs = attributes_for(:blip, topic_id: topic.to_param)
@@ -56,9 +55,11 @@ describe Radars::BlipsController do
         post :create, params: { radar_id: radar.to_param, blip: attrs }
 
         expect(radar).to have_received(:new_blip).with(
-          topic_id: topic.to_param,
-          quadrant: "tools",
-          ring: "adopt"
+          ActionController::Parameters.new(
+            topic_id: topic.to_param,
+            quadrant: "tools",
+            ring: "adopt"
+          ).permit(:topic_id, :quadrant, :ring)
         )
       end
 
@@ -114,8 +115,11 @@ describe Radars::BlipsController do
       end
 
       it "updates the blip" do
-        pending "needs fixed for Rails 5"
-        expect(blip).to receive(:update).with("notes" => "updated notes")
+        expect(blip).to receive(:update).with(
+          ActionController::Parameters.new(
+            "notes" => "updated notes"
+          ).permit(:notes)
+        )
         put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
       end
 
