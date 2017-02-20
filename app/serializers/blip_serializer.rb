@@ -1,3 +1,3 @@
 class BlipSerializer < ActiveModel::Serializer
-  attributes :quadrant, :ring, :notes
+  attributes :quadrant, :ring, :notes, :name
 end
