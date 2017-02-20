@@ -27,3 +27,150 @@ IrresponsibleModule:
     accept:
     - x
     - y
+
+### TODO
+
+InstanceVariableAssumption:
+  exclude:
+  - Api::V1::RadarsController
+  - BulkTopicsController
+  - Radars::BlipsController
+  - StarterTopicsController
+  - Rasem::SVGImage
+IrresponsibleModule:
+  exclude:
+  - Api::V1::RadarsController
+  - ApplicationController
+  - BulkTopicsController
+  - HomeController
+  - PagesController
+  - Radars::BlipsController
+  - RadarsController
+  - RegistrationsController
+  - StarterTopicsController
+  - TopicsController
+  - UsersController
+  - ApplicationHelper
+  - Starter
+  - Devise::MyMailer
+  - AddTopics
+  - Blip
+  - BulkTopic
+  - Radar
+  - RadarDiagram
+  - RadarPoint
+  - StarterTopics
+  - SVGPath::Absolute
+  - Topic
+  - TwitterProfileImage
+  - User
+  - User::MissingAdminAccount
+  - TopicsPresenter
+  - Service
+  - Analytics
+  - Rasem::SVGImage
+  - UsernameConstraint
+  - DeviseCreateUsers
+  - AddNameToUsers
+  - AddConfirmableToUsers
+  - CreateRadars
+  - AddOwnerToRadar
+  - CreateBlips
+  - AddRadarToBlip
+  - AddAdminToUsers
+  - AddQuadrantToBlip
+  - AddRingToBlip
+  - AddNotesToBlips
+  - AddUsernameToUsers
+  - CreateFriendlyIdSlugs
+  - CreateTopics
+  - AddTopicToBlips
+  - RemoveNameFromBlips
+  - AddCreatorToTopics
+  - AddUuidToRadars
+  - AddDescriptionToRadar
+  - AddTwitterUsernameToTopics
+  - AddTwitterProfileImageToTopics
+UncommunicativeModuleName:
+  exclude:
+  - Api::V1
+DuplicateMethodCall:
+  exclude:
+  - Radars::BlipsController#radar
+  - RadarsController#show
+  - ApplicationHelper#display_base_errors
+  - Starter#user_created
+  - RadarDiagram#draw_labels
+  - RadarDiagram#draw_ne
+  - RadarDiagram#draw_nw
+  - RadarDiagram#draw_point
+  - RadarDiagram#draw_se
+  - RadarDiagram#draw_sw
+  - RadarDiagram#img
+  - StarterTopics#save
+  - register_account
+  - verify_sample_radar_presence
+UtilityFunction:
+  exclude:
+  - Radars::BlipsController#quadrants
+  - Radars::BlipsController#rings
+  - Starter#user_created
+TooManyStatements:
+  exclude:
+  - initialize
+  - RadarsController#show
+  - ApplicationHelper#can?
+  - ApplicationHelper#display_base_errors
+  - RadarDiagram#draw
+  - RadarDiagram#draw_labels
+  - RadarDiagram#draw_point
+  - DeviseCreateUsers#change
+  - CreateFriendlyIdSlugs#change
+  - register_account
+  - sign_in
+FeatureEnvy:
+  exclude:
+  - ApplicationHelper#display_base_errors
+  - RadarDiagram#draw_labels
+  - RadarDiagram#draw_point
+  - DeviseCreateUsers#change
+  - CreateRadars#change
+  - CreateBlips#change
+  - CreateTopics#change
+Attribute:
+  exclude:
+  - BulkTopic#creator
+  - BulkTopic#topics
+  - Radar#topics
+  - User#login
+LongParameterList:
+  exclude:
+  - RadarDiagram#draw_arc
+  - SVGPath::Absolute#self.circular_arc
+  - SVGPath::Absolute#self.elliptical_arc
+  - Rasem::SVGImage#circle
+NestedIterators:
+  exclude:
+  - RadarDiagram#draw
+UncommunicativeParameterName:
+  exclude:
+  - RadarDiagram#draw_arc
+  - SVGPath::Absolute#self.circular_arc
+  - SVGPath::Absolute#self.elliptical_arc
+  - SVGPath::Absolute#self.move_to
+  - Rasem::SVGImage#circle
+  - Rasem::SVGImage#path
+UncommunicativeVariableName:
+  exclude:
+  - RadarDiagram#draw_labels
+  - RadarDiagram#draw_point
+  - StarterTopics
+  - Rasem::SVGImage#path
+  - DeviseCreateUsers#change
+  - CreateRadars#change
+  - CreateBlips#change
+  - CreateFriendlyIdSlugs#change
+  - CreateTopics#change
+UnusedParameters:
+  exclude:
+  - SVGPath::Absolute#self.elliptical_arc

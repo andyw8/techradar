@@ -3,10 +3,10 @@ class StarterTopics
 
   TOPICS = %i(topic_1 topic_2 topic_3)
 
-  TOPICS.each do |t|
-    attr_accessor t
+  TOPICS.each do |topic|
+    attr_accessor topic
 
-    validates t, presence: true
+    validates topic, presence: true
   end
 
   def save(user)

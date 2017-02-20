@@ -100,16 +100,16 @@ class RadarDiagram
     rings = %w(Adopt Trial Assess Hold)
     if corner.in?(%i(ne nw))
       rings.reverse! if corner == :nw
-      rings.each_with_index do |name, n|
-        img.text(20 + n * UNIT, 4 * UNIT - 5, name)
+      rings.each_with_index do |name, index|
+        img.text(20 + index * UNIT, 4 * UNIT - 5, name)
       end
     end
     if corner.in?(%i(se sw))
       # rings.reverse! if corner == :nw
-      rings.each_with_index do |name, n|
+      rings.each_with_index do |name, index|
         left_margin = 10
         left_margin = 3.25 * UNIT if corner == :sw
-        img.text(left_margin, UNIT * 0.5 + n * UNIT, name)
+        img.text(left_margin, UNIT * 0.5 + index * UNIT, name)
       end
     end
     img.text(0, 0, "")
