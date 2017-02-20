@@ -485,7 +485,6 @@ DEPENDENCIES
   rails_stdout_logging
   rasem (= 0.6.1)
   reek
-  responders
   rollbar
   rspec-activemodel-mocks
   rspec-rails

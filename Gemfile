@@ -23,7 +23,6 @@ gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
 gem "rails_admin"
 gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
-gem "responders"
 gem "rollbar"
 gem "sass-rails", "~> 5.0"
 gem "select2-rails"
