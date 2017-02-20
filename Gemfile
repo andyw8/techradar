@@ -36,7 +36,6 @@ gem "wisper"
 group :development do
   gem "foreman"
   gem "letter_opener"
-  # gem "quiet_assets" not yet Rails 5 compatible https://github.com/evrone/quiet_assets/issues/54
   gem "rails_layout"
   gem "rails_stdout_logging"
   gem "spring"
