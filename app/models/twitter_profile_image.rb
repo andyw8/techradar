@@ -1,3 +1,5 @@
+require "twitter"
+
 class TwitterProfileImage
   def self.call(username)
     client = Twitter::REST::Client.new do |config|

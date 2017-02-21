@@ -27,7 +27,7 @@ gem "rollbar"
 gem "sass-rails", "~> 5.0"
 gem "select2-rails"
 gem "simple_form"
-gem "twitter"
+gem "twitter", require: false
 gem "uglifier", ">= 2.7.2"
 gem "unicorn"
 gem "wisper"
