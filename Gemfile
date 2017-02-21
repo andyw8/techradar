@@ -26,7 +26,6 @@ gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "rollbar"
 gem "sass-rails", "~> 5.0"
 gem "select2-rails"
-gem "sendgrid"
 gem "simple_form"
 gem "twitter"
 gem "uglifier", ">= 2.7.2"
@@ -79,4 +78,5 @@ end
 
 group :production do
   gem "rails_12factor"
+  gem "sendgrid"
 end
