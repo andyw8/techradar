@@ -47,7 +47,7 @@ group :development, :test do
   gem "binding_of_caller"
   gem "bullet"
   gem "bundler-audit"
-  gem "capybara-email", "~> 2.4"
+  gem "capybara-email", "~> 2.4", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "haml_lint", "~> 0.19.0", require: false
