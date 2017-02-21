@@ -469,7 +469,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
-  nokogiri
   oj
   pg
   pry

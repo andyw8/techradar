@@ -53,14 +53,13 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "haml_lint", "~> 0.19.0", require: false
   gem "launchy"
-  gem "nokogiri"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
   gem "reek", require: false
   gem "rspec-rails"
   gem "rubocop", "0.46.0", require: false # match Code Climate
-  gem "rubocop-rspec", "1.8.0" # match Code Climate
+  gem "rubocop-rspec", "1.8.0", require: false # match Code Climate
   gem "shoulda-matchers"
 end
 
