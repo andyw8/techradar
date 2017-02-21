@@ -59,7 +59,7 @@ group :development, :test do
   gem "pry-rails"
   gem "reek", require: false
   gem "rspec-rails"
-  gem "rubocop", "0.46.0" # match Code Climate
+  gem "rubocop", "0.46.0", require: false # match Code Climate
   gem "rubocop-rspec", "1.8.0" # match Code Climate
   gem "shoulda-matchers"
 end
