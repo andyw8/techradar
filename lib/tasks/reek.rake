@@ -1,4 +1,4 @@
-if defined? Reek
+if Rails.env.development? || Rails.env.test?
   require "reek/rake/task"
 
   Reek::Rake::Task.new do |t|
