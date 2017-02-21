@@ -51,7 +51,7 @@ group :development, :test do
   gem "capybara-email", "~> 2.4"
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", "~> 0.19.0"
+  gem "haml_lint", "~> 0.19.0", require: false
   gem "launchy"
   gem "nokogiri"
   gem "pry"
