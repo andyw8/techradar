@@ -4,7 +4,11 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "shoulda/matchers"
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+require "support/capybara"
+require "support/database_cleaner"
+require "support/devise"
+require "support/shoulda"
+require "support/stub_current_user"
 
 ActiveRecord::Migration.maintain_test_schema!
 

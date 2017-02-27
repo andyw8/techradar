@@ -1,37 +1,33 @@
 source "https://rubygems.org"
 
-ruby `cat .ruby-version`.strip
+ruby RUBY_VERSION
 
-gem "rails", "4.2.6"
+gem "rails", "5.0.1"
 
+gem "active_model_serializers"
 gem "analytics-ruby", require: "segment"
 gem "bh", "~> 1.2"
 gem "bootstrap-sass"
-gem "coffee-rails", "~> 4.1.0"
-gem "devise", "~> 4.0.0"
-gem "draper"
+gem "coffee-rails"
+gem "devise"
+gem "draper", "3.0.0.pre1"
 gem "font-awesome-sass"
 gem "friendly_id"
 gem "haml-rails"
 gem "high_voltage"
 gem "intercom-rails"
 gem "jbuilder", "~> 2.0"
-gem "jquery-rails", "~> 3.1.3"
+gem "jquery-rails"
+gem "oj" # recommended by Rollbar README
 gem "pg"
 gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
 gem "rails_admin"
-gem "rasem"
-gem "responders"
+gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "rollbar"
-gem "rubocop-rspec", github: "nevir/rubocop-rspec", branch: "master"
-gem "rubocop"
 gem "sass-rails", "~> 5.0"
-# bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc", "~> 0.4.0", group: :doc
-gem "sendgrid"
 gem "select2-rails"
 gem "simple_form"
-gem "twitter"
+gem "twitter", require: false
 gem "uglifier", ">= 2.7.2"
 gem "unicorn"
 gem "wisper"
@@ -39,7 +35,6 @@ gem "wisper"
 group :development do
   gem "foreman"
   gem "letter_opener"
-  gem "quiet_assets"
   gem "rails_layout"
   gem "rails_stdout_logging"
   gem "spring"
@@ -47,31 +42,41 @@ group :development do
 end
 
 group :development, :test do
+  gem "awesome_print"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "capybara-email", "~> 2.4"
+  gem "bullet"
+  gem "bundler-audit"
+  gem "capybara-email", "~> 2.4", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", github: "brigade/haml-lint" # "https://github.com/brigade/haml-lint/issues/108"
+  gem "haml_lint", "~> 0.19.0", require: false
   gem "launchy"
-  gem "nokogiri", ">= 1.6.8"
   gem "pry"
   gem "pry-byebug"
-  gem "pry-rescue"
-  gem "pry-stack_explorer"
-  gem "rspec-rails", "~> 3.4.2"
+  gem "pry-rails"
+  gem "reek", require: false
+  gem "rspec-rails"
+  gem "rubocop", "0.46.0", require: false # match Code Climate
+  gem "rubocop-rspec", "1.8.0", require: false # match Code Climate
   gem "shoulda-matchers"
+end
+
+group :development, :staging do
+  gem "rack-mini-profiler", require: false
 end
 
 group :test do
   gem "capybara"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
-  gem "rspec_junit_formatter", git: "git@github.com:circleci/rspec_junit_formatter.git" # for CircleCI
+  gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
+  gem "rspec_junit_formatter", git: "git@github.com:circleci/rspec_junit_formatter.git" # for CircleCI
   gem "simplecov", "~> 0.9"
 end
 
 group :production do
   gem "rails_12factor"
+  gem "sendgrid"
 end

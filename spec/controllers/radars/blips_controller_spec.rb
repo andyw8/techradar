@@ -14,7 +14,7 @@ describe Radars::BlipsController do
           radar = create(:radar, owner: user)
           blip = create(:blip, radar: radar)
 
-          get :show, radar_id: radar.to_param, id: blip.to_param
+          get :show, params: { radar_id: radar.to_param, id: blip.to_param }
 
           expect(controller).to render_template("show")
         end
@@ -23,7 +23,7 @@ describe Radars::BlipsController do
       context "for an invalid radar" do
         specify do
           expect do
-            get :show, radar_id: "99", id: "99"
+            get :show, params: { radar_id: "99", id: "99" }
           end.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -39,7 +39,7 @@ describe Radars::BlipsController do
 
     describe "GET 'new'" do
       specify do
-        get :new, radar_id: radar.to_param
+        get :new, params: { radar_id: radar.to_param }
         expect(response).to be_successful
       end
     end
@@ -52,12 +52,14 @@ describe Radars::BlipsController do
         blip = double("blip", quadrant: "tools", save: true)
         allow(radar).to receive(:new_blip) { blip }
 
-        post :create, radar_id: radar.to_param, blip: attrs
+        post :create, params: { radar_id: radar.to_param, blip: attrs }
 
         expect(radar).to have_received(:new_blip).with(
-          topic_id: topic.to_param,
-          quadrant: "tools",
-          ring: "adopt"
+          ActionController::Parameters.new(
+            topic_id: topic.to_param,
+            quadrant: "tools",
+            ring: "adopt"
+          ).permit(:topic_id, :quadrant, :ring)
         )
       end
 
@@ -67,7 +69,7 @@ describe Radars::BlipsController do
         blip = double("blip", quadrant: "tools", save: true)
         allow(radar).to receive(:new_blip) { blip }
 
-        post :create, radar_id: radar.to_param, blip: attrs
+        post :create, params: { radar_id: radar.to_param, blip: attrs }
 
         expected_path = radar_quadrant_path(radar, quadrant: "tools")
         expect(response).to redirect_to(expected_path)
@@ -79,7 +81,7 @@ describe Radars::BlipsController do
         blip = double("blip", quadrant: "tools", save: false)
         allow(radar).to receive(:new_blip) { blip }
 
-        post :create, radar_id: radar.to_param, blip: attrs
+        post :create, params: { radar_id: radar.to_param, blip: attrs }
 
         expect(response).to render_template("new")
       end
@@ -94,12 +96,12 @@ describe Radars::BlipsController do
 
       it "destroys the blip" do
         expect(blip).to receive(:destroy!)
-        delete "destroy", radar_id: radar.id, id: blip.id
+        delete "destroy", params: { radar_id: radar.id, id: blip.id }
       end
 
       it "redirects to the parent radar" do
         allow(blip).to receive(:destroy!)
-        delete "destroy", radar_id: radar.id, id: blip.id
+        delete "destroy", params: { radar_id: radar.id, id: blip.id }
         expect(response).to redirect_to(radar)
       end
     end
@@ -113,25 +115,29 @@ describe Radars::BlipsController do
       end
 
       it "updates the blip" do
-        expect(blip).to receive(:update).with("notes" => "updated notes")
-        put "update", radar_id: radar.id, id: blip.id, blip: params
+        expect(blip).to receive(:update).with(
+          ActionController::Parameters.new(
+            "notes" => "updated notes"
+          ).permit(:notes)
+        )
+        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
       end
 
       it "redirects to the parent radar on success" do
         allow(blip).to receive(:update) { true }
-        put "update", radar_id: radar.id, id: blip.id, blip: params
+        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
         expect(response).to redirect_to(radar)
       end
 
       it "redirects to the parent radar on success" do
         allow(blip).to receive(:update) { true }
-        put "update", radar_id: radar.id, id: blip.id, blip: params
+        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
         expect(response).to redirect_to(radar)
       end
 
       it "re-renders the 'edit' template in failure" do
         allow(blip).to receive(:update) { false }
-        put "update", radar_id: radar.id, id: blip.id, blip: { quadrant: "x" }
+        put "update", params: { radar_id: radar.id, id: blip.id, blip: { quadrant: "x" } }
         expect(response).to render_template("edit")
       end
     end

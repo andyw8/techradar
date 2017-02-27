@@ -1,4 +1,4 @@
-class Radar < ActiveRecord::Base
+class Radar < ApplicationRecord
   belongs_to :owner, class_name: "User"
   has_many :blips, dependent: :delete_all
 
@@ -18,10 +18,6 @@ class Radar < ActiveRecord::Base
   attr_accessor :topics
 
   def self.lookup(uuid)
-    find_by(uuid: uuid)
-  end
-
-  def self.lookup!(uuid)
     find_by!(uuid: uuid)
   end
 
@@ -43,12 +39,6 @@ class Radar < ActiveRecord::Base
 
   def blips_in_scope(ring:, quadrant:)
     blips.includes(:topic).where(ring: ring, quadrant: quadrant).order("topics.name")
-  end
-
-  def add_blip(params)
-    blip = blips.new(params)
-    blip.save!
-    blip
   end
 
   def owned_by?(user)

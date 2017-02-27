@@ -10,6 +10,14 @@ This repo contains the Rails app behind [techradar.io](http://techradar.io),
 a web app for building and sharing your own
 [Technology Radar](https://www.thoughtworks.com/radar/faq).
 
+# API
+
+A preliminary JSON API is available (replace the UUID with your own):
+
+[http://techradar.io/api/v1/radars/1f7af5fd-8c71-4a89-99e0-bb53b4e2e8c1](http://techradar.io/api/v1/radars/1f7af5fd-8c71-4a89-99e0-bb53b4e2e8c1)
+
+(At present, you need to be logged in first).
+
 ## Contributing
 
 1. Fork it ( https://github.com/andyw8/techradar/fork )

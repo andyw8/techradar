@@ -22,6 +22,14 @@ Metrics/MethodLength:
   Exclude:
     - app/helpers/application_helper.rb
     - app/lib/thought_works_importer.rb
+Metrics/BlockLength:
+  Exclude:
+    - config/initializers/simple_form_bootstrap.rb
+    - spec/**/*_spec.rb
+  # Can use this instead exluding whole spec directory after upgrading to rubocop 0.47.0
+  # ExcludedMethods:
+  #   - describe
+  #   - feature
 Rails/Delegate:
   Exclude:
     - app/models/blip.rb # TODO
@@ -29,17 +37,16 @@ Rails/Output:
   Exclude:
     - config/initializers/analytics_ruby.rb
     - config/unicorn.rb
-# RSpec/FilePath:
-#   Enabled: false # doesn't work with method name on same line as describe
+Rails/HttpPositionalArguments:
+  Enabled: false # Rails 5 only
+RSpec/ExampleLength:
+  Enabled: false # TODO
 Style/IfUnlessModifier:
   Enabled: false
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/GuardClause:
-  Exclude:
-    - app/lib/thought_works_importer.rb
 Style/MutableConstant:
   Enabled: false
 Style/StringLiterals:
