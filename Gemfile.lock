@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:circleci/rspec_junit_formatter.git
+  remote: git://github.com/circleci/rspec_junit_formatter.git
   revision: 6885218137afbadf560c922114767866953f8cbf
   specs:
     rspec_junit_formatter (0.2.0)
