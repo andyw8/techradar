@@ -80,3 +80,4 @@ group :production do
   gem "rails_12factor"
   gem "sendgrid"
 end
+gem "nokogiri", ">= 1.7.1"
