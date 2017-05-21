@@ -74,6 +74,7 @@ group :test do
   gem "rspec-activemodel-mocks"
   gem "rspec_junit_formatter", git: "git@github.com:circleci/rspec_junit_formatter.git" # for CircleCI
   gem "simplecov", "~> 0.9"
+  gem "wisper-rspec"
 end
 
 group :production do
