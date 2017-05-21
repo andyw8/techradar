@@ -430,7 +430,7 @@ DEPENDENCIES
   analytics-ruby
   awesome_print
   better_errors
-  bh (~> 1.2)
+  bh
   binding_of_caller
   bootstrap-sass
   bullet
@@ -451,7 +451,7 @@ DEPENDENCIES
   haml_lint
   high_voltage
   intercom-rails
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   launchy
   letter_opener
@@ -484,7 +484,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   twitter
-  uglifier (>= 2.7.2)
+  uglifier
   unicorn
   wisper
   wisper-rspec
