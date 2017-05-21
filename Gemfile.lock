@@ -130,7 +130,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
-    draper (3.0.0.pre1)
+    draper (3.0.0)
       actionpack (~> 5.0)
       activemodel (~> 5.0)
       activemodel-serializers-xml (~> 1.0)
@@ -436,7 +436,7 @@ DEPENDENCIES
   bullet
   bundler-audit
   capybara
-  capybara-email (~> 2.4)
+  capybara-email
   codeclimate-test-reporter
   coffee-rails
   database_cleaner
@@ -448,7 +448,7 @@ DEPENDENCIES
   foreman
   friendly_id
   haml-rails
-  haml_lint (~> 0.19.0)
+  haml_lint
   high_voltage
   intercom-rails
   jbuilder (~> 2.0)
@@ -475,7 +475,7 @@ DEPENDENCIES
   rspec-rails
   rubocop (= 0.46.0)
   rubocop-rspec (= 1.8.0)
-  sass-rails (~> 5.0)
+  sass-rails
   select2-rails
   sendgrid
   shoulda-matchers

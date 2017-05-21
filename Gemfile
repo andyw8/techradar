@@ -24,7 +24,7 @@ gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-ti
 gem "rails_admin"
 gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "rollbar"
-gem "sass-rails", "~> 5.0"
+gem "sass-rails"
 gem "select2-rails"
 gem "simple_form"
 gem "twitter", require: false
@@ -47,10 +47,10 @@ group :development, :test do
   gem "binding_of_caller"
   gem "bullet"
   gem "bundler-audit"
-  gem "capybara-email", "~> 2.4", require: false
+  gem "capybara-email", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", "~> 0.19.0", require: false
+  gem "haml_lint", require: false
   gem "launchy"
   gem "pry"
   gem "pry-byebug"
