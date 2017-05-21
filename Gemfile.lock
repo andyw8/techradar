@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/circleci/rspec_junit_formatter.git
-  revision: 6885218137afbadf560c922114767866953f8cbf
-  specs:
-    rspec_junit_formatter (0.2.0)
-      builder (< 4)
-      rspec (>= 2, < 4)
-      rspec-core (!= 2.12.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -325,10 +316,6 @@ GEM
       railties (>= 4.2.0, < 5.1)
     rollbar (2.14.0)
       multi_json
-    rspec (3.5.0)
-      rspec-core (~> 3.5.0)
-      rspec-expectations (~> 3.5.0)
-      rspec-mocks (~> 3.5.0)
     rspec-activemodel-mocks (1.0.3)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -487,7 +474,6 @@ DEPENDENCIES
   rollbar
   rspec-activemodel-mocks
   rspec-rails
-  rspec_junit_formatter!
   rubocop (= 0.46.0)
   rubocop-rspec (= 1.8.0)
   sass-rails (~> 5.0)
@@ -507,4 +493,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.3
+   1.15.0

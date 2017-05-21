@@ -72,7 +72,6 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
-  gem "rspec_junit_formatter", github: "circleci/rspec_junit_formatter" # for CircleCI
   gem "simplecov", "~> 0.9"
 end
 
