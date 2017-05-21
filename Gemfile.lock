@@ -453,7 +453,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
-  nokogiri (>= 1.7.1)
   oj
   pg
   pry
@@ -490,5 +489,6 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.4.0p0
+
 BUNDLED WITH
    1.15.0
