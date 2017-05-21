@@ -442,7 +442,7 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
-  draper (= 3.0.0.pre1)
+  draper
   factory_girl_rails
   font-awesome-sass
   foreman
