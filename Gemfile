@@ -48,6 +48,7 @@ group :development, :test do
   gem "bullet"
   gem "bundler-audit"
   gem "capybara-email", require: false
+  gem "coveralls", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "haml_lint", require: false
@@ -72,7 +73,6 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
-  gem "simplecov", "~> 0.9"
   gem "wisper-rspec"
 end
 

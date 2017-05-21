@@ -1,11 +1,5 @@
-if ENV["COVERAGE"]
-  require "simplecov"
-  SimpleCov.start "rails" do
-    add_filter "/config/initializers/analytics_ruby.rb"
-    add_filter "/config/initializers/intercom.rb"
-    add_filter "/config/initializers/rails_admin.rb"
-  end
-end
+require "coveralls"
+Coveralls.wear!
 
 require "wisper/rspec/matchers"
 

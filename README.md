@@ -4,6 +4,8 @@
 
 [![Code Climate](https://codeclimate.com/github/andyw8/techradar/badges/gpa.svg)](https://codeclimate.com/github/andyw8/techradar)
 
+[![Coverage Status](https://coveralls.io/repos/github/andyw8/techradar/badge.svg?branch=master)](https://coveralls.io/github/andyw8/techradar?branch=master)
+
 # techradar.io
 
 This repo contains the Rails app behind [techradar.io](http://techradar.io),
