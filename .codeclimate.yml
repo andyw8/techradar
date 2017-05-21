@@ -16,6 +16,9 @@ engines:
       - php
   fixme:
     enabled: true
+  haml-lint:
+    enabled: true
+    channel: beta
   reek:
     enabled: true
   rubocop:

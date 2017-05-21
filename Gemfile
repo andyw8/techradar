@@ -51,7 +51,7 @@ group :development, :test do
   gem "coveralls", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", require: false
+  gem "haml_lint", "0.24.0", require: false
   gem "launchy"
   gem "pry"
   gem "pry-byebug"

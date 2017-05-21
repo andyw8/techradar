@@ -8,3 +8,8 @@ linters:
     style: double_quotes
   SpaceInsideHashAttributes:
     enabled: false
+  InstanceVariables:
+    enabled: true
+    exclude:
+      - app/views/radars/_quadrant_nav.html.haml # TODO: resolve this
+      - app/views/radars/_radar.html.haml # TODO: resolve this
