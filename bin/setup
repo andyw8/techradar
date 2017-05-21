@@ -4,8 +4,19 @@ require 'pathname'
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
 
+def copy_sample(file_name)
+  unless File.exist?(file_name)
+    puts "\n== Creating #{file_name} file =="
+    puts "Make sure to check the values provided in the created #{file_name} file"
+    system "cp #{file_name}.sample #{file_name}"
+  end
+end
+
 Dir.chdir APP_ROOT do
-  puts "== Installing dependencies =="
+  copy_sample "config/database.yml"
+  copy_sample ".env"
+
+  puts "\n== Installing dependencies =="
   system "gem install bundler --conservative"
   system "bundle check || bundle install"
 
