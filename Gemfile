@@ -58,8 +58,8 @@ group :development, :test do
   gem "pry-rails"
   gem "reek", require: false
   gem "rspec-rails"
-  gem "rubocop", "0.46.0", require: false # match Code Climate
-  gem "rubocop-rspec", "1.8.0", require: false # match Code Climate
+  gem "rubocop", "0.48.1", require: false # match Code Climate: https://github.com/codeclimate/codeclimate-rubocop/blob/channel/rubocop-0-48/Gemfile.lock
+  gem "rubocop-rspec", "1.15.1", require: false # match Code Climate: https://github.com/codeclimate/codeclimate-rubocop/blob/channel/rubocop-0-48/Gemfile.lock
   gem "shoulda-matchers"
 end
 
