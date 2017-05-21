@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "rails", "5.0.1"
+gem "rails", "5.1.1"
 
 gem "active_model_serializers"
 gem "analytics-ruby", require: "segment"

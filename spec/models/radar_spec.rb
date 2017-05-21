@@ -62,12 +62,11 @@ describe Radar do
 
   describe "#new_blip" do
     it "builds a new blip on the blips association" do
-      params = double(:params)
-      allow(subject.blips).to receive(:new)
+      params = attributes_for(:blip)
 
       subject.new_blip(params)
 
-      expect(subject.blips).to have_received(:new).with(params)
+      expect(subject.blips.first).to have_attributes(params)
     end
   end
 
