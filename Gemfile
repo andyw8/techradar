@@ -73,6 +73,7 @@ group :test do
   gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
   gem "simplecov", "~> 0.9"
+  gem "wisper-rspec"
 end
 
 group :production do
