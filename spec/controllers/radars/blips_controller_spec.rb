@@ -89,14 +89,16 @@ describe Radars::BlipsController do
 
     context "DELETE /radars/:radar_id/blips/:id" do
       let(:blip) { mock_model(Blip) }
+
       before do
         allow(radar).to receive(:find_blip) { blip }
         allow(user).to receive(:find_radar) { radar }
       end
 
       it "destroys the blip" do
-        expect(blip).to receive(:destroy!)
+        allow(blip).to receive(:destroy!)
         delete "destroy", params: { radar_id: radar.id, id: blip.id }
+        expect(blip).to have_received(:destroy!)
       end
 
       it "redirects to the parent radar" do
@@ -109,24 +111,20 @@ describe Radars::BlipsController do
     context "PUT /radars/:radar_id/blips/:id" do
       let(:blip) { mock_model(Blip) }
       let(:params) { { notes: "updated notes" } }
+
       before do
         allow(radar).to receive(:find_blip) { blip }
         allow(user).to receive(:find_radar) { radar }
       end
 
       it "updates the blip" do
-        expect(blip).to receive(:update).with(
+        allow(blip).to receive(:update)
+        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
+        expect(blip).to have_received(:update).with(
           ActionController::Parameters.new(
             "notes" => "updated notes"
           ).permit(:notes)
         )
-        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
-      end
-
-      it "redirects to the parent radar on success" do
-        allow(blip).to receive(:update) { true }
-        put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
-        expect(response).to redirect_to(radar)
       end
 
       it "redirects to the parent radar on success" do

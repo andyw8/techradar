@@ -4,8 +4,8 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :name, :username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :name, :username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email name username])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[email name username])
   end
 
   def build_resource(args)

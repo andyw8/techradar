@@ -17,6 +17,7 @@ describe Blip do
     let(:user) { create(:user) }
     let(:radar) { create(:radar, owner: user) }
     let(:topic) { create(:topic) }
+
     before { create(:blip, topic: topic, radar: radar) }
 
     specify "cannot have two with same topic in the same radar" do

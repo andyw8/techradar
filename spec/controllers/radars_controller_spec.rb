@@ -130,9 +130,11 @@ describe RadarsController do
 
     it "destroys the radar" do
       radar = build_stubbed(:radar)
-      expect(Radar).to receive(:find_by).with(uuid: radar.id.to_s, owner: user) { radar }
-      expect(radar).to receive(:destroy!)
+      allow(Radar).to receive(:find_by).with(uuid: radar.id.to_s, owner: user) { radar }
+      allow(radar).to receive(:destroy!)
       delete "destroy", params: { id: radar.id }
+      expect(radar).to have_received(:destroy!)
+      expect(Radar).to have_received(:find_by).with(uuid: radar.id.to_s, owner: user) { radar }
     end
   end
 end

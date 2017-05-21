@@ -4,6 +4,6 @@ if Rails.env.development? || Rails.env.test?
   desc "Run RuboCop config"
   RuboCop::RakeTask.new(:rubocop) do |task|
     # task.requires << 'rubocop-rspec'
-    task.options = %w(--display-cop-names)
+    task.options = %w[--display-cop-names]
   end
 end

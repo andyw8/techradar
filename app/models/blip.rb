@@ -1,12 +1,12 @@
 class Blip < ApplicationRecord
-  QUADRANTS = %w(techniques tools platforms languages_and_frameworks)
+  QUADRANTS = %w[techniques tools platforms languages_and_frameworks]
   CORNERS = {
     nw: "techniques",
     ne: "tools",
     sw: "platforms",
     se: "languages_and_frameworks"
   }
-  RINGS = %w(adopt trial assess hold)
+  RINGS = %w[adopt trial assess hold]
 
   belongs_to :radar, touch: true
   belongs_to :topic

@@ -1,7 +1,7 @@
 class StarterTopics
   include ActiveModel::Model
 
-  TOPICS = %i(topic_1 topic_2 topic_3)
+  TOPICS = %i[topic_1 topic_2 topic_3]
 
   TOPICS.each do |topic|
     attr_accessor topic

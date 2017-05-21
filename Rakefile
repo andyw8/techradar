@@ -13,4 +13,4 @@ task :spec_with_coverage do
   Rake::Task["spec"].execute
 end
 
-task default: [:spec_with_coverage, :rubocop, :reek, :haml_lint]
+task default: %i[spec_with_coverage rubocop reek haml_lint]

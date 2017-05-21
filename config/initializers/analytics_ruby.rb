@@ -1,7 +1,6 @@
 if Rails.env.test? || !ENV.key?("SEGMENT_WRITE_KEY")
   class Analytics
-    def self.track(*)
-    end
+    def self.track(*); end
   end
 else
   Analytics = Segment::Analytics.new(

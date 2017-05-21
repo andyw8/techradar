@@ -22,13 +22,6 @@ describe AddTopics, "#call" do
     expect(Topic.count).to eq(2)
   end
 
-  it "skips existing topics" do
-    creator = create(:user)
-    described_class.call(topics: ["Topic 1", "Topic 2"], creator: creator)
-
-    expect(Topic.count).to eq(2)
-  end
-
   it "strips whitespace" do
     creator = create(:user)
     described_class.call(topics: ["\t Topic 1 \t "], creator: creator)

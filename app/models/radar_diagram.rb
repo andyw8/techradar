@@ -97,14 +97,14 @@ class RadarDiagram
   end
 
   def draw_labels(corner)
-    rings = %w(Adopt Trial Assess Hold)
-    if corner.in?(%i(ne nw))
+    rings = %w[Adopt Trial Assess Hold]
+    if corner.in?(%i[ne nw])
       rings.reverse! if corner == :nw
       rings.each_with_index do |name, index|
         img.text(20 + index * UNIT, 4 * UNIT - 5, name)
       end
     end
-    if corner.in?(%i(se sw))
+    if corner.in?(%i[se sw])
       # rings.reverse! if corner == :nw
       rings.each_with_index do |name, index|
         left_margin = 10

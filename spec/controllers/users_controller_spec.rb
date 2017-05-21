@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe UsersController do
   let(:user) { create(:user) }
+
   subject { response }
 
   describe "GET 'show'" do
