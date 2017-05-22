@@ -6,7 +6,11 @@ end
 
 require "coveralls"
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+])
+
+SimpleCov.start "rails" do
   track_files "**/*.rb"
 end
