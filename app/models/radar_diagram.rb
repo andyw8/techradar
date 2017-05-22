@@ -45,7 +45,7 @@ class RadarDiagram
     points << RadarPoint.new(id: id, ring: ring, title: title)
   end
 
-  protected
+  private
 
   attr_reader :corner, :points
 

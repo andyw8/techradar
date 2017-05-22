@@ -9,11 +9,9 @@ class TopicsPresenter
     end
   end
 
-  protected
+  private
 
   attr_reader :topics
-
-  private
 
   def grouped_topics
     topics.group_by do |topic|

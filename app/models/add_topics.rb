@@ -15,7 +15,7 @@ class AddTopics
     end
   end
 
-  protected
+  private
 
   attr_accessor :topics, :creator
 end
