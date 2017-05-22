@@ -49,8 +49,6 @@ class RadarDiagram
 
   attr_reader :corner, :points
 
-  private
-
   def draw_nw
     draw_arc origin_x: 4 * UNIT, origin_y: 0, radius: 4 * UNIT, x: 0, y: 4 * UNIT
     draw_arc origin_x: 4 * UNIT, origin_y: 1 * UNIT, radius: 3 * UNIT, x: 1 * UNIT, y: 4 * UNIT
