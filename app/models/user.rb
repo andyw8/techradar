@@ -59,4 +59,8 @@ class User < ApplicationRecord
     admin = find_by(admin: true)
     admin || raise(MissingAdminAccount)
   end
+
+  def foo
+    1 + 1
+  end
 end
