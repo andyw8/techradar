@@ -1,6 +1,11 @@
-if ENV["CI"]
-  require "coveralls"
-  Coveralls.wear!
+if ENV["COVERAGE"]
+  require 'simplecov'
+  require 'coveralls'
+
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+  SimpleCov.start do
+    track_files "**/*.rb"
+  end
 end
 
 require "wisper/rspec/matchers"
