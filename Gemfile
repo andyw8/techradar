@@ -48,7 +48,7 @@ group :development, :test do
   gem "bullet"
   gem "bundler-audit"
   gem "capybara-email", require: false
-  gem "coveralls", require: false
+  gem "coveralls", "0.8.21", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "haml_lint", "0.24.0", require: false
