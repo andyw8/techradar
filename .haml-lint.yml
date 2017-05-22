@@ -3,9 +3,6 @@ linters:
     enabled: false
   RuboCop:
     enabled: false # TODO: resolve this
-  StringQuotes:
-    enabled: true
-    style: double_quotes
   SpaceInsideHashAttributes:
     enabled: false
   InstanceVariables:
