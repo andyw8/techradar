@@ -69,7 +69,7 @@ module Radars
     end
 
     def topics
-      Topic.blippable(radar).sort_by(&:name)
+      Topics::Blippable.call(radar).sort_by(&:name)
     end
   end
 end

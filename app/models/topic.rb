@@ -19,11 +19,4 @@ class Topic < ApplicationRecord
   def self.techradar
     find_or_create_by!(name: "techradar.io", creator: User.admin)
   end
-
-  def self.blippable(radar)
-    user = radar.owner
-    where(creator_id: user).reject do |topic|
-      radar.topic?(topic)
-    end
-  end
 end
