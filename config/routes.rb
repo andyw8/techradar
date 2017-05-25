@@ -1,9 +1,3 @@
-class UsernameConstraint
-  def self.matches?(request)
-    User.find_by(username: request.params[:username]).present?
-  end
-end
-
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "home#show"
