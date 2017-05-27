@@ -5,7 +5,6 @@ describe Radars::BlipsController do
 
   let(:user) { create(:user) }
   let(:radar) { create(:radar, owner: user) }
-  let(:blip) { double("Blip") }
 
   context "guest" do
     describe "GET 'show'" do
