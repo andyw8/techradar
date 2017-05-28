@@ -73,7 +73,6 @@ group :test do
   gem "database_cleaner"
   gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
-  gem "rspectre"
   gem "wisper-rspec"
 end
 
