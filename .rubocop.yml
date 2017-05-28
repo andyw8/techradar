@@ -25,11 +25,10 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - config/initializers/simple_form_bootstrap.rb
-    - spec/**/*_spec.rb
-  # Can use this instead exluding whole spec directory after upgrading to rubocop 0.47.0
-  # ExcludedMethods:
-  #   - describe
-  #   - feature
+    - spec/controllers/radars/blips_controller_spec.rb # TODO
+  ExcludedMethods:
+    - describe
+    - feature
 Rails/Delegate:
   Exclude:
     - app/models/blip.rb # TODO
