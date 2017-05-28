@@ -4,8 +4,6 @@ engines:
     enabled: true
   bundler-audit:
     enabled: true
-  coffeelint:
-    enabled: true
   duplication:
     enabled: true
     config:
@@ -14,6 +12,8 @@ engines:
       - javascript
       - python
       - php
+  eslint:
+    enabled: true
   fixme:
     enabled: true
   haml-lint:
