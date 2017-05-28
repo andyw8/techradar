@@ -71,7 +71,7 @@ describe Radar do
   end
 
   describe "#find_blip" do
-    specify do
+    it "returns a radar if found" do
       radar = build(:radar)
       topic = create(:topic, slug: "java")
       blip = create(:blip, radar: radar, topic: topic)
@@ -79,6 +79,16 @@ describe Radar do
       result = radar.find_blip("java")
 
       expect(result).to eq(blip)
+    end
+
+    it "raises if not found" do
+      radar = build(:radar)
+      topic = create(:topic, slug: "java")
+      create(:blip, radar: radar, topic: topic)
+
+      expect do
+        radar.find_blip("invalid")
+      end.to raise_error ActiveRecord::RecordNotFound
     end
   end
 

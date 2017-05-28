@@ -449,7 +449,6 @@ DEPENDENCIES
   capybara
   capybara-email
   codeclimate-test-reporter
-  coffee-rails
   coveralls (= 0.8.21)
   database_cleaner
   devise
