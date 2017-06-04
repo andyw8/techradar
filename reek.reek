@@ -81,6 +81,7 @@ FeatureEnvy:
   - CreateRadars#change
   - CreateBlips#change
   - CreateTopics#change
+  - QuadrantList#names_with_values
 Attribute:
   exclude:
   - BulkTopic#creator

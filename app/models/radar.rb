@@ -50,7 +50,7 @@ class Radar < ApplicationRecord
   end
 
   def blips_in_quadrant_count(quadrant)
-    blips.where(quadrant: quadrant).count
+    blips.where(quadrant: quadrant.value).count
   end
 
   def topic?(topic)
