@@ -8,5 +8,5 @@ admin = User.create!(
   password_confirmation: ENV.fetch('ADMIN_PASSWORD'),
   admin: true
 )
-admin.confirm!
+admin.confirm
 puts "Admin Created: #{admin.email}"
