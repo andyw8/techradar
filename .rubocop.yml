@@ -21,7 +21,6 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Exclude:
     - app/helpers/application_helper.rb
-    - app/lib/thought_works_importer.rb
 Metrics/BlockLength:
   Exclude:
     - config/initializers/simple_form_bootstrap.rb
@@ -36,8 +35,6 @@ Rails/Output:
   Exclude:
     - config/initializers/analytics_ruby.rb
     - config/unicorn.rb
-Rails/HttpPositionalArguments:
-  Enabled: false # Rails 5 only
 RSpec/ExampleLength:
   Enabled: false # TODO
 Style/IfUnlessModifier:
@@ -50,5 +47,3 @@ Style/MutableConstant:
   Enabled: false
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-Style/StringLiteralsInInterpolation:
-  Enabled: false # otherwise haml-lint complains, think this may be a bug though
