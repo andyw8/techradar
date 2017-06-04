@@ -9,14 +9,12 @@ class RadarsController < ApplicationController
 
   def show
     radar = find_public_radar
+
     if params[:quadrant]
-      corner = Blip::CORNERS.invert.fetch(params[:quadrant])
-      radar_diagram = RadarDiagram.new(corner)
-      radar.blips_in_quadrant(params[:quadrant].to_sym).each do |blip|
-        radar_diagram.add_blip(id: "blip_#{blip.id}", ring: Blip::RINGS.index(blip.ring), title: blip.name)
-      end
-      @svg = radar_diagram.draw
-      render "radars/show", locals: { radar: radar }
+      render "radars/show", locals: {
+        radar: radar,
+        svg: RadarDiagramWithBlips.call(radar, params[:quadrant])
+      }
     else
       redirect_to radar_quadrant_path(radar, quadrant: DEFAULT_QUADRANT)
     end
