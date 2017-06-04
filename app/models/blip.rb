@@ -1,5 +1,4 @@
 class Blip < ApplicationRecord
-  QUADRANTS = %w[techniques tools platforms languages_and_frameworks]
   CORNERS = {
     nw: "techniques",
     ne: "tools",
@@ -19,7 +18,7 @@ class Blip < ApplicationRecord
   validates :radar, presence: true
   validates :quadrant,
             presence: true,
-            inclusion: { in: QUADRANTS }
+            inclusion: { in: QuadrantList.names }
   validates :ring,
             presence: true,
             inclusion: { in: RINGS }
