@@ -14,7 +14,7 @@ class RadarDiagram
       delta = DEGREES_IN_QUADRANT / (points_range.size + 1)
       offset = delta
       points_range.each do |point|
-        draw_point(units: point.ring + 0.5, theta: offset, id: point.id)
+        draw_point(units: point.ring.index + 0.5, theta: offset, id: point.id)
         offset += delta
       end
     end

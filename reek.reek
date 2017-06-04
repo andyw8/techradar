@@ -82,6 +82,7 @@ FeatureEnvy:
   - CreateBlips#change
   - CreateTopics#change
   - QuadrantList#names_with_values
+  - RingList#names_with_values
 Attribute:
   exclude:
   - BulkTopic#creator

@@ -1,6 +1,4 @@
 class Blip < ApplicationRecord
-  RINGS = %w[adopt trial assess hold]
-
   belongs_to :radar, touch: true
   belongs_to :topic
 
@@ -15,11 +13,15 @@ class Blip < ApplicationRecord
             inclusion: { in: QuadrantList.new.values }
   validates :ring,
             presence: true,
-            inclusion: { in: RINGS }
+            inclusion: { in: RingList.new.values }
 
   delegate :name, to: :topic
 
   def to_param
     topic.slug
+  end
+
+  def ring_object
+    RingList.new.find { |record| record.value == ring }
   end
 end

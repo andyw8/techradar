@@ -61,9 +61,7 @@ module Radars
     end
 
     def rings
-      Blip::RINGS.each_with_object({}) do |item, result|
-        result[item.titleize] = item
-      end
+      RingList.new.names_with_values
     end
 
     def topics

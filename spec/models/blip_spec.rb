@@ -10,7 +10,7 @@ describe Blip do
   it { is_expected.to validate_presence_of(:quadrant) }
   it { is_expected.to validate_inclusion_of(:quadrant).in_array(QuadrantList.new.values) }
   it { is_expected.to validate_presence_of(:ring) }
-  it { is_expected.to validate_inclusion_of(:ring).in_array(Blip::RINGS) }
+  it { is_expected.to validate_inclusion_of(:ring).in_array(RingList.new.values) }
   it { is_expected.to validate_presence_of(:radar) }
 
   context "duplicate topics" do
@@ -57,5 +57,13 @@ describe Blip do
     blip.save!
 
     expect(radar.updated_at.to_s).to eq(blip.updated_at.to_s)
+  end
+
+  def ring_object
+    blip = build(:blip, ring: "tools")
+
+    result = blip.ring_object
+
+    expect(result.value).to eq("tools")
   end
 end
