@@ -1,6 +1,6 @@
 = title 'New Blip'
 
 %p
-  = link_to "Add a New Topic", new_topic_path
+  = link_to "Add a New Topic", new_topic_path(radar: blip.radar)
 
 = render 'form', quadrants: quadrants, rings: rings, blip: blip, topics: topics, editing: false
