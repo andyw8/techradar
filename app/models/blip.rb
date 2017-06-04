@@ -1,10 +1,4 @@
 class Blip < ApplicationRecord
-  CORNERS = {
-    nw: "techniques",
-    ne: "tools",
-    sw: "platforms",
-    se: "languages_and_frameworks"
-  }
   RINGS = %w[adopt trial assess hold]
 
   belongs_to :radar, touch: true
@@ -18,7 +12,7 @@ class Blip < ApplicationRecord
   validates :radar, presence: true
   validates :quadrant,
             presence: true,
-            inclusion: { in: QuadrantList.names }
+            inclusion: { in: QuadrantList.new.values }
   validates :ring,
             presence: true,
             inclusion: { in: RINGS }

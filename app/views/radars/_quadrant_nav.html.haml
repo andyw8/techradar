@@ -1,6 +1,6 @@
 %ul.nav.nav-pills
-  - QuadrantList.names.each do |quadrant|
-    %li{class: quadrant == params[:quadrant] ? "active" : ""}
-      = link_to radar_quadrant_path(@radar, quadrant: quadrant) do
-        = quadrant.titleize
+  - QuadrantList.new.quadrants.each do |quadrant|
+    %li{class: quadrant.value == params[:quadrant] ? "active" : ""}
+      = link_to radar_quadrant_path(@radar, quadrant: quadrant.value) do
+        = quadrant.name
         .badge= @radar.blips_in_quadrant_count(quadrant)

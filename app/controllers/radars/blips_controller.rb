@@ -57,9 +57,7 @@ module Radars
     end
 
     def quadrants
-      QuadrantList.names.each_with_object({}) do |item, result|
-        result[item.titleize] = item
-      end
+      QuadrantList.new.names_with_values
     end
 
     def rings
