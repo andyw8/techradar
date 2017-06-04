@@ -6,6 +6,8 @@ engines:
     enabled: true
   duplication:
     enabled: true
+    exclude_paths:
+      - config/initializers/simple_form_bootstrap.rb # generated
     config:
       languages:
       - ruby
@@ -26,7 +28,6 @@ engines:
     channel: rubocop-0-48
 ratings:
   paths:
-  - "**.coffee"
   - "**.erb"
   - "**.haml"
   - "**.js"
