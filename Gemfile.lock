@@ -311,7 +311,7 @@ GEM
     raindrops (0.18.0)
     rake (12.0.0)
     rasem (0.6.1)
-    reek (4.6.2)
+    reek (4.7.0)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
@@ -498,7 +498,6 @@ DEPENDENCIES
   unicorn
   wisper
   wisper-rspec
-
 
 RUBY VERSION
    ruby 2.4.0p0
