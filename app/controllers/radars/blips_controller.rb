@@ -57,7 +57,7 @@ module Radars
     end
 
     def quadrants
-      Blip::QUADRANTS.each_with_object({}) do |item, result|
+      QuadrantList.names.each_with_object({}) do |item, result|
         result[item.titleize] = item
       end
     end

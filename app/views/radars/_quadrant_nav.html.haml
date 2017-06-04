@@ -1,5 +1,5 @@
 %ul.nav.nav-pills
-  - Blip::QUADRANTS.each do |quadrant|
+  - QuadrantList.names.each do |quadrant|
     %li{class: quadrant == params[:quadrant] ? "active" : ""}
       = link_to radar_quadrant_path(@radar, quadrant: quadrant) do
         = quadrant.titleize

@@ -8,7 +8,7 @@ describe Blip do
 
   it { is_expected.to validate_presence_of(:topic_id) }
   it { is_expected.to validate_presence_of(:quadrant) }
-  it { is_expected.to validate_inclusion_of(:quadrant).in_array(Blip::QUADRANTS) }
+  it { is_expected.to validate_inclusion_of(:quadrant).in_array(%w[techniques tools platforms languages_and_frameworks]) }
   it { is_expected.to validate_presence_of(:ring) }
   it { is_expected.to validate_inclusion_of(:ring).in_array(Blip::RINGS) }
   it { is_expected.to validate_presence_of(:radar) }
