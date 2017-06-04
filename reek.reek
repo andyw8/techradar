@@ -11,8 +11,6 @@ IrresponsibleModule:
   InstanceVariableAssumption:
     enabled: false
 "app/helpers":
-  IrresponsibleModule:
-    enabled: false
   UtilityFunction:
     enabled: false
 "db/migrate":
@@ -37,60 +35,6 @@ InstanceVariableAssumption:
   - Radars::BlipsController
   - StarterTopicsController
   - Rasem::SVGImage
-IrresponsibleModule:
-  exclude:
-  - Api::V1::RadarsController
-  - ApplicationController
-  - BulkTopicsController
-  - HomeController
-  - PagesController
-  - Radars::BlipsController
-  - RadarsController
-  - RegistrationsController
-  - StarterTopicsController
-  - TopicsController
-  - UsersController
-  - ApplicationHelper
-  - Starter
-  - Devise::MyMailer
-  - AddTopics
-  - Blip
-  - BulkTopic
-  - Radar
-  - RadarDiagram
-  - RadarPoint
-  - StarterTopics
-  - SVGPath::Absolute
-  - Topic
-  - TwitterProfileImage
-  - User
-  - User::MissingAdminAccount
-  - TopicsPresenter
-  - Service
-  - Analytics
-  - Rasem::SVGImage
-  - UsernameConstraint
-  - DeviseCreateUsers
-  - AddNameToUsers
-  - AddConfirmableToUsers
-  - CreateRadars
-  - AddOwnerToRadar
-  - CreateBlips
-  - AddRadarToBlip
-  - AddAdminToUsers
-  - AddQuadrantToBlip
-  - AddRingToBlip
-  - AddNotesToBlips
-  - AddUsernameToUsers
-  - CreateFriendlyIdSlugs
-  - CreateTopics
-  - AddTopicToBlips
-  - RemoveNameFromBlips
-  - AddCreatorToTopics
-  - AddUuidToRadars
-  - AddDescriptionToRadar
-  - AddTwitterUsernameToTopics
-  - AddTwitterProfileImageToTopics
 UncommunicativeModuleName:
   exclude:
   - Api::V1
