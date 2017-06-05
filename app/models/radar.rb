@@ -34,7 +34,7 @@ class Radar < ApplicationRecord
   end
 
   def blips_in_quadrant(quadrant)
-    blips.where(quadrant: quadrant)
+    blips.where(quadrant: quadrant.value)
   end
 
   def blips_in_scope(ring:, quadrant:)
