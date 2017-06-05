@@ -10,10 +10,12 @@ class RadarsController < ApplicationController
   def show
     radar = find_public_radar
 
+    quadrant = QuadrantList.new.lookup(params[:quadrant])
+
     if params[:quadrant]
       render "radars/show", locals: {
         radar: radar,
-        svg: RadarDiagramWithBlips.call(radar, params[:quadrant])
+        svg: RadarDiagramWithBlips.call(radar, quadrant)
       }
     else
       redirect_to radar_quadrant_path(radar, quadrant: DEFAULT_QUADRANT)
