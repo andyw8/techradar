@@ -13,7 +13,7 @@ describe UsersController do
     end
 
     context "as a signed-in user" do
-      before do
+      specify do
         sign_in user
 
         get :show, params: { id: user.id }

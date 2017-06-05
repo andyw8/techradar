@@ -63,10 +63,11 @@ describe Radar do
   describe "#new_blip" do
     it "builds a new blip on the blips association" do
       params = attributes_for(:blip)
+      radar = described_class.new
 
-      subject.new_blip(params)
+      radar.new_blip(params)
 
-      expect(subject.blips.first).to have_attributes(params)
+      expect(radar.blips.first).to have_attributes(params)
     end
   end
 

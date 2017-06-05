@@ -118,5 +118,4 @@ UncommunicativeVariableName:
   - CreateFriendlyIdSlugs#change
   - CreateTopics#change
 UnusedParameters:
-  exclude:
-  - SVGPath::Absolute#self.elliptical_arc
+  enabled: false # covered by RuboCop
