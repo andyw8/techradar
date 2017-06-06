@@ -22,6 +22,6 @@ class Blip < ApplicationRecord
   end
 
   def ring_object
-    RingList.new.find { |record| record.value == ring }
+    RingList.new.for_value(ring)
   end
 end

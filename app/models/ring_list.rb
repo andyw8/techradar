@@ -25,4 +25,8 @@ class RingList
       result[ring.name] = ring.value
     end
   end
+
+  def for_value(value)
+    find { |record| record.value == value }
+  end
 end
