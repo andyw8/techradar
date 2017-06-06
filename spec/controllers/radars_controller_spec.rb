@@ -11,7 +11,7 @@ describe RadarsController do
       it "lists all radars" do
         sign_in(user)
         stub_current_user_with(user)
-        radars = double("radars")
+        radars = [instance_double("Radar")]
         allow(user).to receive(:radars) { radars }
         allow(controller).to receive(:render)
 
@@ -115,7 +115,7 @@ describe RadarsController do
     end
 
     it "does not create a radar with invalid params" do
-      radar = double("Radar", save: false)
+      radar = instance_double("Radar", save: false)
       allow(user).to receive(:new_radar) { radar }
       post "create", params: { radar: params }
       expect(response).to render_template("radars/new")

@@ -6,7 +6,7 @@
       - blips_in_scope.each do |blip|
         %li
           = link_to blip.name, radar_blip_path(radar, blip), id: "blip_#{blip.id}", class: "blip"
-          - if blip.notes.present?
+          - if blip.notes?
             = icon("comment")
   - else
     No entries

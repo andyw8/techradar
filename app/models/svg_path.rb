@@ -13,7 +13,7 @@ module SVGPath
     closepath: "Z"
   }
   module Absolute
-    def self.elliptical_arc(rx:, ry:, x_axis_rotation: 0, large_arc_flag: 0, sweep_flag: 0, x:, y:, opts: {})
+    def self.elliptical_arc(rx:, ry:, x_axis_rotation: 0, large_arc_flag: 0, sweep_flag: 0, x:, y:)
       data = [rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x, y].join(" ")
       [COMMANDS.fetch(:elliptical_arc), data]
     end
@@ -25,8 +25,7 @@ module SVGPath
                      large_arc_flag: large_arc_flag,
                      sweep_flag: sweep_flag,
                      x: x,
-                     y: y,
-                     opts: opts)
+                     y: y)
     end
 
     def self.move_to(x:, y:)

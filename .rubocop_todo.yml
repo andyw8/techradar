@@ -8,13 +8,6 @@
 
 require: rubocop-rspec
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'app/models/svg_path.rb'
-
 # Offense count: 11
 Metrics/AbcSize:
   Max: 26
@@ -28,12 +21,6 @@ Metrics/MethodLength:
 # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
   Max: 8
-
-# Offense count: 1
-# Configuration parameters: CustomIncludeMethods.
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - 'spec/controllers/users_controller_spec.rb'
 
 # Offense count: 16
 # Configuration parameters: Max.
@@ -49,33 +36,9 @@ RSpec/ExampleLength:
     - 'spec/models/radar_spec.rb'
     - 'spec/models/topic_spec.rb'
 
-# Offense count: 1
-# Configuration parameters: CustomTransform.
-RSpec/FilePath:
-  Exclude:
-    - 'spec/models/add_topics_spec.rb'
-
-# Offense count: 1
-RSpec/LeadingSubject:
-  Exclude:
-    - 'spec/controllers/users_controller_spec.rb'
-
-# Offense count: 4
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: allow, expect
-RSpec/MessageExpectation:
-  Exclude:
-    - 'spec/controllers/radars/blips_controller_spec.rb'
-    - 'spec/controllers/radars_controller_spec.rb'
-
 # Offense count: 10
 RSpec/MultipleExpectations:
   Max: 2
-
-# Offense count: 3
-RSpec/NamedSubject:
-  Exclude:
-    - 'spec/models/radar_spec.rb'
 
 # Offense count: 13
 # Configuration parameters: MaxNesting.
@@ -91,9 +54,6 @@ RSpec/VerifiedDoubles:
   Exclude:
     - 'spec/controllers/application_controller_spec.rb'
     - 'spec/controllers/radars/blips_controller_spec.rb'
-    - 'spec/controllers/radars_controller_spec.rb'
-    - 'spec/models/bulk_topic_spec.rb'
-    - 'spec/models/radar_spec.rb'
 
 # Offense count: 1
 Rails/OutputSafety:
