@@ -163,8 +163,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    haml (5.0.1)
-      temple (>= 0.8.0)
+    haml (4.0.7)
       tilt
     haml-rails (1.0.0)
       actionpack (>= 4.0.1)
@@ -400,7 +399,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sysexits (1.2.0)
-    temple (0.8.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
     thor (0.19.4)
@@ -469,6 +467,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   friendly_id
+  haml (= 4.0.7)
   haml-rails
   haml_lint (= 0.24.0)
   high_voltage
@@ -509,7 +508,6 @@ DEPENDENCIES
   unicorn
   wisper
   wisper-rspec
-
 
 RUBY VERSION
    ruby 2.4.0p0
