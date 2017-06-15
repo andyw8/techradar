@@ -12,7 +12,7 @@ gem "devise"
 gem "draper"
 gem "font-awesome-sass"
 gem "friendly_id"
-gem "haml", "4.0.7"
+gem "haml"
 gem "haml-rails"
 gem "high_voltage"
 gem "intercom-rails"
@@ -50,15 +50,15 @@ group :development, :test do
   gem "coveralls", "0.8.21", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "haml_lint", "0.24.0", require: false
+  gem "haml_lint", require: false
   gem "launchy"
   gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
   gem "reek", require: false
   gem "rspec-rails"
-  gem "rubocop", "0.48.1", require: false # match Code Climate: https://github.com/codeclimate/codeclimate-rubocop/blob/channel/rubocop-0-48/Gemfile.lock
-  gem "rubocop-rspec", "1.15.1", require: false # match Code Climate: https://github.com/codeclimate/codeclimate-rubocop/blob/channel/rubocop-0-48/Gemfile.lock
+  gem "rubocop"
+  gem "rubocop-rspec"
   gem "shoulda-matchers"
 end
 
