@@ -9,6 +9,10 @@
     - radars.each do |radar|
       %li
         = link_to radar.name, radar
+        (
+        = pluralize radar.blips.count, "blip"
+        )
+
 - else
   No radars
 
