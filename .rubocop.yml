@@ -16,9 +16,6 @@ AllCops:
 Lint/UnusedMethodArgument:
   Exclude:
     - app/models/svg_path.rb
-Metrics/AbcSize:
-  Exclude:
-    - app/lib/thought_works_importer.rb # TODO
 Metrics/LineLength:
   Enabled: false
 Metrics/MethodLength:
@@ -41,7 +38,7 @@ Rails/Output:
 RSpec/ExampleLength:
   Enabled: false # TODO
 Style/IfUnlessModifier:
-  Enabled: false
+  Enabled: false # Disable for more accurate Code Coverage mesaurement
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
