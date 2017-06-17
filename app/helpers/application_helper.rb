@@ -21,22 +21,7 @@ module ApplicationHelper
   end
 
   def can?(action, resource = nil)
-    case action
-    when :create_radar
-      current_user.present?
-    when :edit_radar, :delete_radar
-      resource.owned_by?(current_user)
-    when :create_blip
-      radar = resource
-      radar.owned_by?(current_user)
-    when :edit_blip, :delete_blip
-      blip = resource
-      blip.radar.owned_by?(current_user)
-    else
-      # :nocov:
-      raise "Unknown action #{action} for #{resource}"
-      # :nocov:
-    end
+    Ability.new(current_user).can?(action, resource)
   end
 
   def body_classes
