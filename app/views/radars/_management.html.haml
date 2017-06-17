@@ -1,7 +1,7 @@
 - if can? :create_blip, radar
   = link_to 'New Blip', new_radar_blip_path(radar), class: 'btn btn-primary'
-- if can? :delete_radar, radar
+- if can? :delete, radar
   = button_to 'Delete Radar', radar_path(radar), method: :delete, class: 'btn btn-danger',
     data: { confirm: 'Are you sure?' }
-- if can? :edit_radar, radar
+- if can? :edit, radar
   = link_to 'Edit Radar', edit_radar_path(radar), class: 'btn btn-default'

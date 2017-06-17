@@ -3,19 +3,16 @@ class Ability
     @user = user
   end
 
-  # :reek:TooManyStatements { max_statements: 7}
   def can?(action, resource = nil)
     case action
-    when :create_radar
-      user.present?
-    when :edit_radar, :delete_radar
-      resource.owned_by?(user)
+    when :create
+      resource == Radar && user.present?
+    when :edit, :delete
+      resource.is_a?(Radar) && resource.owned_by?(user)
     when :create_blip
-      radar = resource
-      radar.owned_by?(user)
+      resource.owned_by?(user)
     when :edit_blip, :delete_blip
-      blip = resource
-      blip.radar.owned_by?(user)
+      resource.radar.owned_by?(user)
     else
       # :nocov:
       raise "Unknown action #{action} for #{resource}"
