@@ -6,7 +6,7 @@ RSpec.describe Ability do
       user = build(:user)
       ability = described_class.new(user)
 
-      result = ability.can?(:create_radar)
+      result = ability.can?(:create, Radar)
 
       expect(result).to be(true)
     end
@@ -16,7 +16,7 @@ RSpec.describe Ability do
       radar = build(:radar, owner: user)
       ability = described_class.new(user)
 
-      result = ability.can?(:edit_radar, radar)
+      result = ability.can?(:edit, radar)
 
       expect(result).to be(true)
     end
@@ -27,7 +27,28 @@ RSpec.describe Ability do
       radar = build(:radar, owner: another_user)
       ability = described_class.new(user)
 
-      result = ability.can?(:edit_radar, radar)
+      result = ability.can?(:edit, radar)
+
+      expect(result).to be(false)
+    end
+
+    it "is able to delete a radar they own" do
+      user = build(:user)
+      radar = build(:radar, owner: user)
+      ability = described_class.new(user)
+
+      result = ability.can?(:delete, radar)
+
+      expect(result).to be(true)
+    end
+
+    it "is unable to delete a radar they do not own" do
+      user = build(:user)
+      another_user = build(:user)
+      radar = build(:radar, owner: another_user)
+      ability = described_class.new(user)
+
+      result = ability.can?(:delete, radar)
 
       expect(result).to be(false)
     end

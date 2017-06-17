@@ -1,6 +1,4 @@
 ---
-DuplicateMethodCall:
-  max_calls: 3
 IrresponsibleModule:
   enabled: false
 "app/controllers":
@@ -39,21 +37,9 @@ UncommunicativeModuleName:
   exclude:
   - Api::V1
 DuplicateMethodCall:
+  max_calls: 2
   exclude:
-  - Radars::BlipsController#radar
-  - RadarsController#show
-  - ApplicationHelper#display_base_errors
-  - Starter#user_created
-  - RadarDiagram#draw_labels
-  - RadarDiagram#draw_ne
-  - RadarDiagram#draw_nw
-  - RadarDiagram#draw_point
-  - RadarDiagram#draw_se
-  - RadarDiagram#draw_sw
-  - RadarDiagram#img
-  - StarterTopics#save
-  - register_account
-  - verify_sample_radar_presence
+  - RadarDiagram
 UtilityFunction:
   exclude:
   - Radars::BlipsController#quadrants

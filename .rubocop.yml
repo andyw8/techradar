@@ -16,6 +16,9 @@ AllCops:
 Lint/UnusedMethodArgument:
   Exclude:
     - app/models/svg_path.rb
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - app/models/ability.rb
 Metrics/LineLength:
   Enabled: false
 Metrics/MethodLength:
@@ -26,6 +29,7 @@ Metrics/BlockLength:
     - config/initializers/simple_form_bootstrap.rb
     - spec/controllers/radars/blips_controller_spec.rb # TODO
   ExcludedMethods:
+    - context
     - describe
     - feature
 Rails/Delegate:
