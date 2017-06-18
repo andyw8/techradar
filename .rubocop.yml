@@ -32,6 +32,9 @@ Metrics/BlockLength:
     - context
     - describe
     - feature
+Metrics/PerceivedComplexity:
+  Exclude:
+    - app/models/ability.rb
 Rails/Delegate:
   Exclude:
     - app/models/blip.rb # TODO
