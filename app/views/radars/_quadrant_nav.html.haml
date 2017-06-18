@@ -3,4 +3,4 @@
     %li{class: quadrant.value == params[:quadrant] ? "active" : ""}
       = link_to radar_quadrant_path(@radar, quadrant: quadrant.value) do
         = quadrant.name
-        .badge= @radar.blips_in_quadrant_count(quadrant)
+        .badge= @radar.blips.in_quadrant(quadrant).count

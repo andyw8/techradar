@@ -17,6 +17,13 @@ class Blip < ApplicationRecord
 
   delegate :name, to: :topic
 
+  scope :in_quadrant, ->(quadrant) { where(quadrant: quadrant.value) }
+  scope :in_scope, lambda { |ring, quadrant|
+    includes(:topic)
+      .where(ring: ring, quadrant: quadrant)
+      .order("topics.name")
+  }
+
   def to_param
     topic.slug
   end

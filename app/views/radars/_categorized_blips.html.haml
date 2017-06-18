@@ -1,6 +1,6 @@
 - RingList.new.each do |ring|
   %h2= ring.name
-  - blips_in_scope = radar.blips_in_scope(ring: ring.value, quadrant: params[:quadrant])
+  - blips_in_scope = radar.blips.in_scope(ring.value, params[:quadrant])
   - if blips_in_scope.any?
     %ul{class: [ring.value, params[:quadrant]]}
       - blips_in_scope.each do |blip|

@@ -33,24 +33,12 @@ class Radar < ApplicationRecord
     blips.joins(:topic).find_by!("topics.slug": slug)
   end
 
-  def blips_in_quadrant(quadrant)
-    blips.where(quadrant: quadrant.value)
-  end
-
-  def blips_in_scope(ring:, quadrant:)
-    blips.includes(:topic).where(ring: ring, quadrant: quadrant).order("topics.name")
-  end
-
   def owned_by?(user)
     owner == user
   end
 
   def to_param
     uuid
-  end
-
-  def blips_in_quadrant_count(quadrant)
-    blips.where(quadrant: quadrant.value).count
   end
 
   def topic?(topic)
