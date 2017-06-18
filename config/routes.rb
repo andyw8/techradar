@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get "/radars/:id/:quadrant", controller: "radars/quadrants", action: "show", as: "radar_quadrant"
   resources :topics, only: %i[show new create]
   resources :bulk_topics, only: %i[new create]
-  get "/about", controller: "pages", action: "about"
+  get "/about", to: "pages#about"
+
+  get "/user/topics", to: "users/topics#index", as: :user_topics
 
   namespace "api" do
     namespace "v1" do

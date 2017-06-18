@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :radars, foreign_key: "owner_id"
   has_many :created_topics, foreign_key: "creator_id", class_name: "Topic"
   has_many :blips, through: :radars
+  has_many :topics, foreign_key: "creator_id"
 
   attr_accessor :login
 
