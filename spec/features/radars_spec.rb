@@ -17,13 +17,13 @@ feature "Show radar" do
   end
 
   scenario "User has no radars" do
-    visit radars_path
+    visit user_radars_path(user)
     expect(page).to have_css(".radar", count: 0)
   end
 
   scenario "User has a radar" do
     create(:radar, name: "March 2014", owner: user)
-    visit radars_path
+    visit user_radars_path(user_username: user.username)
     within("ul.radars") do
       expect(page).to have_text("March 2014")
     end

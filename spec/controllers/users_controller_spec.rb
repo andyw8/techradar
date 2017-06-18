@@ -6,7 +6,7 @@ describe UsersController do
   describe "GET 'show'" do
     context "as a guest" do
       specify do
-        get :show, params: { id: user.id }
+        get :show, params: { username: user.username }
 
         expect(response).to be_successful
       end
@@ -16,7 +16,7 @@ describe UsersController do
       specify do
         sign_in user
 
-        get :show, params: { id: user.id }
+        get :show, params: { username: user.username }
 
         expect(response).to be_successful
       end

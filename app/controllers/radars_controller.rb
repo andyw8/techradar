@@ -3,6 +3,7 @@ class RadarsController < ApplicationController
 
   before_action :authenticate_user!, except: :show
 
+  # TODO delete?
   def index
     render "index", locals: { radars: scoped_radars }
   end
@@ -46,7 +47,7 @@ class RadarsController < ApplicationController
     radar = find_my_radar
     return redirect_to(new_user_session_path) unless radar
     radar.destroy!
-    redirect_to radars_path
+    redirect_to user_radars_path(user_username: user.username)
   end
 
   private

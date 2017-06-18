@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "home#show"
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations" }, path: "account"
   get "/:username", constraints: UsernameConstraint, controller: "users", action: "show"
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show], param: :username do
+    resources :radars, only: :index, controller: "users/radars"
+  end
 
-  resources :radars do
+  resources :radars, except: [:index] do
     resources :blips, controller: "radars/blips", except: :index
   end
 
