@@ -23,7 +23,6 @@ RSpec.describe Ability do
 
     it "is unable to edit a radar they do not own" do
       user = build(:user)
-      another_user = build(:user)
       radar = build(:radar, owner: another_user)
       ability = described_class.new(user)
 
@@ -44,7 +43,6 @@ RSpec.describe Ability do
 
     it "is unable to delete a radar they do not own" do
       user = build(:user)
-      another_user = build(:user)
       radar = build(:radar, owner: another_user)
       ability = described_class.new(user)
 
@@ -52,5 +50,51 @@ RSpec.describe Ability do
 
       expect(result).to be(false)
     end
+
+    it "is able to create a blip on a radar they own" do
+      user = build(:user)
+      radar = build(:radar, owner: user)
+      blip = build(:blip, radar: radar)
+      ability = described_class.new(user)
+
+      result = ability.can?(:create, blip)
+
+      expect(result).to be(true)
+    end
+
+    it "is unable able to create a blip on a radar they do not own" do
+      user = build(:user)
+      radar = build(:radar, owner: another_user)
+      blip = build(:blip, radar: radar)
+      ability = described_class.new(user)
+
+      result = ability.can?(:create, blip)
+
+      expect(result).to be(false)
+    end
+
+    it "is able to delete a blip from a radar they own" do
+      user = build(:user)
+      radar = build(:radar, owner: user)
+      blip = build(:blip, radar: radar)
+      ability = described_class.new(user)
+
+      result = ability.can?(:delete, blip)
+
+      expect(result).to be(true)
+    end
+
+    it "is unable able to delete a blip from a radar they do not own" do
+      user = build(:user)
+      radar = build(:radar, owner: another_user)
+      blip = build(:blip, radar: radar)
+      ability = described_class.new(user)
+
+      result = ability.can?(:delete, blip)
+
+      expect(result).to be(false)
+    end
+
+    let(:another_user) { build(:user) }
   end
 end

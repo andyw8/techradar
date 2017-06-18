@@ -60,6 +60,7 @@ TooManyStatements:
   - sign_in
 FeatureEnvy:
   exclude:
+  - Ability#can?
   - ApplicationHelper#display_base_errors
   - RadarDiagram#draw_labels
   - RadarDiagram#draw_point
