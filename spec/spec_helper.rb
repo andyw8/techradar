@@ -8,7 +8,6 @@ RSpec.configure do |config|
   config.include Wisper::RSpec::BroadcastMatcher
 
   config.order = :random
-  Kernel.srand config.seed
   config.warnings = false
 
   config.expect_with :rspec do |expectations|
@@ -19,4 +18,8 @@ RSpec.configure do |config|
     mocks.syntax = :expect
     mocks.verify_partial_doubles = true
   end
+
+  config.fail_if_no_examples = true
+
+  Kernel.srand config.seed
 end
