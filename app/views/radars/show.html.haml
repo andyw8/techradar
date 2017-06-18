@@ -5,8 +5,8 @@
 
 %h3= "Created by #{radar.owner.name}" unless current_user
 
-= render 'management', radar: @radar
+= render 'radars/management', radar: radar
 %br
 %br
 
-= render 'radar', radar: @radar, svg: svg
+= render 'radars/radar', radar: radar, svg: svg
