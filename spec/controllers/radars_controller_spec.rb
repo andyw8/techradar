@@ -79,15 +79,7 @@ describe RadarsController do
   end
 
   describe "GET 'show'" do
-    it "renders the specified quadrant" do
-      radar = create(:radar, uuid: "abc123")
-
-      get "show", params: { id: radar.uuid, quadrant: "tools" }
-
-      expect(response).to render_template("radars/show")
-    end
-
-    it "redirects if no quadrant specified" do
+    it "redirects to the default quadrant" do
       radar = create(:radar, uuid: "abc123")
       expected_path = radar_quadrant_path(radar, quadrant: "tools")
 

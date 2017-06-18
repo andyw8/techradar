@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get "/:username", constraints: UsernameConstraint, controller: "users", action: "show"
   resources :users, only: %i[index show]
 
-  resources :radars, except: :show do
+  resources :radars do
     resources :blips, controller: "radars/blips", except: :index
   end
 
-  get "/radars/:id(/:quadrant)", controller: "radars", action: "show", as: "radar_quadrant"
+  get "/radars/:id/:quadrant", controller: "radars/quadrants", action: "show", as: "radar_quadrant"
   resources :topics, only: %i[show new create]
   resources :bulk_topics, only: %i[new create]
   get "/about", controller: "pages", action: "about"

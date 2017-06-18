@@ -87,7 +87,7 @@ describe Radars::BlipsController do
     end
 
     context "DELETE /radars/:radar_id/blips/:id" do
-      let(:blip) { mock_model(Blip) }
+      let(:blip) { create(:blip) }
 
       before do
         allow(radar).to receive(:find_blip) { blip }
