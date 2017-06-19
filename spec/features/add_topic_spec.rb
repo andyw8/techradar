@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Add Topic" do
+feature "Add Topic", js: true do
   let(:user) { create(:user) }
 
   scenario do

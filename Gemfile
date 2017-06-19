@@ -68,6 +68,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "capybara-selenium"
   gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
   gem "rails-controller-testing"
