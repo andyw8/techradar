@@ -22,6 +22,12 @@ describe UsersController do
       end
     end
 
+    it "raises a RecordNotFound error for an invaid username" do
+      expect do
+        get :show, params: { id: "invalid" }
+      end.to raise_error ActiveRecord::RecordNotFound, "Couldn't find User"
+    end
+
     context "as an admin" do
       specify do
         admin = create(:admin)
