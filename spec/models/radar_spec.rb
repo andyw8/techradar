@@ -60,17 +60,6 @@ describe Radar do
     end
   end
 
-  describe "#new_blip" do
-    it "builds a new blip on the blips association" do
-      params = attributes_for(:blip)
-      radar = described_class.new
-
-      radar.new_blip(params)
-
-      expect(radar.blips.first).to have_attributes(params)
-    end
-  end
-
   describe "#find_blip" do
     it "returns a radar if found" do
       radar = build(:radar)
