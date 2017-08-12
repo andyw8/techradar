@@ -149,7 +149,6 @@ GEM
       request_store (~> 1.0)
     equalizer (0.0.11)
     erubi (1.6.1)
-    erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -172,25 +171,18 @@ GEM
     haml (5.0.2)
       temple (>= 0.8.0)
       tilt
-    haml-rails (1.0.0)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 4.0.6, < 6.0)
-      html2haml (>= 1.0.1)
-      railties (>= 4.0.1)
     haml_lint (0.26.0)
       haml (>= 4.0, < 5.1)
       rainbow
       rake (>= 10, < 13)
       rubocop (>= 0.49.0)
       sysexits (~> 1.1)
+    hamlit (2.8.4)
+      temple (>= 0.8.0)
+      thor
+      tilt
     high_voltage (3.0.0)
     highline (1.7.8)
-    html2haml (2.2.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0, < 6)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -374,8 +366,6 @@ GEM
     rubocop-rspec (1.15.1)
       rubocop (>= 0.42.0)
     ruby-progressbar (1.8.1)
-    ruby_parser (3.10.1)
-      sexp_processor (~> 4.9)
     rubyzip (1.2.1)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
@@ -395,7 +385,6 @@ GEM
       rubyzip (~> 1.0)
     sendgrid (1.2.4)
       json
-    sexp_processor (4.10.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     simple_form (3.5.0)
@@ -490,9 +479,8 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   friendly_id
-  haml
-  haml-rails
   haml_lint
+  hamlit
   high_voltage
   intercom-rails
   jbuilder
@@ -531,7 +519,6 @@ DEPENDENCIES
   unicorn
   wisper
   wisper-rspec
-
 
 RUBY VERSION
    ruby 2.4.0p0
