@@ -24,6 +24,14 @@ describe RadarsController do
       end
     end
 
+    context "for a guest" do
+      it "render HTTP 410 (Gone) for a radar that does not exist" do
+        get "show", params: { id: "invalid" }
+
+        expect(response.status).to eq(410)
+      end
+    end
+
     context "when the user is signed in" do
       before { sign_in(user) }
 
