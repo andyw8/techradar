@@ -1,6 +1,11 @@
 class RadarsController < ApplicationController
   DEFAULT_QUADRANT = "tools"
 
+  # Prevent Google from repeatedly trying to index old radars
+  rescue_from ActiveRecord::RecordNotFound do |_exception|
+    render status: :gone
+  end
+
   before_action :authenticate_user!, except: :show
 
   def index
