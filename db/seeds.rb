@@ -10,3 +10,14 @@ admin = User.create!(
 )
 admin.confirm
 puts "Admin Created: #{admin.email}"
+
+user = User.create!(
+  name:                  "Example User",
+  email:                 "user@example.com",
+  username:              "example",
+  password:              "password",
+  password_confirmation: "password",
+  admin: false
+)
+user.confirm
+puts "User Created: #{user.email}"
