@@ -25,10 +25,6 @@ class Radar < ApplicationRecord
     find_by(uuid: uuid, owner: owner)
   end
 
-  def new_blip(params)
-    blips.new(params)
-  end
-
   def find_blip(slug)
     blips.joins(:topic).find_by!("topics.slug": slug)
   end

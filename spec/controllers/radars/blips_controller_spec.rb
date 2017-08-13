@@ -44,45 +44,33 @@ describe Radars::BlipsController do
     end
 
     describe "POST 'create'" do
-      it "delegates to radar for new" do
-        allow(user).to receive(:find_radar) { radar }
-        topic = double(:topic)
-        attrs = attributes_for(:blip, topic_id: topic.to_param)
-        blip = double("blip", quadrant: "tools", save: true)
-        allow(radar).to receive(:new_blip) { blip }
+      it "created a new blip on the radar" do
+        radar = create(:radar, owner: user)
+        topic = build_stubbed(:topic)
+        attrs = attributes_for(:blip, topic_id: topic.to_param, quadrant: "tools")
 
-        post :create, params: { radar_id: radar.to_param, blip: attrs }
-
-        expect(radar).to have_received(:new_blip).with(
-          ActionController::Parameters.new(
-            topic_id: topic.to_param,
-            quadrant: "tools",
-            ring: "adopt"
-          ).permit(:topic_id, :quadrant, :ring)
-        )
+        expect do
+          post :create, params: { radar_id: radar.to_param, blip: attrs }
+        end.to change { radar.blips.count }.by(1)
       end
 
       it "redirects on success" do
-        allow(user).to receive(:find_radar) { radar }
-        attrs = attributes_for(:blip, topic_id: 1)
-        blip = double("blip", quadrant: "tools", save: true)
-        allow(radar).to receive(:new_blip) { blip }
+        radar = create(:radar, owner: user)
+        topic = build_stubbed(:topic)
+        attrs = attributes_for(:blip, topic_id: topic.to_param, quadrant: "tools")
 
         post :create, params: { radar_id: radar.to_param, blip: attrs }
 
-        expected_path = radar_quadrant_path(radar, quadrant: "tools")
-        expect(response).to redirect_to(expected_path)
+        expect(response).to redirect_to radar_quadrant_path(radar, quadrant: "tools")
       end
 
       it "re-renders on failure" do
-        allow(user).to receive(:find_radar) { radar }
-        attrs = attributes_for(:blip, topic_id: 1)
-        blip = double("blip", quadrant: "tools", save: false)
-        allow(radar).to receive(:new_blip) { blip }
+        radar = create(:radar, owner: user)
+        topic = build_stubbed(:topic)
+        attrs = attributes_for(:blip, topic_id: topic.to_param, quadrant: "invalid")
 
         post :create, params: { radar_id: radar.to_param, blip: attrs }
-
-        expect(response).to render_template("new")
+        expect(response).to render_template(:new)
       end
     end
 

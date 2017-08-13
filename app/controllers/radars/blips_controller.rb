@@ -3,12 +3,12 @@ module Radars
     before_action :authenticate_user!, except: :show
 
     def new
-      @blip = radar.new_blip(params[:blip])
+      @blip = radar.blips.new(params[:blip])
       render "new", locals: { quadrants: quadrants, rings: rings, blip: blip, topics: topics }
     end
 
     def create
-      @blip = radar.new_blip(blip_params)
+      @blip = radar.blips.new(blip_params)
       if @blip.save
         redirect_to radar_quadrant_path(radar, quadrant: blip.quadrant)
       else
