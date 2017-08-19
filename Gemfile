@@ -23,6 +23,7 @@ gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "rollbar"
 gem "sass-rails"
 gem "select2-rails"
+gem "sidekiq"
 gem "simple_form"
 gem "twitter", require: false
 gem "uglifier"

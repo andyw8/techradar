@@ -1,7 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "home#show"
   devise_for :users, controllers: { registrations: "registrations" }
+
+  mount Sidekiq::Web => '/sidekiq'
+
   get "/:username", constraints: UsernameConstraint, controller: "users", action: "show"
   resources :users, only: %i[index show]
 
