@@ -32,6 +32,12 @@ class User < ApplicationRecord
     end
   end
 
+  # Override Devise to use ActiveJob
+  # https://github.com/plataformatec/devise#activejob-integration
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   def find_radar(uuid:)
     radars.find_by!(uuid: uuid)
   end

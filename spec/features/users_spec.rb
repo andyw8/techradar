@@ -18,10 +18,14 @@ feature "Users" do
 end
 
 feature "Sign up and confirm", :admin do
+  include ActiveJob::TestHelper
+
   scenario "Happy path" do
     user = build(:user)
-    register_account(user)
-    confirm_account(user)
+    perform_enqueued_jobs do
+      register_account(user)
+      confirm_account(user)
+    end
     sign_in(user)
     verify_sample_radar_presence
   end
