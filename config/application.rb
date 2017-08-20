@@ -13,6 +13,8 @@ Bundler.require(*Rails.groups)
 
 module Techradar
   class Application < Rails::Application
+    config.active_job.queue_adapter = :sidekiq
+
     # don't generate RSpec tests for views and helpers
     config.generators do |generators|
       generators.test_framework :rspec, fixture: true
