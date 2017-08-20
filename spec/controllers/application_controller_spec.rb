@@ -4,10 +4,7 @@ describe ApplicationController do
   describe ".after_sign_in_path_for" do
     context "when the user has already created a topic" do
       it "redirecs to the radars index" do
-        user = stub_current_user
-        allow(controller).to receive(:current_user) { user }
-        progress = instance_double("Progress", already_has_topics?: true)
-        allow(Progress).to receive(:new).and_return(progress)
+        stub_progress(already_has_topics: true)
 
         result = controller.after_sign_in_path_for(double)
 
@@ -17,8 +14,7 @@ describe ApplicationController do
 
     context "when the user has not already created a topic" do
       it "redirects to the new bulk topic page" do
-        progress = instance_double("Progress", already_has_topics?: false)
-        allow(Progress).to receive(:new).and_return(progress)
+        stub_progress(already_has_topics: false)
 
         result = controller.after_sign_in_path_for(double)
 
@@ -30,6 +26,11 @@ describe ApplicationController do
       double(:user).tap do |user|
         allow(controller).to receive(:current_user) { user }
       end
+    end
+
+    def stub_progress(already_has_topics:)
+      progress = instance_double("Progress", already_has_topics?: already_has_topics)
+      allow(Progress).to receive(:new).and_return(progress)
     end
   end
 end
