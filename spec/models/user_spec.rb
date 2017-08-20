@@ -70,22 +70,4 @@ describe User do
       expect { described_class.admin }.to raise_error(User::MissingAdminAccount)
     end
   end
-
-  describe "#already_has_topics?" do
-    specify do
-      user = create(:user)
-      create(:topic, creator: user)
-
-      expect(user.already_has_topics?).to be(false)
-    end
-
-    specify do
-      user = create(:user)
-      2.times do
-        create(:topic, creator: user)
-      end
-
-      expect(user.already_has_topics?).to be(true)
-    end
-  end
 end

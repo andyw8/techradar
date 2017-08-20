@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     # new users will already have one sample topic
-    if current_user.already_has_topics?
+    progress = Progress.new(current_user)
+    if progress.already_has_topics?
       radars_path
     else
       new_bulk_topic_path

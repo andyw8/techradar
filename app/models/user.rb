@@ -54,10 +54,6 @@ class User < ApplicationRecord
     sign_in_count == 1
   end
 
-  def already_has_topics?
-    created_topics.count > 1
-  end
-
   after_create do |user|
     publish(:user_created, user)
   end
