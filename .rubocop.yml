@@ -26,6 +26,7 @@ Metrics/MethodLength:
     - app/helpers/application_helper.rb
 Metrics/BlockLength:
   Exclude:
+    - config/environments/*
     - config/initializers/simple_form_bootstrap.rb
     - spec/controllers/radars/blips_controller_spec.rb # TODO
   ExcludedMethods:
