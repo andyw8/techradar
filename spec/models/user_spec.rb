@@ -60,7 +60,7 @@ describe User do
     end
   end
 
-  describe "#admin" do
+  describe ".admin" do
     it "returns the admin account if present" do
       admin = create(:user, admin: true)
       expect(described_class.admin.id).to eq admin.id
@@ -68,6 +68,17 @@ describe User do
 
     it "raises User::MissingAdminAccount if not present" do
       expect { described_class.admin }.to raise_error(User::MissingAdminAccount)
+    end
+  end
+
+  describe "#destroy" do
+    it "destroys any associated radars" do
+      user = create(:user)
+      create(:radar, owner: user)
+
+      expect do
+        user.destroy
+      end.to change { Radar.count }.by(-1)
     end
   end
 end
