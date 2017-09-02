@@ -1,6 +1,4 @@
 class RadarsController < ApplicationController
-  DEFAULT_QUADRANT = "tools"
-
   # Prevent Google from repeatedly trying to index old radars
   rescue_from ActiveRecord::RecordNotFound do |_exception|
     render status: :gone
@@ -14,7 +12,7 @@ class RadarsController < ApplicationController
 
   def show
     radar = find_public_radar
-    redirect_to radar_quadrant_path(radar, quadrant: DEFAULT_QUADRANT)
+    redirect_to radar_quadrant_path(radar, quadrant: Quadrant.default)
   end
 
   def new
