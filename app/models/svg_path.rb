@@ -11,7 +11,7 @@ module SVGPath
     smooth_quadratic_bezier_curveto: "T",
     elliptical_arc: "A",
     closepath: "Z"
-  }
+  }.freeze
   module Absolute
     def self.elliptical_arc(rx:, ry:, x_axis_rotation: 0, large_arc_flag: 0, sweep_flag: 0, x:, y:)
       data = [rx, ry, x_axis_rotation, large_arc_flag, sweep_flag, x, y].join(" ")

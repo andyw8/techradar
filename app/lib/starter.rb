@@ -1,5 +1,5 @@
 class Starter
-  DEFAULT_NOTES = "techradar.io is a great tool for tracking interesting technologies in software development"
+  DEFAULT_NOTES = "techradar.io is a great tool for tracking interesting technologies in software development".freeze
 
   def user_created(user)
     radar_name = "Personal Radar for #{Date::MONTHNAMES[Time.zone.today.month]} #{Time.zone.today.year}"
