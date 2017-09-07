@@ -89,7 +89,8 @@ describe RadarsController do
   describe "GET 'show'" do
     it "redirects to the default quadrant" do
       radar = create(:radar, uuid: "abc123")
-      expected_path = radar_quadrant_path(radar, quadrant: "tools")
+      allow(Quadrant).to receive(:default).and_return("foo")
+      expected_path = radar_quadrant_path(radar, quadrant: "foo")
 
       get "show", params: { id: radar.uuid }
 

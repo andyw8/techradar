@@ -1,4 +1,8 @@
 class Quadrant
+  def self.default
+    "tools"
+  end
+
   def initialize(name, value, corner)
     @name = name
     @value = value
