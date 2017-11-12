@@ -4,7 +4,7 @@ class QuadrantList
     Quadrant.new("Tools", "tools", "ne"),
     Quadrant.new("Platforms", "platforms", "sw"),
     Quadrant.new("Languages And Frameworks", "languages_and_frameworks", "se")
-  ]
+  ].freeze
 
   def initialize(quadrants = DEFAULTS)
     @quadrants = quadrants

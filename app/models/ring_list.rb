@@ -6,7 +6,7 @@ class RingList
     Ring.new("Trial", "trial", 1),
     Ring.new("Assess", "assess", 2),
     Ring.new("Hold", "hold", 3)
-  ]
+  ].freeze
 
   def initialize(rings = DEFAULTS)
     @rings = rings
