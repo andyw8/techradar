@@ -4,6 +4,9 @@ development:
   encoding: unicode
   database: techradar_development
   pool:     5
+  username: postgres
+  password: password
+  template: template0 # seems needed for c9.io, not entirely sure why
 
 test:
   adapter:  postgresql
@@ -11,3 +14,6 @@ test:
   encoding: unicode
   database: techradar_test
   pool:     5
+  username: postgres
+  password: password
+  template: template0 # seems needed for c9.io, not entirely sure why
