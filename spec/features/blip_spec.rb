@@ -43,7 +43,7 @@ feature "Blips" do
     blip = create(:blip, topic: java, radar: radar, notes: "My Notes")
     visit radar_blip_path(radar, blip)
     click_button "Delete Blip"
-    expect(current_path).to eq radar_quadrant_path(radar, quadrant: "tools")
+    expect(page).to have_current_path(radar_quadrant_path(radar, quadrant: "tools"))
     expect(page).to have_no_content("Java")
   end
 
@@ -55,7 +55,7 @@ feature "Blips" do
     click_link "Edit Blip"
     select "Adopt", from: "Ring"
     click_button "Update Blip"
-    expect(current_path).to eq radar_quadrant_path(radar, quadrant: "tools")
+    expect(page).to have_current_path(radar_quadrant_path(radar, quadrant: "tools"))
     click_link "Tools"
     expect(page).to have_css(".adopt.tools", text: "Java")
   end
