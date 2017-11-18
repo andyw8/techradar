@@ -11,7 +11,7 @@ class Topic < ApplicationRecord
   validates :slug, presence: true, uniqueness: true
   validates :creator, presence: true
 
-  has_many :blips
+  has_many :blips, dependent: :destroy
   has_many :radars, through: :blips
 
   belongs_to :creator, class_name: "User"

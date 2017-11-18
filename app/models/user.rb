@@ -8,7 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :radars, foreign_key: "owner_id", dependent: :destroy
-  has_many :created_topics, foreign_key: "creator_id", class_name: "Topic"
+  has_many :created_topics, foreign_key: "creator_id", class_name: "Topic", dependent: :nullify
   has_many :blips, through: :radars
 
   attr_accessor :login
