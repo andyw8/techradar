@@ -6,9 +6,9 @@ describe Radars::BlipsController do
   let(:user) { create(:user) }
   let(:radar) { create(:radar, owner: user) }
 
-  context "guest" do
+  context "as a guest" do
     describe "GET 'show'" do
-      context "for a valid radar and blip" do
+      context "with a valid radar and blip" do
         specify do
           radar = create(:radar, owner: user)
           blip = create(:blip, radar: radar)
@@ -19,7 +19,7 @@ describe Radars::BlipsController do
         end
       end
 
-      context "for an invalid radar" do
+      context "with an invalid radar" do
         specify do
           expect do
             get :show, params: { radar_id: "99", id: "99" }
@@ -29,7 +29,7 @@ describe Radars::BlipsController do
     end
   end
 
-  context "signed in" do
+  context "when signed in" do
     before do
       sign_in(user)
       stub_current_user_with(user)
@@ -74,12 +74,12 @@ describe Radars::BlipsController do
       end
     end
 
-    context "DELETE /radars/:radar_id/blips/:id" do
+    describe "DELETE /radars/:radar_id/blips/:id" do
       let(:blip) { create(:blip) }
 
       before do
-        allow(radar).to receive(:find_blip) { blip }
-        allow(user).to receive(:find_radar) { radar }
+        allow(radar).to receive(:find_blip).and_return(blip)
+        allow(user).to receive(:find_radar).and_return(radar)
       end
 
       it "destroys the blip" do
@@ -95,13 +95,13 @@ describe Radars::BlipsController do
       end
     end
 
-    context "PUT /radars/:radar_id/blips/:id" do
+    describe "PUT /radars/:radar_id/blips/:id" do
       let(:blip) { mock_model(Blip) }
       let(:params) { { notes: "updated notes" } }
 
       before do
-        allow(radar).to receive(:find_blip) { blip }
-        allow(user).to receive(:find_radar) { radar }
+        allow(radar).to receive(:find_blip).and_return(blip)
+        allow(user).to receive(:find_radar).and_return(radar)
       end
 
       it "updates the blip" do
@@ -115,13 +115,13 @@ describe Radars::BlipsController do
       end
 
       it "redirects to the parent radar on success" do
-        allow(blip).to receive(:update) { true }
+        allow(blip).to receive(:update).and_return(true)
         put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
         expect(response).to redirect_to(radar)
       end
 
       it "re-renders the 'edit' template in failure" do
-        allow(blip).to receive(:update) { false }
+        allow(blip).to receive(:update).and_return(false)
         put "update", params: { radar_id: radar.id, id: blip.id, blip: { quadrant: "x" } }
         expect(response).to render_template("edit")
       end

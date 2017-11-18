@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Ability do
-  context "a user" do
+  context "as a user" do
     it "is able to create a radar" do
       user = build(:user)
       ability = described_class.new(user)

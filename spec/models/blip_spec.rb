@@ -13,7 +13,7 @@ describe Blip do
   it { is_expected.to validate_inclusion_of(:ring).in_array(RingList.new.values) }
   it { is_expected.to validate_presence_of(:radar) }
 
-  context "duplicate topics" do
+  context "with duplicate topics" do
     let(:user) { create(:user) }
     let(:radar) { create(:radar, owner: user) }
     let(:topic) { create(:topic) }

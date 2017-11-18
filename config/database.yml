@@ -1,0 +1,17 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: techradar_development
+  pool:     5
+  username: postgres
+  password:
+
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: techradar_test
+  pool:     5
+  username: postgres
+  password:

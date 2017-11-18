@@ -85,6 +85,9 @@ LongParameterList:
 NestedIterators:
   exclude:
   - RadarDiagram#draw
+NilCheck:
+  exclude:
+  - ApplicationController#authenticate_admin
 UncommunicativeParameterName:
   exclude:
   - RadarDiagram#draw_arc
