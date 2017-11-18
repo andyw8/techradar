@@ -10,7 +10,7 @@ class RadarDiagram
   end
 
   def draw
-    points.group_by(&:ring).each do |_ring, points_range|
+    points.group_by(&:ring).each_value do |points_range|
       delta = DEGREES_IN_QUADRANT / (points_range.size + 1)
       offset = delta
       points_range.each do |point|

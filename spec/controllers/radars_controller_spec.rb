@@ -24,7 +24,7 @@ describe RadarsController do
       end
     end
 
-    context "for a guest" do
+    context "as a guest" do
       it "render HTTP 410 (Gone) for a radar that does not exist" do
         get "show", params: { id: "invalid" }
 
