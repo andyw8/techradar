@@ -32,7 +32,7 @@ describe Radar do
 
   it "is assigns a UUID before validation" do
     radar = build(:radar)
-    allow(SecureRandom).to receive(:uuid) { "abc123" }
+    allow(SecureRandom).to receive(:uuid).and_return("abc123")
 
     radar.valid?
 

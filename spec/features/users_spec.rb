@@ -5,7 +5,7 @@ feature "Users" do
     user = create(:user)
     login_as(user)
     visit users_path
-    expect(current_path).to eq root_path
+    expect(page).to have_current_path(root_path)
     expect(page).to have_content("Access denied, admin only")
   end
 
@@ -13,7 +13,7 @@ feature "Users" do
     admin = create(:admin)
     login_as(admin)
     visit users_path
-    expect(current_path).to eq users_path
+    expect(page).to have_current_path(users_path)
   end
 end
 
@@ -53,7 +53,7 @@ feature "Sign up and confirm", :admin do
     fill_in "user_password", with: user.password
     click_button "Sign in"
     expect(page).to have_content("Signed in successfully")
-    expect(current_path).to eq new_bulk_topic_path
+    expect(page).to have_current_path(new_bulk_topic_path)
   end
 
   def verify_sample_radar_presence

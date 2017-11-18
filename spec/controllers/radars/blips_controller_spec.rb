@@ -78,8 +78,8 @@ describe Radars::BlipsController do
       let(:blip) { create(:blip) }
 
       before do
-        allow(radar).to receive(:find_blip) { blip }
-        allow(user).to receive(:find_radar) { radar }
+        allow(radar).to receive(:find_blip).and_return(blip)
+        allow(user).to receive(:find_radar).and_return(radar)
       end
 
       it "destroys the blip" do
@@ -100,8 +100,8 @@ describe Radars::BlipsController do
       let(:params) { { notes: "updated notes" } }
 
       before do
-        allow(radar).to receive(:find_blip) { blip }
-        allow(user).to receive(:find_radar) { radar }
+        allow(radar).to receive(:find_blip).and_return(blip)
+        allow(user).to receive(:find_radar).and_return(radar)
       end
 
       it "updates the blip" do
@@ -115,13 +115,13 @@ describe Radars::BlipsController do
       end
 
       it "redirects to the parent radar on success" do
-        allow(blip).to receive(:update) { true }
+        allow(blip).to receive(:update).and_return(true)
         put "update", params: { radar_id: radar.id, id: blip.id, blip: params }
         expect(response).to redirect_to(radar)
       end
 
       it "re-renders the 'edit' template in failure" do
-        allow(blip).to receive(:update) { false }
+        allow(blip).to receive(:update).and_return(false)
         put "update", params: { radar_id: radar.id, id: blip.id, blip: { quadrant: "x" } }
         expect(response).to render_template("edit")
       end
