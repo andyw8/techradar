@@ -16,6 +16,8 @@ class Topic < ApplicationRecord
 
   belongs_to :creator, class_name: "User"
 
+  scope :by_name, -> { order(:name) }
+
   def self.techradar
     find_or_create_by!(name: "techradar.io", creator: User.admin)
   end

@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
 
   def create
     topic = scoped_topics.new(topic_params)
+
     if topic.save
       flash[:notice] = "Topic #{topic.name} was added"
       redirect_to radars_path
