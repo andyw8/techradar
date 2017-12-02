@@ -48,7 +48,7 @@ group :development, :test do
   gem "capybara-email", require: false
   gem "coveralls", "0.8.21", require: false
   gem "dotenv-rails"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "haml_lint", require: false
   gem "launchy"
   gem "pry"
