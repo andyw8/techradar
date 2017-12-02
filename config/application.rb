@@ -16,7 +16,7 @@ module Techradar
     # don't generate RSpec tests for views and helpers
     config.generators do |generators|
       generators.test_framework :rspec, fixture: true
-      generators.fixture_replacement :factory_girl, dir: "spec/factories"
+      generators.fixture_replacement :factory_bot, dir: "spec/factories"
 
       generators.view_specs false
       generators.helper_specs false
