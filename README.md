@@ -12,6 +12,18 @@ This repo contains the Rails app behind [techradar.io](http://techradar.io),
 a web app for building and sharing your own
 [Technology Radar](https://www.thoughtworks.com/radar/faq).
 
+# Dependencies
+
+* Ruby
+* Postgres
+
+# Setup
+
+1. Run `bin/setup`
+2. Edit `.env` to configure the admin account.
+3. Run `bin/rails server` to start the app.
+4. Visit `http://localhost:3000`
+
 # API
 
 A preliminary JSON API is available (replace the UUID with your own):
