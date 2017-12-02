@@ -19,7 +19,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   include Warden::Test::Helpers
   Warden.test_mode!
 end

@@ -151,10 +151,10 @@ GEM
     equalizer (0.0.11)
     erubi (1.7.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
@@ -476,7 +476,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   draper
-  factory_girl_rails
+  factory_bot_rails
   font-awesome-sass
   foreman
   friendly_id
@@ -520,7 +520,6 @@ DEPENDENCIES
   unicorn
   wisper
   wisper-rspec
-
 
 RUBY VERSION
    ruby 2.4.0p0

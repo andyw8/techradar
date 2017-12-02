@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :blip do
     quadrant "tools"
     ring "adopt"
