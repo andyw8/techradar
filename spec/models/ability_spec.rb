@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Ability do
+  let(:another_user) { build(:user) }
+
   context "as a user" do
     it "is able to create a radar" do
       user = build(:user)
@@ -94,7 +96,5 @@ RSpec.describe Ability do
 
       expect(result).to be(false)
     end
-
-    let(:another_user) { build(:user) }
   end
 end

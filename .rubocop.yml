@@ -53,8 +53,6 @@ RSpec/ContextWording:
      - as
 RSpec/ExampleLength:
   Enabled: false # TODO
-RSpec/LetBeforeExamples:
-  Enabled: false
 Style/IfUnlessModifier:
   Enabled: false # Disable for more accurate Code Coverage mesaurement
 Style/Documentation:
