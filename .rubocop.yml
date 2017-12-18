@@ -41,6 +41,8 @@ Metrics/PerceivedComplexity:
 Rails/Delegate:
   Exclude:
     - app/models/blip.rb # TODO
+Rails/InverseOf:
+  Enabled: false # TODO
 Rails/Output:
   Exclude:
     - config/initializers/analytics_ruby.rb
