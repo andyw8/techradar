@@ -240,7 +240,7 @@ GEM
     naught (1.1.0)
     nested_form (0.3.2)
     nio4r (2.1.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     oj (3.3.9)
     orm_adapter (0.5.0)
@@ -258,13 +258,13 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.1)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-mini-profiler (0.10.7)
       rack (>= 1.2.0)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
-    rack-protection (2.0.0)
+    rack-protection (2.0.1)
       rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -488,12 +488,14 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  nokogiri (>= 1.8.2)
   oj
   pg
   pry
   pry-byebug
   pry-rails
   rack-mini-profiler
+  rack-protection (>= 2.0.1)
   rack-timeout
   rails
   rails-controller-testing
@@ -523,6 +525,5 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.4.0p0
-
 BUNDLED WITH
    1.16.0
