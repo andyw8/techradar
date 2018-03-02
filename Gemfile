@@ -79,3 +79,5 @@ group :production do
   gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
   gem "sendgrid"
 end
+gem "nokogiri", ">= 1.8.2"
+gem "rack-protection", ">= 2.0.1"
