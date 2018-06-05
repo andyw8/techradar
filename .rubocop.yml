@@ -45,16 +45,16 @@ Rails/Output:
   Exclude:
     - config/initializers/analytics_ruby.rb
     - config/unicorn.rb
-RSpec/ContextWording:
-   Prefixes:
-     - when
-     - with
-     - without
-     - as
-RSpec/ExampleLength:
-  Enabled: false # TODO
-RSpec/LetBeforeExamples:
-  Enabled: false
+# RSpec/ContextWording:
+#    Prefixes:
+#      - when
+#      - with
+#      - without
+#      - as
+# RSpec/ExampleLength:
+#   Enabled: false # TODO
+# RSpec/LetBeforeExamples:
+#   Enabled: false
 Style/IfUnlessModifier:
   Enabled: false # Disable for more accurate Code Coverage mesaurement
 Style/Documentation:
