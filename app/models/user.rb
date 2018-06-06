@@ -1,4 +1,4 @@
-  class User < ApplicationRecord
+class User < ApplicationRecord
   MissingAdminAccount = Class.new(RuntimeError)
 
   include Wisper::Publisher
