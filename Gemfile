@@ -17,7 +17,7 @@ gem "jbuilder"
 gem "jquery-rails"
 gem "oj" # recommended by Rollbar README
 gem "pg"
-gem "rails"
+gem "rails", "~> 5.1.6.1"
 gem "rails_admin"
 gem "rasem", "0.6.1" # https://github.com/aseldawy/rasem/issues/14
 gem "rollbar"
@@ -79,3 +79,9 @@ group :production do
   gem "rack-timeout" # https://devcenter.heroku.com/articles/rails-unicorn#rack-timeout
   gem "sendgrid"
 end
+gem "ffi", ">= 1.9.24"
+gem "loofah", ">= 2.2.1"
+gem "nokogiri", ">= 1.8.5"
+gem "rack-protection", ">= 2.0.1"
+gem "rails-html-sanitizer", ">= 1.0.4"
+gem "rubyzip", ">= 1.2.2"
